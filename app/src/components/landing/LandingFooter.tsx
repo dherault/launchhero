@@ -1,3 +1,4 @@
+import GitHubButton from 'react-github-btn'
 import { Link } from 'react-router'
 
 import { LEGAL_COMPANY_NAME } from '~constants'
@@ -21,6 +22,15 @@ function LandingFooter() {
         <div className="text-sm text-neutral-700">
           Made with ❤️ in Finland 🇫🇮
         </div>
+        <GitHubButton
+          href="https://github.com/dherault/submithero"
+          data-color-scheme="no-preference: light; light: light; dark: dark;"
+          data-size="large"
+          data-show-count="true"
+          aria-label="Star dherault/submithero on GitHub"
+        >
+          Star
+        </GitHubButton>
       </div>
       <div className="md:mt-1.5 flex flex-col md:flex-row gap-y-2 gap-x-12">
         <div className="mt-6 md:mt-0 flex flex-col gap-2 md:gap-4">

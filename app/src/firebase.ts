@@ -33,7 +33,7 @@ if (import.meta.env.DEV) {
 const app = initializeApp(firebaseConfig)
 
 initializeAppCheck(app, {
-  provider: new ReCaptchaV3Provider('6Ldo49YrAAAAAGWh5RrtfVK-PfayRpSvglRifFVY'),
+  provider: new ReCaptchaV3Provider('6LeQrc0rAAAAAKs8Qev4bIFSyqkgt2-OaP9_Q2B3'),
   isTokenAutoRefreshEnabled: true,
 })
 
