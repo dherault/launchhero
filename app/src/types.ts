@@ -39,6 +39,7 @@ export type Directory = {
   type: 'directory'
   name: string
   url: string
+  imageUrl: string | null
   tags: DirectoryTag[]
 }
 
