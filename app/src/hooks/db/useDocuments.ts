@@ -1,0 +1,59 @@
+import { type Query, getDocs } from 'firebase/firestore'
+import { useCallback, useEffect, useState } from 'react'
+
+function useDocuments<T>(query: Query, enabled = true) {
+  const [data, setData] = useState<T[]>([])
+  const [loading, setLoading] = useState(enabled)
+  const [error, setError] = useState<Error | null>(null)
+
+  const refetch = useCallback(async () => {
+    try {
+      const querySnapshot = await getDocs(query)
+      const data: T[] = []
+
+      querySnapshot.forEach(doc => {
+        data.push(doc.data() as T)
+      })
+
+      setData(data)
+    }
+    catch (error) {
+      console.error(error)
+      setError(error as Error)
+    }
+  }, [query])
+
+  const fetch = useCallback(async () => {
+    if (!enabled) {
+      setData([])
+      setLoading(false)
+      setError(null)
+
+      return
+    }
+
+    setLoading(true)
+
+    await refetch()
+
+    setLoading(false)
+  }, [
+    enabled,
+    refetch,
+  ])
+
+  useEffect(() => {
+    fetch()
+  }, [
+    fetch,
+  ])
+
+  return {
+    data,
+    loading,
+    error,
+    refetch,
+  }
+}
+
+export default useDocuments

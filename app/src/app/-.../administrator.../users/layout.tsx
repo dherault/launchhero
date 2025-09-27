@@ -1,0 +1,3 @@
+import AdministratorUsersProvider from '~components/administrator/_AdministratorUsersProvider'
+
+export default AdministratorUsersProvider

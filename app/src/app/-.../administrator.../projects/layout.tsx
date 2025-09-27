@@ -1,0 +1,3 @@
+import AdministratorProjectsProvider from '~components/administrator/_AdministratorProjectsProvider'
+
+export default AdministratorProjectsProvider
