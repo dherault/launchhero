@@ -11,7 +11,6 @@
 - Sidebar: directories and project links
 - Sidebar: project switch
 - Sidebar: user menu
-- Support: email + whatsapp + calendly
 - Legal
 - Landing: nav
 - Landing: footer: links + X + GitHub
@@ -44,3 +43,4 @@
 - Set up firebase
 - Deploy hosting
 - Create new logo
+- Support: email + whatsapp + calendly
