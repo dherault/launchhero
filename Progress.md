@@ -34,8 +34,13 @@
 # Done
 
 ## 2025-09-27
-
 - Start listing directories
 - Create logo
 - Create Todo list
 - Create google workspace account
+
+## 2025-09028
+- Add app boilerplate
+- Set up firebase
+- Deploy hosting
+- Create new logo
