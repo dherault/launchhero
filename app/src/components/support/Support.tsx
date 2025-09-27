@@ -1,8 +1,10 @@
 import { DateTime } from 'luxon'
 
-import { SUPPORT_EMAIL, SUPPORT_FULL_NAME } from '~constants'
+import { SUPPORT_EMAIL, SUPPORT_FULL_NAME, SUPPORT_METING_URL } from '~constants'
 
 import useLogAnalytics from '~hooks/analytics/useLogAnalytics'
+
+import { Button } from '~components/ui/Button'
 
 function Support() {
   useLogAnalytics('view_support')
@@ -15,28 +17,36 @@ function Support() {
       <div className="mt-4">
         For any inquiry, please contact:
       </div>
-      <div className="mt-0.5">
-        {' '}
+      <div className="mt-4 font-semibold text-lg">
         {SUPPORT_FULL_NAME}
-        {' '}
-        via email at
-        {' '}
-        <a
-          href={`mailto:${SUPPORT_EMAIL}`}
-          className="text-primary hover:underline"
-        >
-          {SUPPORT_EMAIL}
-        </a>
-        , or via WhatsApp:
       </div>
       <img
         src="/images/david-herault-whatsapp-picture.png"
-        className="mt-8 rounded-full w-32 h-32"
-        alt="David Herault WhatsApp"
+        className="mt-4 rounded-full w-32 h-32"
+        alt={SUPPORT_FULL_NAME}
       />
+      <a
+        href={`mailto:${SUPPORT_EMAIL}`}
+        className="mt-4 text-primary hover:underline"
+      >
+        {SUPPORT_EMAIL}
+      </a>
+      <a
+        href={SUPPORT_METING_URL}
+        target="_blank"
+        className="mt-4 text-primary hover:underline"
+        rel="noreferrer"
+      >
+        <Button>
+          Book a meeting
+        </Button>
+      </a>
+      <div className="mt-4">
+        Or via WhatsApp:
+      </div>
       <img
         src="/images/david-herault-whatsapp-qrcode.png"
-        className="mt-6 w-64 h-64"
+        className="mt-2 w-64 h-64"
         alt="David Herault WhatsApp QR Code"
       />
       <div className="mt-8">
