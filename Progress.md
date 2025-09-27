@@ -1,6 +1,5 @@
 # Todo
 
-- Directories data file
 - Landing table of directories
 - Authentication: email + google
 - Authentication: forgot password
@@ -44,3 +43,5 @@
 - Deploy hosting
 - Create new logo
 - Support: email + whatsapp + calendly
+- Directories data file
+- Create DirectoriesTable

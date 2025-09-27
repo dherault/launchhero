@@ -1,5 +1,5 @@
 /* ---
-  DATABASE RESOURCES
+  Database resources
 --- */
 
 type DatabaseResource<T = unknown> = T & {
@@ -29,3 +29,17 @@ export type Project = DatabaseResource<{
   administratorUserIds: string[]
   memberUserIds: string[]
 }>
+
+/* ---
+  Directory
+--- */
+
+export type Directory = {
+  id: string
+  type: 'directory'
+  name: string
+  url: string
+  tags: DirectoryTag[]
+}
+
+export type DirectoryTag = 'community'
