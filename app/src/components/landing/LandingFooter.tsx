@@ -22,15 +22,22 @@ function LandingFooter() {
         <div className="text-sm text-neutral-700">
           Made with ❤️ in Finland 🇫🇮
         </div>
-        <GitHubButton
-          href="https://github.com/dherault/submithero"
-          data-color-scheme="no-preference: light; light: light; dark: dark;"
-          data-size="large"
-          data-show-count="true"
-          aria-label="Star dherault/submithero on GitHub"
-        >
-          Star
-        </GitHubButton>
+        <div className="flex gap-2">
+          <div className="text-sm text-neutral-700">
+            Submit Hero is open source!
+          </div>
+          <div className="-mt-1 flex">
+            <GitHubButton
+              href="https://github.com/dherault/submithero"
+              data-color-scheme="no-preference: light; light: light; dark: dark;"
+              data-size="large"
+              data-show-count="true"
+              aria-label="Star dherault/submithero on GitHub"
+            >
+              Star
+            </GitHubButton>
+          </div>
+        </div>
       </div>
       <div className="md:mt-1.5 flex flex-col md:flex-row gap-y-2 gap-x-12">
         <div className="mt-6 md:mt-0 flex flex-col gap-2 md:gap-4">
