@@ -6,9 +6,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'startupjournal-core',
+      name: 'submithero-core',
       formats: ['es', 'cjs'],
-      fileName: format => `startupjournal-core.${format}.js`,
+      fileName: format => `submithero-core.${format}.js`,
     },
     rollupOptions: {
       external: [],
