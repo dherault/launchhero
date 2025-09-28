@@ -11,6 +11,7 @@ import {
   updateDoc,
   type UpdateData,
 } from 'firebase/firestore'
+import type { SignInProvider, User } from 'launchhero-core'
 import {
   type PropsWithChildren,
   useCallback,
@@ -19,7 +20,6 @@ import {
   useState,
 } from 'react'
 import { useNavigate } from 'react-router'
-import type { SignInProvider, User } from 'launchhero-core'
 
 import { NULL_DOCUMENT_ID } from '~constants'
 

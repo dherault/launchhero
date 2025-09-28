@@ -1,5 +1,5 @@
-import slugify from 'slugify'
 import type { Directory } from 'launchhero-core'
+import slugify from 'slugify'
 
 const directories = [
   {

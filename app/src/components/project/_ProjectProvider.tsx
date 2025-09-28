@@ -6,8 +6,6 @@ import ProjectContext from '~contexts/data/ProjectContext'
 import usePersistedState from '~hooks/common/usePersistedState'
 import useProjects from '~hooks/data/useProjects'
 
-import NotFound from '~components/common/NotFound'
-
 function ProjectProvider({ children }: PropsWithChildren) {
   const { projects } = useProjects()
   const projectId = useMatch('/-/projects/:projectId/*')?.params?.projectId
@@ -25,12 +23,6 @@ function ProjectProvider({ children }: PropsWithChildren) {
     previousProjectId,
     setPreviousProjectId,
   ])
-
-  if (!project) {
-    return (
-      <NotFound source="ProjectProvider" />
-    )
-  }
 
   return (
     <ProjectContext.Provider value={project}>

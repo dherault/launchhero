@@ -1,7 +1,7 @@
 import type { User as Viewer } from 'firebase/auth'
 import type { UpdateData } from 'firebase/firestore'
-import { createContext } from 'react'
 import type { User } from 'launchhero-core'
+import { createContext } from 'react'
 
 export type UserContextType = {
   viewer: Viewer | null

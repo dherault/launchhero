@@ -1,11 +1,11 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
 import { collection, getDocs, limit, query, where } from 'firebase/firestore'
+import type { SignInProvider, User } from 'launchhero-core'
 import { Eye, EyeClosed } from 'lucide-react'
 import { useCallback, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router'
-import type { SignInProvider, User } from 'launchhero-core'
 import * as z from 'zod'
 
 import {

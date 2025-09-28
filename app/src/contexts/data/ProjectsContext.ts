@@ -1,6 +1,6 @@
 import type { UpdateData } from 'firebase/firestore'
-import { createContext } from 'react'
 import type { Project } from 'launchhero-core'
+import { createContext } from 'react'
 
 export type ProjectsContextType = {
   projects: Project[]
