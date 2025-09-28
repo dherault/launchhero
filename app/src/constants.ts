@@ -50,7 +50,7 @@ export const SUPPORT_FULL_NAME = 'David Hérault'
 
 export const SUPPORT_EMAIL = 'david@launchhe.ro'
 
-export const SUPPORT_METING_URL = 'https://calendly.com/david-submithe/30min'
+export const SUPPORT_METING_URL = 'https://calendly.com/david-launchhe/30min'
 
 /* ---
   OTHER

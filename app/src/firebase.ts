@@ -17,13 +17,13 @@ import { getPerformance } from 'firebase/performance'
 --- */
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAPYBQP4nLIr9RI66ab9j5xzsxeKf6MUJ4',
-  authDomain: 'launchhero.firebaseapp.com',
-  projectId: 'launchhero',
-  storageBucket: 'launchhero.firebasestorage.app',
-  messagingSenderId: '453105887895',
-  appId: '1:453105887895:web:924cda16311856b08157d2',
-  measurementId: 'G-T7WJXLYC8X',
+  apiKey: 'AIzaSyBjXKkpOTVh5Qyb_OnIg6csNyf8SDGiD6Q',
+  authDomain: 'launch-hero.firebaseapp.com',
+  projectId: 'launch-hero',
+  storageBucket: 'launch-hero.firebasestorage.app',
+  messagingSenderId: '441826276681',
+  appId: '1:441826276681:web:472fb23b7fdd7024a2d698',
+  measurementId: 'G-94NQ4P60C6',
 }
 
 if (import.meta.env.DEV) {
@@ -34,7 +34,7 @@ if (import.meta.env.DEV) {
 const app = initializeApp(firebaseConfig)
 
 initializeAppCheck(app, {
-  provider: new ReCaptchaV3Provider('6LeQrc0rAAAAAKs8Qev4bIFSyqkgt2-OaP9_Q2B3'),
+  provider: new ReCaptchaV3Provider('6Lc109crAAAAAEknDmUJn0hJsahm9DoKVDgj80nI'),
   isTokenAutoRefreshEnabled: true,
 })
 
