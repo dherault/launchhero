@@ -1,12 +1,11 @@
 import { collection, doc, orderBy, query, setDoc, updateDoc, where, type UpdateData } from 'firebase/firestore'
 import type { Project } from 'launchhero-core'
-import { nanoid } from 'nanoid'
 import { type PropsWithChildren, useCallback, useMemo } from 'react'
 import slugify from 'slugify'
 
 import { NULL_DOCUMENT_ID } from '~constants'
 
-import { database, invokeIsProjectExisting } from '~firebase'
+import { database } from '~firebase'
 
 import ProjectsContext, { type ProjectsContextType } from '~contexts/data/ProjectsContext'
 
@@ -46,10 +45,7 @@ function ProjectsProvider({ children }: PropsWithChildren) {
         deletedAt: null,
       }
 
-      const { data: exists } = await invokeIsProjectExisting({ projectId: project.id })
-
-      if (exists) project.id += `-${nanoid()}`
-
+      // TODO create in backend and edit rules
       await setDoc(doc(database, 'projects', project.id), project)
 
       return project

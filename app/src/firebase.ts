@@ -9,7 +9,6 @@ import {
   setPersistence,
 } from 'firebase/auth'
 import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore'
-import { getFunctions, connectFunctionsEmulator, httpsCallable } from 'firebase/functions'
 import { getPerformance } from 'firebase/performance'
 
 /* ---
@@ -55,17 +54,6 @@ export const persistancePromise = setPersistence(authentication, browserLocalPer
 export const googleProvider = new GoogleAuthProvider()
 
 /* ---
-  Functions
---- */
-
-export const functions = getFunctions(app)
-
-export const invokeIsProjectExisting = httpsCallable<{ projectId: string }, boolean>(
-  functions,
-  'isProjectExisting',
-)
-
-/* ---
   Analytics
 --- */
 
@@ -94,5 +82,4 @@ if (import.meta.env.DEV) {
 
   connectAuthEmulator(authentication, 'http://localhost:9099', { disableWarnings: true })
   connectFirestoreEmulator(database, 'localhost', 8080)
-  connectFunctionsEmulator(functions, 'localhost', 5001)
 }
