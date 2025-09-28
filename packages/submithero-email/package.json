@@ -1,0 +1,51 @@
+{
+  "name": "submithero-email",
+  "version": "0.0.0",
+  "description": "Emails for startupjourn.al",
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "David Hérault <dherault@gmail.com> (https://github.com/dherault)",
+  "type": "module",
+  "main": "dist/submithero-email.cjs.js",
+  "module": "dist/submithero-email.es.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/submithero-email.es.js",
+      "require": "./dist/submithero-email.cjs.js"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "email dev --port 3033 --dir ./src/emails",
+    "build": "vite build && tsc --emitDeclarationOnly --declaration --declarationDir dist",
+    "prepublishOnly": "npm run build",
+    "deploy": "npm run deploy:patch",
+    "deploy:patch": "npm version patch && npm run deploy:commit && npm publish",
+    "deploy:minor": "npm version minor && npm run deploy:commit && npm publish",
+    "deploy:major": "npm version major && npm run deploy:commit && npm publish",
+    "deploy:commit": "git add . && git commit -m \"[email] Publish\"",
+    "lint": "tsc --noEmit && eslint src --ext .ts,.tsx",
+    "check": "npx knip"
+  },
+  "dependencies": {
+    "@react-email/components": "^0.5.5",
+    "@react-email/render": "^1.3.1",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "submithero-core": "^0.0.2"
+  },
+  "devDependencies": {
+    "@react-email/preview-server": "^4.2.12",
+    "@types/react": "^19.1.14",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.4",
+    "react-email": "^4.2.12",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.7"
+  }
+}
