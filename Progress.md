@@ -51,3 +51,4 @@
 - Create core and email packages
 - Create first function
 - Rename to Launch Hero: GitHub, Google Workspace, Firebase, Calendly
+- Create new logo, again
