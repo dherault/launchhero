@@ -1,8 +1,8 @@
 import { collection, doc, orderBy, query, setDoc, updateDoc, where, type UpdateData } from 'firebase/firestore'
+import type { Project } from 'launchhero-core'
 import { nanoid } from 'nanoid'
 import { type PropsWithChildren, useCallback, useMemo } from 'react'
 import slugify from 'slugify'
-import type { Project } from 'launchhero-core'
 
 import { NULL_DOCUMENT_ID } from '~constants'
 

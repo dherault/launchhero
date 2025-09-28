@@ -15,9 +15,7 @@ const isProjectExisting = onCall(CALL_OPTIONS, async request => {
 
   logger.info('🏹 isProjectExisting', { projectId, exists })
 
-  return {
-    data: exists,
-  }
+  return exists
 })
 
 export default isProjectExisting

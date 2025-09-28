@@ -8,7 +8,7 @@ function SidebarLayout({ children }: PropsWithChildren) {
     <div className="flex">
       <Sidebar />
       <main className="grow flex flex-col h-screen overflow-auto relative">
-        <div className="flex md:hidden absolute top-[26px] left-4 z-50">
+        <div className="flex md:hidden absolute top-6 left-4 z-50">
           <SidebarTrigger />
         </div>
         {children}

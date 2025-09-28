@@ -6,6 +6,7 @@ import { useCallback } from 'react'
 import { Link } from 'react-router'
 
 import useFinalProject from '~hooks/data/useFinalProject'
+import useMemberProjects from '~hooks/data/useMemberProjects'
 
 import ProjectsMenu from '~components/layout/ProjectsMenu'
 import UserMenu from '~components/layout/UserMenu'
@@ -24,6 +25,7 @@ import {
 } from '~components/ui/Sidebar'
 
 function Sidebar() {
+  const projects = useMemberProjects()
   const finalProject = useFinalProject()
   const { setOpenMobile } = useSidebar()
 
@@ -33,15 +35,17 @@ function Sidebar() {
     setOpenMobile,
   ])
 
+  const hasProject = !!(projects.length && finalProject)
+
   return (
     <SidebarComponent>
-      {!!finalProject && (
+      {hasProject && (
         <SidebarHeader>
           <ProjectsMenu onSelect={handleSelect} />
         </SidebarHeader>
       )}
       <SidebarContent>
-        {!!finalProject && (
+        {hasProject && (
           <SidebarGroup>
             <SidebarGroupLabel>
               Project
@@ -65,7 +69,7 @@ function Sidebar() {
             </SidebarGroupContent>
           </SidebarGroup>
         )}
-        {!finalProject && (
+        {!hasProject && (
           <SidebarGroup>
             <SidebarGroupLabel>
               Start

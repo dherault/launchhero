@@ -12,7 +12,7 @@ type Props = {
   analyticsKey: string
 }
 
-export function AppPageTitle({ title, displayTitle, icon, action, analyticsKey }: Props) {
+export function PageTitle({ title, displayTitle, icon, action, analyticsKey }: Props) {
   useTitle(title)
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export function AppPageTitle({ title, displayTitle, icon, action, analyticsKey }
   if (displayTitle === '') return null
 
   return (
-    <div className="ml-6 md:ml-0 pt-4 px-8 h-16 shrink-0 flex items-center gap-4">
+    <div className="ml-6 md:ml-0 pt-3 px-8 h-16 shrink-0 flex items-center gap-4">
       {icon}
       <h1 className="text-xl font-semibold flex items-center gap-2">
         {displayTitle ?? title}
@@ -38,9 +38,9 @@ export function AppPageTitle({ title, displayTitle, icon, action, analyticsKey }
   )
 }
 
-export function AppPageContent({ children }: PropsWithChildren) {
+export function PageContent({ children }: PropsWithChildren) {
   return (
-    <div className="py-4 md:pb-8 px-4 md:px-8 grow flex flex-col relative">
+    <div className="pt-3 pb-4 px-4 md:px-8 grow flex flex-col relative">
       {children}
     </div>
   )

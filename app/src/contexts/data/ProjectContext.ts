@@ -1,4 +1,4 @@
-import { createContext } from 'react'
 import type { Project } from 'launchhero-core'
+import { createContext } from 'react'
 
-export default createContext<Project | null>(null)
+export default createContext<Project>({} as Project)

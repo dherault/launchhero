@@ -33,6 +33,7 @@ function ProjectsMenu({ onSelect }: Props) {
 
   // const [isMembersDialogOpen, setIsMembersDialogOpen] = useState(false)
 
+  if (!projects.length) return null
   if (!finalProject) return null
 
   return (
@@ -41,12 +42,12 @@ function ProjectsMenu({ onSelect }: Props) {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton size="xl">
-              <Avatar className="rounded-md h-10 w-10">
+              <Avatar className="rounded-xs h-10 w-10">
                 <AvatarImage src={undefined} />
-                <AvatarFallback className="bg-primary text-white rounded-md">
+                <AvatarFallback className="bg-neutral-50 text-white border rounded-xs">
                   <Logo
-                    className="text-white"
-                    width={16}
+                    className="text-primary"
+                    width={24}
                   />
                 </AvatarFallback>
               </Avatar>
@@ -64,7 +65,7 @@ function ProjectsMenu({ onSelect }: Props) {
           >
             <DropdownMenuGroup>
               <DropdownMenuLabel className="text-xs text-neutral-500 font-medium">
-                Organizations
+                Projects
               </DropdownMenuLabel>
               {projects.map(project => (
                 <DropdownMenuItem
@@ -119,7 +120,7 @@ function ProjectsMenu({ onSelect }: Props) {
               </div>
               Team members
             </DropdownMenuItem> */}
-            <DropdownMenuSeparator />
+            {/* <DropdownMenuSeparator /> */}
             <DropdownMenuItem
               onSelect={() => {
                 navigate('/-/onboarding')

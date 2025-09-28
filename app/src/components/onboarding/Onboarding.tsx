@@ -62,46 +62,39 @@ function Onboarding() {
   ])
 
   return (
-    <>
-      <h1 className="text-2xl font-semibold text-center">
-        Welcome!
-      </h1>
-      <Form {...projectForm}>
-        <form
-          onSubmit={projectForm.handleSubmit(handleSubmit)}
-          className="mt-8 space-y-4"
+    <Form {...projectForm}>
+      <form
+        onSubmit={projectForm.handleSubmit(handleSubmit)}
+        className="space-y-4 max-w-xl"
+      >
+        <FormField
+          control={projectForm.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                Give a name to your project:
+              </FormLabel>
+              <FormControl>
+                <Input
+                  autoFocus
+                  placeholder="Airbnb"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button
+          type="submit"
+          loading={loading}
         >
-          <FormField
-            control={projectForm.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>
-                  Give a name to your project:
-                </FormLabel>
-                <FormControl>
-                  <Input
-                    autoFocus
-                    placeholder="Airbnb"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <div className="flex justify-end">
-            <Button
-              type="submit"
-              loading={loading}
-            >
-              Create project
-              <ArrowRight className="h-4 w-4" />
-            </Button>
-          </div>
-        </form>
-      </Form>
-    </>
+          Create project
+          <ArrowRight className="h-4 w-4" />
+        </Button>
+      </form>
+    </Form>
   )
 }
 
