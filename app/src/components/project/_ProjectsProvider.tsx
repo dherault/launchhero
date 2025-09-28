@@ -1,11 +1,12 @@
 import { collection, doc, orderBy, query, setDoc, updateDoc, where, type UpdateData } from 'firebase/firestore'
+import { nanoid } from 'nanoid'
 import { type PropsWithChildren, useCallback, useMemo } from 'react'
 import slugify from 'slugify'
 import type { Project } from 'submithero-core'
 
 import { NULL_DOCUMENT_ID } from '~constants'
 
-import { database } from '~firebase'
+import { database, invokeIsProjectExisting } from '~firebase'
 
 import ProjectsContext, { type ProjectsContextType } from '~contexts/data/ProjectsContext'
 
@@ -45,7 +46,10 @@ function ProjectsProvider({ children }: PropsWithChildren) {
         deletedAt: null,
       }
 
-      // TODO unique id generation
+      const { data: exists } = await invokeIsProjectExisting({ projectId: project.id })
+
+      if (exists) project.id += `-${nanoid()}`
+
       await setDoc(doc(database, 'projects', project.id), project)
 
       return project
