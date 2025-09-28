@@ -1,0 +1,40 @@
+{
+  "name": "submithero-core",
+  "version": "0.0.0",
+  "description": "Core types and constants for submithe.ro",
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "David Hérault <dherault@gmail.com> (https://github.com/dherault)",
+  "type": "module",
+  "main": "dist/submithero-core.cjs.js",
+  "module": "dist/submithero-core.es.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/submithero-core.es.js",
+      "require": "./dist/submithero-core.cjs.js"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "nodemon --watch src --ext ts --exec \"npm run build\"",
+    "build": "vite build && tsc --emitDeclarationOnly --declaration --declarationDir dist",
+    "prepublishOnly": "npm run build",
+    "deploy": "npm run deploy:patch",
+    "deploy:patch": "npm version patch && npm run deploy:commit && npm publish",
+    "deploy:minor": "npm version minor && npm run deploy:commit && npm publish",
+    "deploy:major": "npm version major && npm run deploy:commit && npm publish",
+    "deploy:commit": "git add . && git commit -m \"[core] Publish\"",
+    "lint": "tsc --noEmit && eslint src --ext .ts",
+    "check": "npx knip"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.7"
+  }
+}
