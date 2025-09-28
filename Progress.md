@@ -1,6 +1,5 @@
 # Todo
 
-- Rename to Launch Hero
 - Landing table of directories
 - Authentication: email + google
 - Authentication: forgot password
@@ -51,3 +50,4 @@
 - Create app layout
 - Create core and email packages
 - Create first function
+- Rename to Launch Hero: GitHub, Google Workspace, Firebase, Calendly
