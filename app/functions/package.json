@@ -1,5 +1,6 @@
 {
   "name": "functions",
+  "type": "module",
   "scripts": {
     "build": "tsc && tsc-alias",
     "dev": "nodemon --watch src --ext ts,tsx --exec 'npm run build'",
