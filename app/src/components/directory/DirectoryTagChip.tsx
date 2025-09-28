@@ -1,4 +1,4 @@
-import type { DirectoryTag } from 'submithero-core'
+import type { DirectoryTag } from 'launchhero-core'
 
 import { Badge } from '~components/ui/Badge'
 

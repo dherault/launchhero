@@ -24,15 +24,15 @@ function LandingFooter() {
         </div>
         <div className="flex gap-2">
           <div className="text-sm text-neutral-700">
-            Submit Hero is open source!
+            Launch Hero is open source!
           </div>
           <div className="-mt-1 flex">
             <GitHubButton
-              href="https://github.com/dherault/submithero"
+              href="https://github.com/dherault/launchhero"
               data-color-scheme="no-preference: light; light: light; dark: dark;"
               data-size="large"
               data-show-count="true"
-              aria-label="Star dherault/submithero on GitHub"
+              aria-label="Star dherault/launchhero on GitHub"
             >
               Star
             </GitHubButton>

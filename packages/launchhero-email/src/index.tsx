@@ -5,7 +5,7 @@ import Welcome from './emails/Welcome'
 
 const emails = {
   welcome: {
-    createSubject: () => 'Welcome to Submit Hero',
+    createSubject: () => 'Welcome to Launch Hero',
     Component: Welcome,
   },
 } as const

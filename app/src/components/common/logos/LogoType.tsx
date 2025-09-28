@@ -5,7 +5,7 @@ function LogoType() {
     <div className="flex items-center gap-2 select-none">
       <Logo />
       <div className="text-2xl font-bold text-primary leading-none">
-        Submit Hero
+        Launch Hero
       </div>
     </div>
   )

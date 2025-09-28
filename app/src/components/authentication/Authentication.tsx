@@ -5,7 +5,7 @@ import { Eye, EyeClosed } from 'lucide-react'
 import { useCallback, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router'
-import type { SignInProvider, User } from 'submithero-core'
+import type { SignInProvider, User } from 'launchhero-core'
 import * as z from 'zod'
 
 import {

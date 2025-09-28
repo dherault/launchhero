@@ -1,6 +1,6 @@
 {
-  "name": "Submit Hero",
-  "short_name": "Submit Hero",
+  "name": "Launch Hero",
+  "short_name": "Launch Hero",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

@@ -16,7 +16,7 @@ function AuthenticationLayout({ children }: PropsWithChildren) {
         className="flex flex-col items-center gap-2 text-4xl font-bold text-primary"
       >
         <Logo width={64} />
-        Submit Hero
+        Launch Hero
       </Link>
       <div className="mt-1 mx-auto px-0 w-full max-w-[384px]">
         {passwordResetSuccess && (

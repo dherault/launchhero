@@ -4,7 +4,7 @@ const identity = (x: any) => x
 
 // useState with localStorage persistence
 function usePersistedState<T>(key: string, defaultValue: T, parser = identity) {
-  const getLocalStorageKey = useCallback(() => import.meta.env.DEV ? `submithero:${key}` : key, [key])
+  const getLocalStorageKey = useCallback(() => import.meta.env.DEV ? `launchhero:${key}` : key, [key])
 
   const getLocalStorageValue = useCallback(() => {
     try {

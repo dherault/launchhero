@@ -1,4 +1,4 @@
 import { createContext } from 'react'
-import type { Project } from 'submithero-core'
+import type { Project } from 'launchhero-core'
 
 export default createContext<Project | null>(null)

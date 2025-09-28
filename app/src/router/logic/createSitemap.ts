@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { APP_URL } from 'submithero-core'
+import { APP_URL } from 'launchhero-core'
 
 import { appRoute, noSitemapPrefixes } from '~router/logic/data'
 import type { Route } from '~router/logic/types'

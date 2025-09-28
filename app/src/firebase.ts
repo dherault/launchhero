@@ -18,9 +18,9 @@ import { getPerformance } from 'firebase/performance'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAPYBQP4nLIr9RI66ab9j5xzsxeKf6MUJ4',
-  authDomain: 'submithero.firebaseapp.com',
-  projectId: 'submithero',
-  storageBucket: 'submithero.firebasestorage.app',
+  authDomain: 'launchhero.firebaseapp.com',
+  projectId: 'launchhero',
+  storageBucket: 'launchhero.firebasestorage.app',
   messagingSenderId: '453105887895',
   appId: '1:453105887895:web:924cda16311856b08157d2',
   measurementId: 'G-T7WJXLYC8X',

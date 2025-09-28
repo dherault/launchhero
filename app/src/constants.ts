@@ -4,7 +4,7 @@
 
 export const IS_PRODUCTION = import.meta.env.PROD
 
-export const DEFAULT_TITLE = 'Submit Hero'
+export const DEFAULT_TITLE = 'Launch Hero'
 
 /* ---
   AUTHENTICATION
@@ -48,7 +48,7 @@ export const LEGAL_UPDATED_DATE = '27 September 2025'
 
 export const SUPPORT_FULL_NAME = 'David Hérault'
 
-export const SUPPORT_EMAIL = 'david@submithe.ro'
+export const SUPPORT_EMAIL = 'david@launchhe.ro'
 
 export const SUPPORT_METING_URL = 'https://calendly.com/david-submithe/30min'
 

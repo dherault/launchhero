@@ -6,9 +6,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'submithero-core',
+      name: 'launchhero-core',
       formats: ['es', 'cjs'],
-      fileName: format => `submithero-core.${format}.js`,
+      fileName: format => `launchhero-core.${format}.js`,
     },
     rollupOptions: {
       external: [],

@@ -11,7 +11,7 @@ import {
   Tailwind,
   Text,
 } from '@react-email/components'
-import { APP_URL, type Project } from 'submithero-core'
+import { APP_URL, type Project } from 'launchhero-core'
 
 import Footer from '../components/Footer'
 import Header from '../components/Header'
@@ -35,7 +35,7 @@ function Welcome({ project }: Props) {
         <Body className="font-sans text-base">
           <Container>
             <Header>
-              Welcome to Submit Hero
+              Welcome to Launch Hero
             </Header>
             <Section className="mt-8">
               <Text className="my-0 text-base">

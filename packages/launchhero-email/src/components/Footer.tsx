@@ -4,7 +4,7 @@ import {
   Section,
   Text,
 } from '@react-email/components'
-import { APP_URL, SOCIAL_X_URL } from 'submithero-core'
+import { APP_URL, SOCIAL_X_URL } from 'launchhero-core'
 
 type Props = {
   ref: string
@@ -24,7 +24,7 @@ function Footer({ ref }: Props) {
             href={`${APP_URL}?ref=${ref}`}
             className="text-black underline"
           >
-            Submit Hero
+            Launch Hero
           </Link>
           .
         </Text>

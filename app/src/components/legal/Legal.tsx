@@ -1,4 +1,4 @@
-import { APP_URL } from 'submithero-core'
+import { APP_URL } from 'launchhero-core'
 
 import {
   LEGAL_COMPANY_NAME,

@@ -10,7 +10,7 @@ function Logo({ width = 32, className, ...props }: SVGAttributes<SVGSVGElement>)
       viewBox="0 0 512 512"
     >
       <title>
-        Submit Hero
+        Launch Hero
       </title>
       <path
         fill="currentColor"

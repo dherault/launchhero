@@ -1,10 +1,10 @@
-import type { Project, User } from 'submithero-core'
+import type { Project, User } from 'launchhero-core'
 
 const now = new Date().toISOString()
 
 export const previewUser: User = {
   id: 'dherault',
-  email: 'david@submithe.ro',
+  email: 'david@launchhe.ro',
   name: 'David Hérault',
   imageUrl: 'https://avatars.githubusercontent.com/u/4154003?v=4',
   hasSentVerificationEmail: false,

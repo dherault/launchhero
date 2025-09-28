@@ -1,6 +1,6 @@
 import { collection, orderBy, query } from 'firebase/firestore'
 import { type PropsWithChildren, useMemo } from 'react'
-import type { User } from 'submithero-core'
+import type { User } from 'launchhero-core'
 
 import { database } from '~firebase'
 

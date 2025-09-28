@@ -1,5 +1,5 @@
 import type { DocumentSnapshot } from 'firebase-admin/firestore'
-import type { Project } from 'submithero-core'
+import type { Project } from 'launchhero-core'
 
 import { database } from '~firebase'
 

@@ -13,7 +13,7 @@ function LegalLayout({ children }: PropsWithChildren) {
       <div className="mb-8 flex flex-col items-center">
         <Logo width={48} />
         <h1 className="mt-2 text-3xl md:text-4xl font-bold text-primary text-center text-balance">
-          Submit Hero
+          Launch Hero
         </h1>
       </div>
       <Button
