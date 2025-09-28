@@ -1,7 +1,6 @@
 import type { UpdateData } from 'firebase/firestore'
 import { createContext } from 'react'
-
-import type { Project } from '~types'
+import type { Project } from 'submithero-core'
 
 export type ProjectsContextType = {
   projects: Project[]

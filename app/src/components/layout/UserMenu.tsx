@@ -64,9 +64,9 @@ function UserMenu() {
           </SidebarMenuButton>
         </DropdownMenuTrigger>
         <DropdownMenuContent
+          align="end"
           side="right"
           sideOffset={isMobile ? -64 : 16}
-          align="end"
         >
           {user?.isAdministrator && (
             <>

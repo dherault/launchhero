@@ -1,6 +1,5 @@
 import slugify from 'slugify'
-
-import type { Directory } from '~types'
+import type { Directory } from 'submithero-core'
 
 const directories = [
   {

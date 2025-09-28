@@ -19,8 +19,7 @@ import {
   useState,
 } from 'react'
 import { useNavigate } from 'react-router'
-
-import type { SignInProvider, User } from '~types'
+import type { SignInProvider, User } from 'submithero-core'
 
 import { NULL_DOCUMENT_ID } from '~constants'
 

@@ -6,10 +6,6 @@ export const IS_PRODUCTION = import.meta.env.PROD
 
 export const DEFAULT_TITLE = 'Submit Hero'
 
-export const APP_URL = IS_PRODUCTION
-  ? 'https://submithe.ro'
-  : 'http://localhost:5173'
-
 /* ---
   AUTHENTICATION
 --- */

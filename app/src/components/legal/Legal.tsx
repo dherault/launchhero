@@ -1,4 +1,5 @@
-import { APP_URL } from '~constants'
+import { APP_URL } from 'submithero-core'
+
 import {
   LEGAL_COMPANY_NAME,
   LEGAL_EFFECTIVE_DATE,
