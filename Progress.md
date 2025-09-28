@@ -1,5 +1,6 @@
 # Todo
 
+- Rename to Launch Hero
 - Landing table of directories
 - Authentication: email + google
 - Authentication: forgot password
