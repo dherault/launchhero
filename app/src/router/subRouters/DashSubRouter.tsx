@@ -3,8 +3,9 @@ import { Suspense, lazy } from 'react'
 import { Outlet, Route, Routes } from 'react-router'
 
 import DashLayout from '~app/-.../layout'
+import Onboarding from '~app/-.../onboarding/page'
 import Dash from '~app/-.../page'
-import ProjectId from '~app/-.../project/[projectId]/page'
+import ProjectId from '~app/-.../projects/[projectId]/page'
 
 import Loading from '~components/common/Loading'
 import NotFound from '~components/common/NotFound'
@@ -35,7 +36,7 @@ function DashSubRouter() {
           )}
         />
         <Route
-          path="project"
+          path="projects"
           element={<Outlet />}
         >
           <Route
@@ -55,6 +56,19 @@ function DashSubRouter() {
               element={<NotFound />}
             />
           </Route>
+          <Route
+            path="*"
+            element={<NotFound />}
+          />
+        </Route>
+        <Route
+          path="onboarding"
+          element={<Outlet />}
+        >
+          <Route
+            index
+            element={<Onboarding />}
+          />
           <Route
             path="*"
             element={<NotFound />}

@@ -2,7 +2,7 @@ import { Navigate } from 'react-router'
 
 import useProjects from '~hooks/data/useProjects'
 
-function RootRedirect() {
+function ProjectRedirect() {
   const { projects } = useProjects()
 
   if (!projects.length) {
@@ -17,9 +17,9 @@ function RootRedirect() {
   return (
     <Navigate
       replace
-      to={`/-/project/${projects.at(-1)!.id}`}
+      to={`/-/projects/${projects.at(-1)!.id}`}
     />
   )
 }
 
-export default RootRedirect
+export default ProjectRedirect
