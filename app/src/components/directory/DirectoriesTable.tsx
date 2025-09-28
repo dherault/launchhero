@@ -15,7 +15,7 @@ import directories from '~data/directories'
 
 function DirectoriesTable() {
   return (
-    <div className="border">
+    <div className="border rounded-xs">
       <Table>
         <TableHeader>
           <TableRow>
@@ -39,7 +39,7 @@ function DirectoriesTable() {
                     <img
                       src={directory.imageUrl}
                       alt={directory.name}
-                      className="h-8 w-8 rounded object-contain border"
+                      className="h-8 w-8 rounded-xs object-contain border"
                     />
                   )}
                   {!directory.imageUrl && (
