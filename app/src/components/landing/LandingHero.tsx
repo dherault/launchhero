@@ -16,7 +16,7 @@ function LandingHero() {
         {' '}
         {directories.length}
         {' '}
-        directories, and can even submit for you.
+        directories, and can even submit manually for you.
       </div>
       <div className="mt-4 w-full">
         <DirectoriesTable />
