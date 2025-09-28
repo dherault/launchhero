@@ -31,13 +31,13 @@
 
 # Done
 
-## 2025-09-27
+## 2025-09-26
 - Start listing directories
 - Create logo
 - Create Todo list
 - Create google workspace account
 
-## 2025-09028
+## 2025-09-27
 - Add app boilerplate
 - Set up firebase
 - Deploy hosting
@@ -45,3 +45,8 @@
 - Support: email + whatsapp + calendly
 - Directories data file
 - Create DirectoriesTable
+
+## 2025-09-28
+- Create app layout
+- Create core and email packages
+- Create first function
