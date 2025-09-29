@@ -1,7 +1,6 @@
-import { collection, doc, orderBy, query, setDoc, updateDoc, where, type UpdateData } from 'firebase/firestore'
+import { collection, doc, orderBy, query, updateDoc, where, type UpdateData } from 'firebase/firestore'
 import type { Project } from 'launchhero-core'
 import { type PropsWithChildren, useCallback, useMemo } from 'react'
-import slugify from 'slugify'
 
 import { NULL_DOCUMENT_ID } from '~constants'
 
@@ -33,22 +32,9 @@ function ProjectsProvider({ children }: PropsWithChildren) {
     if (!user?.id) return
 
     try {
-      const now = new Date().toISOString()
-      const project: Project = {
-        id: slugify(name).toLowerCase(),
-        name,
-        administratorUserIds: [user.id],
-        memberUserIds: [user.id],
-        userId: user.id,
-        createdAt: now,
-        updatedAt: now,
-        deletedAt: null,
-      }
+      console.log('name', name)
 
-      // TODO create in backend and edit rules
-      await setDoc(doc(database, 'projects', project.id), project)
-
-      return project
+      return undefined
     }
     catch (error: any) {
       console.error('Error creating Project:', error)

@@ -27,12 +27,6 @@ export const AUTHENTICATION_ERRORS = {
 }
 
 /* ---
-  PROJECT
---- */
-
-export const MAX_PROJECT_NAME_LENGTH = 128
-
-/* ---
   LEGAL
 --- */
 

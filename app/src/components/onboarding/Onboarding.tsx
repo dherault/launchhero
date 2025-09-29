@@ -1,11 +1,10 @@
 import { zodResolver } from '@hookform/resolvers/zod'
+import { MAX_PROJECT_NAME_LENGTH } from 'launchhero-core'
 import { ArrowRight } from 'lucide-react'
 import { useCallback, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router'
 import * as z from 'zod'
-
-import { MAX_PROJECT_NAME_LENGTH } from '~constants'
 
 import useProjects from '~hooks/data/useProjects'
 
