@@ -2,8 +2,8 @@ import {
   Heading,
   Img,
 } from '@react-email/components'
-import type { PropsWithChildren } from 'react'
 import { APP_URL } from 'launchhero-core'
+import type { PropsWithChildren } from 'react'
 
 function Header({ children }: PropsWithChildren) {
   return (
