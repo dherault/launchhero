@@ -128,6 +128,13 @@ const directories = [
     imageUrl: '/images/directories/saashub.png',
     tags: [],
   },
+  {
+    type: 'directory',
+    name: 'Sidebar.io',
+    url: 'https://sidebar.io',
+    imageUrl: '/images/directories/sidebario.png',
+    tags: [],
+  },
 ].map(directory => ({
   id: slugify(directory.url.split('://')[1]),
   ...directory,
