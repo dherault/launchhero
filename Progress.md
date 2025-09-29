@@ -52,3 +52,7 @@
 - Create first function
 - Rename to Launch Hero: GitHub, Google Workspace, Firebase, Calendly
 - Create new logo, again
+- Remove firebase functions
+
+## 2025-09-29
+- Create backend

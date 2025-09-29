@@ -149,6 +149,11 @@ export default defineConfig([
               position: 'after',
             },
             {
+              pattern: '~middleware/*',
+              group: 'internal',
+              position: 'after',
+            },
+            {
               pattern: '~database/*',
               group: 'internal',
               position: 'after',
