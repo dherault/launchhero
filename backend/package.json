@@ -1,0 +1,49 @@
+{
+  "private": true,
+  "name": "launch-hero-backend",
+  "description": "Backend for Launch Hero",
+  "version": "4.3.0",
+  "type": "module",
+  "scripts": {
+    "start": "NODE_ENV=production bun src/index.ts",
+    "start:dev": "NODE_ENV=development PORT=3003 GOOGLE_APPLICATION_CREDENTIALS=google-application-credentials.json bun src/index.ts",
+    "start:watch": "nodemon --watch src --ext ts,json --exec \"npm run start:dev\"",
+    "dev": "bun run start:watch & bun run stripe",
+    "stripe": "stripe listen --forward-to http://127.0.0.1:3003/stripe/webhook",
+    "deploy": "bun run deploy:patch",
+    "deploy:patch": "bun run dockerfile && bun pm version patch && bun run deploy:commit && bun run deploy:gcloud",
+    "deploy:minor": "bun run dockerfile && bun pm version minor && bun run deploy:commit && bun run deploy:gcloud",
+    "deploy:major": "bun run dockerfile && bun pm version major && bun run deploy:commit && bun run deploy:gcloud",
+    "deploy:commit": "git add . && git commit -m \"[backend] Deploy\"",
+    "deploy:gcloud": "gcloud run deploy launch-hero-backend --source . --project launch-hero --allow-unauthenticated --platform managed --image us-central1-docker.pkg.dev/launch-hero/launch-hero-backend/launch-hero-backend:latest",
+    "dockerfile": "bun run dockerfile:build && bun run dockerfile:tag && bun run dockerfile:push",
+    "dockerfile:build": "docker build -t launch-hero-backend:latest .",
+    "dockerfile:tag": "docker tag launch-hero-backend us-central1-docker.pkg.dev/launch-hero/launch-hero-backend/launch-hero-backend",
+    "dockerfile:push": "docker push us-central1-docker.pkg.dev/launch-hero/launch-hero-backend/launch-hero-backend",
+    "lint": "tsc -b && eslint src --ext ts --report-unused-disable-directives --max-warnings 0",
+    "check": "npx knip"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "@google-cloud/secret-manager": "^6.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "firebase-admin": "^13.5.0",
+    "launchhero-core": "^0.6.0",
+    "launchhero-email": "^0.0.2",
+    "nanoid": "^5.1.6",
+    "resend": "^6.1.1",
+    "slugify": "^1.6.6",
+    "stripe": "^18.5.0",
+    "zod": "^4.1.11"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "nodemon": "^3.1.10",
+    "typescript": "^5.9.2"
+  }
+}

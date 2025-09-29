@@ -1,0 +1,28 @@
+# Node modules should not be copied — install inside the container instead
+node_modules
+
+# Logs and debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# MacOS system files
+.DS_Store
+
+# Git files (usually unnecessary inside container)
+.git
+.gitignore
+
+# Dockerfile and docker-compose files if you don’t need them in container
+Dockerfile
+docker-compose.yml
+
+# Build output folders (if you build outside Docker)
+dist
+build
+
+# IDE and editor folders/files
+.vscode
+.idea
+
+google-application-credentials.json
