@@ -12,11 +12,11 @@ function LandingHero() {
         Launch your product and find your first users
       </h1>
       <div className="mt-2 md:text-lg text-neutral-500 text-center text-balance">
-        Launch Hero lets you track your startup submissions across
+        Launch Hero lets you track your product submissions across
         {' '}
         {directories.length}
         {' '}
-        directories, and can even submit manually for you.
+        directories, and can even submit it for you.
       </div>
       <div className="mt-4 w-full">
         <DirectoriesTable />

@@ -12,7 +12,7 @@ export const IS_PRODUCTION = process.env.NODE_ENV === 'production'
 
 export const NO_AUTHENTICATION_ROUTES = [
   '/',
-  '/emails/cron-job',
+  '/emails/hourly-cron-job',
   '/stripe/webhook',
 ]
 

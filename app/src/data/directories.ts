@@ -107,6 +107,27 @@ const directories = [
     imageUrl: '/images/directories/sideprojectors.png',
     tags: [],
   },
+  {
+    type: 'directory',
+    name: 'Launching Next',
+    url: 'https://www.launchingnext.com',
+    imageUrl: null,
+    tags: [],
+  },
+  {
+    type: 'directory',
+    name: '10 Words',
+    url: 'https://10words.io',
+    imageUrl: null,
+    tags: [],
+  },
+  {
+    type: 'directory',
+    name: 'SaaS Hub',
+    url: 'https://saashub.com',
+    imageUrl: '/images/directories/saashub.png',
+    tags: [],
+  },
 ].map(directory => ({
   id: slugify(directory.url.split('://')[1]),
   ...directory,

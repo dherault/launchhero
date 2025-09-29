@@ -9,9 +9,6 @@ function Logo({ width = 32, className, ...props }: SVGAttributes<SVGSVGElement>)
       {...props}
       viewBox="0 0 512 512"
     >
-      <title>
-        Launch Hero
-      </title>
       <path
         fill="currentColor"
         fillRule="evenodd"
