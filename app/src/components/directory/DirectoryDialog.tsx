@@ -25,7 +25,7 @@ function DirectoryDialog({ directoryId, setDirectoryId }: Props) {
             {directory.name}
           </DialogTitle>
           <DialogDescription>
-            A directory
+            {directory.description}
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>

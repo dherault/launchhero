@@ -13,7 +13,7 @@ export type ProjectsContextType = {
 export default createContext<ProjectsContextType>({
   projects: [],
   loading: false,
-  createProject: async () => ({} as Project),
+  createProject: async () => undefined,
   updateProject: async () => {},
   deleteProject: async () => {},
 })

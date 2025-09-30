@@ -2,7 +2,10 @@ import DirectoriesTable from '~components/directory/DirectoriesTable'
 
 function Directories() {
   return (
-    <DirectoriesTable hasAction />
+    <DirectoriesTable
+      hasSubmissionStatus
+      hasAction
+    />
   )
 }
 

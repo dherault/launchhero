@@ -8,16 +8,19 @@ import useSearchParameter from '~hooks/common/useSearchParameter'
 import extractInitials from '~utils/string/extractInitials'
 
 import DirectoryDialog from '~components/directory/DirectoryDialog'
+import DirectorySubmissionStatusChip from '~components/directory/DirectorySubmissionStatusChip'
 import DirectoryTagChip from '~components/directory/DirectoryTagChip'
 import { Button } from '~components/ui/Button'
 
 type Props = {
+  hasSubmissionStatus?: boolean
   hasAction?: boolean
   hasWebsite?: boolean
   maxHeight?: CSSProperties['maxHeight']
 }
 
 function DirectoriesTable({
+  hasSubmissionStatus = false,
   hasAction = false,
   hasWebsite = false,
   maxHeight = 'auto',
@@ -26,12 +29,17 @@ function DirectoriesTable({
 
   return (
     <>
-      <div className="font-medium text-sm border rounded-xs">
-        <div className="py-2 px-3 flex items-center gap-3 border-b h-[49px]">
-          <div className="w-10" />
+      <div className="border rounded-xs">
+        <div className="py-2 px-3 flex items-center gap-3 border-b h-[49px] font-medium text-sm">
+          <div className="w-8" />
           <div className="grow">
             Directory
           </div>
+          {hasSubmissionStatus && (
+            <div className="w-32">
+              Status
+            </div>
+          )}
           {hasWebsite && (
             <div>
               Website
@@ -66,7 +74,9 @@ function DirectoriesTable({
                 )}
               </div>
               <div className="grow flex items-center flex-wrap gap-2">
-                {directory.name}
+                <div className="font-medium text-sm">
+                  {directory.name}
+                </div>
                 {directory.tags.map(tag => (
                   <DirectoryTagChip
                     key={tag}
@@ -74,6 +84,11 @@ function DirectoriesTable({
                   />
                 ))}
               </div>
+              {hasSubmissionStatus && (
+                <div className="w-32">
+                  <DirectorySubmissionStatusChip directoryId={directory.id} />
+                </div>
+              )}
               {hasWebsite && (
                 <div className="flex justify-end">
                   <a

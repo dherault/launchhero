@@ -6,6 +6,7 @@ import AuthenticationWait from '~components/authentication/AuthenticationWait'
 import SidebarLayout from '~components/layout/SidebarLayout'
 import ProjectProvider from '~components/project/_ProjectProvider'
 import ProjectsWait from '~components/project/ProjectsWait'
+import SubmissionsProvider from '~components/submission/_SubmissionsProvider'
 
 export default composeLayout(
   AuthenticationProvider,
@@ -13,5 +14,6 @@ export default composeLayout(
   AuthenticationBouncer,
   ProjectsWait,
   ProjectProvider,
+  SubmissionsProvider,
   SidebarLayout,
 )

@@ -39,8 +39,6 @@ function ProjectsProvider({ children }: PropsWithChildren) {
     try {
       const project = await invokeCreateProject({ body: { name } })
 
-      console.log('project', project)
-
       return project
     }
     catch (error: any) {
@@ -49,7 +47,7 @@ function ProjectsProvider({ children }: PropsWithChildren) {
       toast({
         variant: 'destructive',
         title: 'Failed to create project',
-        description: error.message ?? 'An unknown error occurred.',
+        description: 'Contact support if the error persists',
       })
     }
   }, [
@@ -80,7 +78,7 @@ function ProjectsProvider({ children }: PropsWithChildren) {
       toast({
         variant: 'destructive',
         title: 'Failed to update project',
-        description: error.message ?? 'An unknown error occurred.',
+        description: 'Contact support if the error persists',
       })
     }
   }, [
@@ -112,7 +110,7 @@ function ProjectsProvider({ children }: PropsWithChildren) {
       toast({
         variant: 'destructive',
         title: 'Failed to delete project',
-        description: error.message ?? 'An unknown error occurred.',
+        description: 'Contact support if the error persists',
       })
     }
   }, [

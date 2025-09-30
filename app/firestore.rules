@@ -7,8 +7,12 @@ service cloud.firestore {
       return request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdministrator;
     }
 
-    function isProjectAdministrator() {
-      return request.auth != null && request.auth.uid in resource.data.administratorUserIds;
+    function isProjectMember() {
+      return request.auth != null && request.auth.uid in resource.data.memberUserIds;
+    }
+
+    function isProjectMemberById(projectId) {
+      return request.auth != null && request.auth.uid in get(/databases/$(database)/documents/projects/$(projectId)).data.memberUserIds
     }
 
     function isNotAffectingForbiddenKeys() {
@@ -29,9 +33,15 @@ service cloud.firestore {
     }
 
     match /projects/{projectId} {
-      allow read: if isAdministrator() || (request.auth != null && request.auth.uid in resource.data.memberUserIds);
-      allow create: if request.auth != null && request.auth.uid in request.resource.data.memberUserIds;
-      allow update: if isProjectAdministrator() && isNotAffectingForbiddenKeys();
+      allow read: if isAdministrator() || isProjectMember() || resource.data.isPublic == true;
+      allow create: if request.auth != null && request.auth.uid in request.resource.data.administratorUserIds && request.auth.uid in request.resource.data.memberUserIds;
+      allow update: if isProjectMember() && isNotAffectingForbiddenKeys();
+
+      match /submissions/{submissionId} {
+        allow read: if true;
+        allow create: if isProjectMemberById(projectId);
+        allow update: if isProjectMemberById(projectId) && isNotAffectingForbiddenKeys();
+      }
     }
 
   }
