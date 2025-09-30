@@ -27,6 +27,7 @@ export type SignInProvider = 'password' | 'google.com'
 export type Project = DatabaseResource<{
   name: string
   imageUrl: string | null
+  isPublic: boolean
   administratorUserIds: string[]
   memberUserIds: string[]
   stripeId: string | null
@@ -39,6 +40,11 @@ export type ProjectInvitation = DatabaseResource<{
   projectName: string
   projectImageUrl: string | null
   inviterName: string
+}>
+
+export type Submission = DatabaseResource<{
+  directoryId: string
+  url: string | null
 }>
 
 /* ---
