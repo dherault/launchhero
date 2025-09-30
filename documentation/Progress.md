@@ -56,3 +56,8 @@
 
 ## 2025-09-29
 - Create backend
+- Add more directories to the list
+
+## 2025-09-30
+- Deploy backend
+- Create project directories page
