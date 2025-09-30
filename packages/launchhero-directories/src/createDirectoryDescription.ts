@@ -3,12 +3,14 @@ import 'dotenv/config'
 
 import type { DirectoryInput } from './directories-input'
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-})
+const openai = process.env.NODE_ENV === 'development'
+  ? new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+  })
+  : null
 
 async function createDirectoryDescription(directoryInput: DirectoryInput): Promise<string> {
-  const completion = await openai.chat.completions.create({
+  const completion = await openai?.chat.completions.create({
     model: 'gpt-5-nano',
     messages: [
       {
@@ -18,7 +20,7 @@ async function createDirectoryDescription(directoryInput: DirectoryInput): Promi
     ],
   })
 
-  return completion.choices[0].message.content || ''
+  return completion?.choices[0].message.content ?? ''
 }
 
 export default createDirectoryDescription
