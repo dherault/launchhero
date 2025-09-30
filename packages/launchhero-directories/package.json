@@ -23,7 +23,7 @@
     "dev": "nodemon --watch src --ext ts --exec \"npm run build\"",
     "build": "npm run build:clean && npm run build:directories",
     "build:clean": "rimraf dist",
-    "build:directories": "bun src/build.ts",
+    "build:directories": "tsx src/build.ts",
     "prepublishOnly": "npm run build",
     "deploy": "npm run deploy:patch",
     "deploy:patch": "npm version patch && npm run deploy:commit && npm publish",
@@ -38,7 +38,8 @@
     "nodemon": "^3.1.10",
     "openai": "^6.0.0",
     "rimraf": "^6.0.1",
-    "slugify": "^1.6.6"
+    "slugify": "^1.6.6",
+    "tsx": "^4.19.2"
   },
   "dependencies": {
     "launchhero-core": "^0.8.0"
