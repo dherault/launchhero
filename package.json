@@ -15,7 +15,7 @@
     "install:core": "cd packages/launchhero-core && npm install",
     "install:directories": "cd packages/launchhero-directories && npm install",
     "install:email": "cd packages/launchhero-email && npm install",
-    "build": "npm run build:app && npm run build:core && npm run build:directories && npm run build:email",
+    "build": "npm run build:core && npm run build:directories && npm run build:email && npm run build:app",
     "build:app": "cd app && npm run build",
     "build:core": "cd packages/launchhero-core && npm run build",
     "build:directories": "cd packages/launchhero-directories && npm run build",
