@@ -136,8 +136,12 @@ const directories = [
     tags: [],
   },
 ].map(directory => ({
-  id: slugify(directory.url.split('://')[1]),
+  id: createId(directory.url),
   ...directory,
 })) as Directory[]
+
+function createId(url: string) {
+  return slugify(url.split('://')[1])
+}
 
 export default directories

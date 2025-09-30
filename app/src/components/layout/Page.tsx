@@ -38,6 +38,14 @@ export function PageTitle({ title, displayTitle, icon, action, analyticsKey }: P
   )
 }
 
+export function PageSubtitle({ children }: PropsWithChildren) {
+  return (
+    <div className="-mt-2 mb-4 text-sm text-neutral-500 px-8">
+      {children}
+    </div>
+  )
+}
+
 export function PageContent({ children }: PropsWithChildren) {
   return (
     <div className="pt-3 pb-4 px-4 md:px-8 grow flex flex-col relative">

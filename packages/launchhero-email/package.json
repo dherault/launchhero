@@ -1,6 +1,6 @@
 {
   "name": "launchhero-email",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Emails for startupjourn.al",
   "license": "SEE LICENSE IN LICENSE",
   "author": "David Hérault <dherault@gmail.com> (https://github.com/dherault)",
@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@react-email/preview-server": "^4.2.12",
-    "@types/react": "^19.1.15",
+    "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
     "@vitejs/plugin-react": "^5.0.4",
     "react-email": "^4.2.12",

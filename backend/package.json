@@ -2,7 +2,7 @@
   "private": true,
   "name": "launch-hero-backend",
   "description": "Backend for Launch Hero",
-  "version": "4.3.0",
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "start": "NODE_ENV=production bun src/index.ts",
@@ -29,11 +29,11 @@
   "dependencies": {
     "@google-cloud/secret-manager": "^6.1.0",
     "cors": "^2.8.5",
-    "dotenv": "^17.2.2",
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "firebase-admin": "^13.5.0",
     "launchhero-core": "^0.6.0",
-    "launchhero-email": "^0.0.2",
+    "launchhero-email": "^0.0.3",
     "nanoid": "^5.1.6",
     "resend": "^6.1.1",
     "slugify": "^1.6.6",

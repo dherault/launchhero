@@ -47,9 +47,10 @@ function createProjectsRoutes() {
   router.post('/', validate({ body: createProjectSchema }), async (request, response) => {
     const name: string = request.body.name
 
+    const baseId = slugify(name).toLowerCase()
     const now = new Date().toISOString()
     const project: Project = {
-      id: slugify(name).toLowerCase(),
+      id: baseId,
       name,
       imageUrl: null,
       stripeId: null,
@@ -60,6 +61,20 @@ function createProjectsRoutes() {
       createdAt: now,
       updatedAt: now,
       deletedAt: null,
+    }
+
+    let existingProject = await readProject(project.id)
+    let cursor = 1
+
+    while (existingProject) {
+      project.id = `${baseId}-${cursor}`
+      existingProject = await readProject(project.id)
+      cursor++
+
+      if (cursor > 16) {
+        project.id = `${baseId}-${nanoid()}`
+        break
+      }
     }
 
     await createProject(project)

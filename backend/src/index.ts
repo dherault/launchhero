@@ -12,7 +12,6 @@ import capitalize from '~utils/capitalize'
 
 import createEmailsRouter from '~routes/emails'
 import createProjectsRoutes from '~routes/projects'
-import createStripeRoutes from '~routes/stripe'
 
 import authenticationMiddleware from '~middleware/authentication'
 import errorMiddleware from '~middleware/error'
@@ -51,7 +50,7 @@ async function serve() {
 
   app.use('/projects', createProjectsRoutes())
   app.use('/emails', createEmailsRouter())
-  app.use('/stripe', createStripeRoutes())
+  // app.use('/stripe', createStripeRoutes())
 
   app.use(errorMiddleware)
 

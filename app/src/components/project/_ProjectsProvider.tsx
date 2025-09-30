@@ -2,12 +2,15 @@ import { collection, doc, orderBy, query, updateDoc, where, type UpdateData } fr
 import type { Project } from 'launchhero-core'
 import { type PropsWithChildren, useCallback, useMemo } from 'react'
 
+import { BodyApiInput } from '~types'
+
 import { NULL_DOCUMENT_ID } from '~constants'
 
 import { database } from '~firebase'
 
 import ProjectsContext, { type ProjectsContextType } from '~contexts/data/ProjectsContext'
 
+import useApi from '~hooks/api/useApi'
 import useUser from '~hooks/data/useUser'
 import useLiveDocuments from '~hooks/db/useLiveDocuments'
 import { useToast } from '~hooks/ui/useToast'
@@ -28,13 +31,17 @@ function ProjectsProvider({ children }: PropsWithChildren) {
   ])
   const { data: projects, loading, error } = useLiveDocuments<Project>(q, !!user)
 
+  const invokeCreateProject = useApi<BodyApiInput<{ name: string }>, Project>('POST', '/projects')
+
   const createProject = useCallback(async (name: string) => {
     if (!user?.id) return
 
     try {
-      console.log('name', name)
+      const project = await invokeCreateProject({ body: { name } })
 
-      return undefined
+      console.log('project', project)
+
+      return project
     }
     catch (error: any) {
       console.error('Error creating Project:', error)
@@ -47,6 +54,7 @@ function ProjectsProvider({ children }: PropsWithChildren) {
     }
   }, [
     user?.id,
+    invokeCreateProject,
     toast,
   ])
 

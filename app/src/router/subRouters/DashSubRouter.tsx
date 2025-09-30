@@ -6,6 +6,8 @@ import DashLayout from '~app/-.../layout'
 import OnboardingLayout from '~app/-.../onboarding/layout'
 import Onboarding from '~app/-.../onboarding/page'
 import Dash from '~app/-.../page'
+import DirectoriesLayout from '~app/-.../projects/[projectId]/directories/layout'
+import Directories from '~app/-.../projects/[projectId]/directories/page'
 import ProjectId from '~app/-.../projects/[projectId]/page'
 
 import Loading from '~components/common/Loading'
@@ -52,6 +54,23 @@ function DashSubRouter() {
               index
               element={<ProjectId />}
             />
+            <Route
+              path="directories"
+              element={(
+                <DirectoriesLayout>
+                  <Outlet />
+                </DirectoriesLayout>
+              )}
+            >
+              <Route
+                index
+                element={<Directories />}
+              />
+              <Route
+                path="*"
+                element={<NotFound />}
+              />
+            </Route>
             <Route
               path="*"
               element={<NotFound />}

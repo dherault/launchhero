@@ -8,9 +8,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.tsx'),
-      name: 'startupjournal-email',
+      name: 'launchhero-email',
       formats: ['es', 'cjs'],
-      fileName: format => `startupjournal-email.${format}.js`,
+      fileName: format => `launchhero-email.${format}.js`,
     },
     rollupOptions: {
       external: [],

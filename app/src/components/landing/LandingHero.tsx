@@ -19,7 +19,7 @@ function LandingHero() {
         directories, and can even submit it for you.
       </div>
       <div className="mt-4 w-full">
-        <DirectoriesTable />
+        <DirectoriesTable maxHeight={256 + 32 + 4} />
       </div>
       <Link
         to="/-"

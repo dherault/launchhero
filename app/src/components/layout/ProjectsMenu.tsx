@@ -127,7 +127,7 @@ function ProjectsMenu({ onSelect }: Props) {
                 onSelect()
               }}
             >
-              <div className="mr-2 p-1 border rounded-md">
+              <div className="p-0.5 border rounded-xs">
                 <Plus className="h-4 w-4" />
               </div>
               Create a new project

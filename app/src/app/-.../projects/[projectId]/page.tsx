@@ -1,3 +1,3 @@
-import Project from '~components/project/Project'
+import ProjectRedirect from '~components/project/ProjectRedirect'
 
-export default Project
+export default ProjectRedirect
