@@ -1,3 +1,4 @@
+import type { Directory } from 'launchhero-core'
 import { useMemo } from 'react'
 
 import useSubmissions from '~hooks/data/useSubmissions'
@@ -6,12 +7,12 @@ import ThreeDots from '~components/common/ThreeDots'
 import { Badge } from '~components/ui/Badge'
 
 type Props = {
-  directoryId: string
+  directory: Directory
 }
 
-function DirectorySubmissionStatusChip({ directoryId }: Props) {
+function DirectorySubmissionStatusChip({ directory }: Props) {
   const { submissions, loading } = useSubmissions()
-  const submission = useMemo(() => submissions.find(s => s.directoryId === directoryId) ?? null, [submissions, directoryId])
+  const submission = useMemo(() => submissions.find(s => s.directoryId === directory.id) ?? null, [submissions, directory.id])
 
   if (loading) {
     return (

@@ -1,4 +1,3 @@
-import type { Directory } from 'launchhero-core'
 import directories from 'launchhero-directories'
 import { SquareArrowOutUpRight } from 'lucide-react'
 import { useMemo } from 'react'
@@ -25,7 +24,7 @@ function DirectoryDialog({ directoryId, setDirectoryId }: Props) {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>
-            <DirectoryIcon directory={directory as Directory} />
+            <DirectoryIcon directory={directory} />
             {directory.name}
           </DialogTitle>
           <DialogDescription>

@@ -59,9 +59,39 @@ export type Directory = {
   submissionUrl: string | null
   imageUrl: string | null
   tags: DirectoryTag[]
+  requirements: DirectoryRequirement[]
 }
 
 export type DirectoryTag = 'community'
+
+export type DirectoryRequirementType =
+  | 'url'
+  | 'name'
+  | 'tagline'
+  | 'description'
+  | 'tags'
+  | 'first-comment'
+  | 'x'
+  | 'linkedin'
+  | 'logo'
+  | 'screenshot'
+  | 'video'
+  | 'interactive-demo'
+  | 'did-work-on-product'
+  | 'co-creator-emails'
+  | 'product-shoutouts'
+  | 'business-model'
+  | 'promo-code'
+  | 'funding'
+
+export type DirectoryRequirement = {
+  type: DirectoryRequirementType
+  min?: number
+  max?: number
+  recommended?: number
+  format?: string
+  optionnal?: boolean
+}
 
 /* ---
   STRIPE

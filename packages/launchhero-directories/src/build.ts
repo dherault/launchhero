@@ -31,9 +31,14 @@ const descriptions = directories.reduce(
 )
 const descriptionsJson = JSON.stringify(descriptions, null, 2)
 const directoriesJson = JSON.stringify(directories, null, 2)
+const directoriesType = `import type { Directory } from 'launchhero-core'
+declare const directories: Directory[]
+export default directories
+`
 
 fs.writeFileSync(path.join(import.meta.dirname, 'directories-descriptions.json'), descriptionsJson)
 fs.mkdirSync(path.join(import.meta.dirname, '../dist'))
 fs.writeFileSync(path.join(import.meta.dirname, '../dist/directories.json'), directoriesJson)
+fs.writeFileSync(path.join(import.meta.dirname, '../dist/directories.d.ts'), directoriesType)
 
 console.log(`⚡️ Done: ${directories.length} directories`)

@@ -24,9 +24,15 @@ function DirectoryAction({ directory }: Props) {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            Visit website
-          </DropdownMenuItem>
+          <a
+            href={directory.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <DropdownMenuItem onClick={event => event.stopPropagation()}>
+              Visit website
+            </DropdownMenuItem>
+          </a>
           <DropdownMenuItem>
             Mark as submitted
           </DropdownMenuItem>

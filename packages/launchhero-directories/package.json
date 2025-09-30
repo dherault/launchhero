@@ -11,8 +11,12 @@
   "homepage": "https://launchhe.ro",
   "type": "module",
   "main": "dist/directories.json",
+  "types": "dist/directories.d.ts",
   "exports": {
-    ".": "./dist/directories.json"
+    ".": {
+      "types": "./dist/directories.d.ts",
+      "default": "./dist/directories.json"
+    }
   },
   "files": [
     "dist",

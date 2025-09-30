@@ -9,6 +9,25 @@ const directoriesInput: DirectoryInput[] = [
     submissionUrl: 'https://www.producthunt.com/posts/new',
     imageUrl: '/images/directories/product-hunt.png',
     tags: ['community'],
+    requirements: [
+      { type: 'url' },
+      { type: 'name', max: 40 },
+      { type: 'tagline', max: 60 },
+      { type: 'x', optionnal: true },
+      { type: 'description', max: 260 },
+      { type: 'tags', max: 3, optionnal: true },
+      { type: 'first-comment', max: 500 },
+      { type: 'logo', format: 'Recommended size: 240x240 | JPG, PNG, GIF. Max size: 2MB' },
+      { type: 'screenshot', recommended: 3 },
+      { type: 'video', format: 'YouTube or Loom', optionnal: true },
+      { type: 'interactive-demo', optionnal: true },
+      { type: 'did-work-on-product' },
+      { type: 'co-creator-emails', optionnal: true },
+      { type: 'product-shoutouts', optionnal: true },
+      { type: 'business-model' },
+      { type: 'promo-code', optionnal: true, format: 'Offer - Code - Expiration date' },
+      { type: 'funding', optionnal: true },
+    ],
   },
   {
     name: 'Hacker News',
@@ -16,6 +35,7 @@ const directoriesInput: DirectoryInput[] = [
     submissionUrl: null,
     imageUrl: '/images/directories/hacker-news.png',
     tags: ['community'],
+    requirements: [],
   },
   {
     name: 'BetaList',
@@ -23,6 +43,7 @@ const directoriesInput: DirectoryInput[] = [
     submissionUrl: null,
     imageUrl: '/images/directories/betalist.png',
     tags: [],
+    requirements: [],
   },
   {
     name: 'PitchWall',
@@ -30,6 +51,7 @@ const directoriesInput: DirectoryInput[] = [
     submissionUrl: null,
     imageUrl: '/images/directories/pitchwall.png',
     tags: [],
+    requirements: [],
   },
   {
     name: 'Joinly',
@@ -37,6 +59,7 @@ const directoriesInput: DirectoryInput[] = [
     submissionUrl: null,
     imageUrl: '/images/directories/joinly.png',
     tags: [],
+    requirements: [],
   },
   {
     name: 'Alternative To',
@@ -44,6 +67,7 @@ const directoriesInput: DirectoryInput[] = [
     submissionUrl: null,
     imageUrl: '/images/directories/alternative-to.png',
     tags: [],
+    requirements: [],
   },
   {
     name: 'Stackshare',
@@ -51,6 +75,7 @@ const directoriesInput: DirectoryInput[] = [
     submissionUrl: null,
     imageUrl: '/images/directories/stackshare.png',
     tags: [],
+    requirements: [],
   },
   {
     name: 'F65',
@@ -58,6 +83,7 @@ const directoriesInput: DirectoryInput[] = [
     submissionUrl: null,
     imageUrl: '/images/directories/f65.png',
     tags: [],
+    requirements: [],
   },
   {
     name: 'Launched!',
@@ -65,6 +91,7 @@ const directoriesInput: DirectoryInput[] = [
     submissionUrl: null,
     imageUrl: '/images/directories/launched.png',
     tags: [],
+    requirements: [],
   },
   {
     name: 'Robin Good\'s T5',
@@ -72,6 +99,7 @@ const directoriesInput: DirectoryInput[] = [
     submissionUrl: null,
     imageUrl: null,
     tags: [],
+    requirements: [],
   },
   {
     name: 'Startup Buffer',
@@ -79,6 +107,7 @@ const directoriesInput: DirectoryInput[] = [
     submissionUrl: null,
     imageUrl: '/images/directories/startup-buffer.png',
     tags: [],
+    requirements: [],
   },
   {
     name: 'Startup Inspire',
@@ -86,6 +115,7 @@ const directoriesInput: DirectoryInput[] = [
     submissionUrl: null,
     imageUrl: '/images/directories/startup-inspire.png',
     tags: [],
+    requirements: [],
   },
   {
     name: 'Startup Tracker',
@@ -93,6 +123,7 @@ const directoriesInput: DirectoryInput[] = [
     submissionUrl: null,
     imageUrl: '/images/directories/startup-tracker.png',
     tags: [],
+    requirements: [],
   },
   {
     name: 'NextBigWhat',
@@ -100,6 +131,7 @@ const directoriesInput: DirectoryInput[] = [
     submissionUrl: null,
     imageUrl: '/images/directories/next-big-what.png',
     tags: [],
+    requirements: [],
   },
   {
     name: 'SideProjectors',
@@ -107,6 +139,7 @@ const directoriesInput: DirectoryInput[] = [
     submissionUrl: null,
     imageUrl: '/images/directories/sideprojectors.png',
     tags: [],
+    requirements: [],
   },
   {
     name: 'Launching Next',
@@ -114,6 +147,7 @@ const directoriesInput: DirectoryInput[] = [
     submissionUrl: null,
     imageUrl: null,
     tags: [],
+    requirements: [],
   },
   {
     name: '10 Words',
@@ -121,6 +155,7 @@ const directoriesInput: DirectoryInput[] = [
     submissionUrl: null,
     imageUrl: null,
     tags: [],
+    requirements: [],
   },
   {
     name: 'SaaS Hub',
@@ -128,6 +163,7 @@ const directoriesInput: DirectoryInput[] = [
     submissionUrl: null,
     imageUrl: '/images/directories/saashub.png',
     tags: [],
+    requirements: [],
   },
   {
     name: 'Sidebar.io',
@@ -135,6 +171,7 @@ const directoriesInput: DirectoryInput[] = [
     submissionUrl: null,
     imageUrl: '/images/directories/sidebario.png',
     tags: [],
+    requirements: [],
   },
 ]
 

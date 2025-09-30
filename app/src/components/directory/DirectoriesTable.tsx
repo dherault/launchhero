@@ -1,4 +1,3 @@
-import type { Directory, DirectoryTag } from 'launchhero-core'
 import directories from 'launchhero-directories'
 import { Link2 } from 'lucide-react'
 import type { CSSProperties } from 'react'
@@ -60,7 +59,7 @@ function DirectoriesTable({
               onClick={() => setDirectoryId(directory.id)}
             >
               <div className="flex">
-                <DirectoryIcon directory={directory as Directory} />
+                <DirectoryIcon directory={directory} />
               </div>
               <div className="grow flex items-center flex-wrap gap-2">
                 <div className="font-medium text-sm">
@@ -69,13 +68,13 @@ function DirectoriesTable({
                 {directory.tags.map(tag => (
                   <DirectoryTagChip
                     key={tag}
-                    directoryTag={tag as DirectoryTag}
+                    directoryTag={tag}
                   />
                 ))}
               </div>
               {hasSubmissionStatus && (
                 <div className="w-32">
-                  <DirectorySubmissionStatusChip directoryId={directory.id} />
+                  <DirectorySubmissionStatusChip directory={directory} />
                 </div>
               )}
               {hasWebsite && (
@@ -97,7 +96,7 @@ function DirectoriesTable({
               )}
               {hasAction && (
                 <div className="flex justify-end">
-                  <DirectoryAction directory={directory as Directory} />
+                  <DirectoryAction directory={directory} />
                 </div>
               )}
             </div>
