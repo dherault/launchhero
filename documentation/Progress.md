@@ -61,3 +61,4 @@
 ## 2025-09-30
 - Deploy backend
 - Create project directories page
+- Create directories package

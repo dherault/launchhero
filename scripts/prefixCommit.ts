@@ -1,7 +1,16 @@
 import { execSync } from 'child_process'
 import fs from 'fs'
 
-import { COMMIT_PREFIX_TO_PATH, DEFAULT_COMMIT_PREFIX } from './constants'
+const DEFAULT_COMMIT_PREFIX = 'root'
+
+const COMMIT_PREFIX_TO_PATH = {
+  app: 'app/',
+  backend: 'backend/',
+  core: 'packages/launchhero-core/',
+  directories: 'packages/launchhero-directories/',
+  email: 'packages/launchhero-email/',
+  docs: 'documentation/',
+}
 
 const commitMessageFile = process.argv[2]
 const message = fs.readFileSync(commitMessageFile, 'utf8').trim()
