@@ -18,11 +18,11 @@ function usePreviousProject() {
     setPreviousProjectId,
   ])
 
-  return useMemo(() => (
+  return useMemo(() =>
     projects.find(project => project.id === projectId)
     ?? projects.find(project => project.id === previousProjectId)
-    ?? null
-  ), [
+    ?? null,
+  [
     projects,
     projectId,
     previousProjectId,

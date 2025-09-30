@@ -2,7 +2,7 @@ import DirectoriesTable from '~components/directory/DirectoriesTable'
 
 function Directories() {
   return (
-    <DirectoriesTable hasActions />
+    <DirectoriesTable hasAction />
   )
 }
 

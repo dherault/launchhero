@@ -11,12 +11,12 @@ const DEFAULT_BREAKPOINTS: Record<Breakpoint, number> = {
 }
 
 function useBreakpoint(breakpoints = DEFAULT_BREAKPOINTS): Breakpoint {
-  const breakpointEntries = useMemo(() => (
+  const breakpointEntries = useMemo(() =>
     Object
       .entries(breakpoints)
       .sort((a, b) => a[1] - b[1])
-      .map(([key, value]) => ({ key, value }))
-  ), [
+      .map(([key, value]) => ({ key, value })),
+  [
     breakpoints,
   ])
 

@@ -1,9 +1,8 @@
+import directories from 'launchhero-directories'
 import { useMemo } from 'react'
 
 import { Button } from '~components/ui/Button'
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '~components/ui/Dialog'
-
-import directories from '~data/directories'
 
 type Props = {
   directoryId: string

@@ -1,9 +1,8 @@
+import directories from 'launchhero-directories'
 import { Link } from 'react-router'
 
 import DirectoriesTable from '~components/directory/DirectoriesTable'
 import { Button } from '~components/ui/Button'
-
-import directories from '~data/directories'
 
 function LandingHero() {
   return (

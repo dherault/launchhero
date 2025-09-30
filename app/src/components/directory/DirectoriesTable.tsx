@@ -1,3 +1,5 @@
+import type { DirectoryTag } from 'launchhero-core'
+import directories from 'launchhero-directories'
 import { Ellipsis, Link2 } from 'lucide-react'
 import type { CSSProperties } from 'react'
 
@@ -8,8 +10,6 @@ import extractInitials from '~utils/string/extractInitials'
 import DirectoryDialog from '~components/directory/DirectoryDialog'
 import DirectoryTagChip from '~components/directory/DirectoryTagChip'
 import { Button } from '~components/ui/Button'
-
-import directories from '~data/directories'
 
 type Props = {
   hasAction?: boolean
@@ -70,7 +70,7 @@ function DirectoriesTable({
                 {directory.tags.map(tag => (
                   <DirectoryTagChip
                     key={tag}
-                    directoryTag={tag}
+                    directoryTag={tag as DirectoryTag}
                   />
                 ))}
               </div>

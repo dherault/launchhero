@@ -1,8 +1,7 @@
+import directories from 'launchhero-directories'
 import type { PropsWithChildren } from 'react'
 
 import { PageContent, PageSubtitle, PageTitle } from '~components/layout/Page'
-
-import directories from '~data/directories'
 
 function DirectoriesLayout({ children }: PropsWithChildren) {
   return (
