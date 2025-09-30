@@ -26,10 +26,6 @@
     "link:email": "cd packages/launchhero-email && npm link && npm link launchhero-core",
     "link:app": "cd app && npm link launchhero-core && npm link launchhero-directories",
     "link:backend": "cd backend && npm link launchhero-core && npm link launchhero-email && npm link launchhero-directories",
-    "dev": "npm run dev:packages",
-    "dev:packages": "concurrently \"npm run dev:core\" \"npm run dev:directories\"",
-    "dev:core": "cd packages/launchhero-core && npm run dev",
-    "dev:directories": "cd packages/launchhero-directories && npm run dev",
     "lint": "npm run lint:app && npm run lint:backend && npm run lint:core && npm run lint:directories && npm run lint:email",
     "lint:app": "cd app && npm run lint",
     "lint:backend": "cd backend && npm run lint",
@@ -43,13 +39,13 @@
     "ncu:core": "cd packages/launchhero-core && ncu -i",
     "ncu:directories": "cd packages/launchhero-directories && ncu -i",
     "ncu:email": "cd packages/launchhero-email && ncu -i",
+    "dev": "nodemon --ext ts,tsx --watch app/src --watch packages/launchhero-core/src --watch packages/launchhero-directories/src --watch packages/launchhero-email/src --exec \"npm run build\"",
     "prepare": "husky"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
     "@stylistic/eslint-plugin": "^5.4.0",
     "@types/node": "^24.6.0",
-    "concurrently": "^9.2.1",
     "eslint": "^9.36.0",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-react": "^7.37.5",
@@ -58,6 +54,7 @@
     "globals": "^16.4.0",
     "husky": "^9.1.7",
     "jiti": "^2.6.0",
+    "nodemon": "^3.1.10",
     "typescript-eslint": "^8.45.0"
   },
   "optionalDependencies": {
