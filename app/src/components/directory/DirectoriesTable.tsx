@@ -1,4 +1,4 @@
-import { Ellipsis } from 'lucide-react'
+import { Ellipsis, Link2 } from 'lucide-react'
 import type { CSSProperties } from 'react'
 
 import useSearchParameter from '~hooks/common/useSearchParameter'
@@ -12,22 +12,32 @@ import { Button } from '~components/ui/Button'
 import directories from '~data/directories'
 
 type Props = {
-  hasActions?: boolean
+  hasAction?: boolean
+  hasWebsite?: boolean
   maxHeight?: CSSProperties['maxHeight']
 }
 
-function DirectoriesTable({ maxHeight = 'auto', hasActions = false }: Props) {
+function DirectoriesTable({
+  hasAction = false,
+  hasWebsite = false,
+  maxHeight = 'auto',
+}: Props) {
   const [directoryId, setDirectoryId] = useSearchParameter('directory', '')
 
   return (
     <>
       <div className="font-medium text-sm border rounded-xs">
-        <div className="p-2 flex items-center gap-2 border-b h-[49px]">
+        <div className="py-2 px-3 flex items-center gap-3 border-b h-[49px]">
           <div className="w-10" />
           <div className="grow">
             Directory
           </div>
-          {hasActions && (
+          {hasWebsite && (
+            <div>
+              Website
+            </div>
+          )}
+          {hasAction && (
             <div className="w-8" />
           )}
         </div>
@@ -38,7 +48,7 @@ function DirectoriesTable({ maxHeight = 'auto', hasActions = false }: Props) {
           {directories.map(directory => (
             <div
               key={directory.id}
-              className="p-2 border-b last:border-b-0 flex items-center gap-2 hover:bg-neutral-50 cursor-pointer"
+              className="py-2 px-3 border-b last:border-b-0 flex items-center gap-3 hover:bg-neutral-50 cursor-pointer"
               onClick={() => setDirectoryId(directory.id)}
             >
               <div className="flex">
@@ -64,7 +74,24 @@ function DirectoriesTable({ maxHeight = 'auto', hasActions = false }: Props) {
                   />
                 ))}
               </div>
-              {hasActions && (
+              {hasWebsite && (
+                <div className="flex justify-end">
+                  <a
+                    href={directory.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button
+                      variant="ghost"
+                      size="icon-sm"
+                      onClick={event => event.stopPropagation()}
+                    >
+                      <Link2 className="h-4 w-4" />
+                    </Button>
+                  </a>
+                </div>
+              )}
+              {hasAction && (
                 <div className="flex justify-end">
                   <Button
                     size="icon-sm"
