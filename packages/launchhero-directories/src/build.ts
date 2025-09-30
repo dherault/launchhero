@@ -15,7 +15,7 @@ const directories = await Promise.all<Directory>(
     const id = slugify(directoryInput.url.split('://')[1])
     const description = (directoriesDescriptions as Descriptions)[id] ?? await createDirectoryDescription(directoryInput)
 
-    console.log('📘', directoryInput.name, description)
+    console.log('📘', directoryInput.name)
 
     return {
       id,
@@ -36,4 +36,4 @@ fs.writeFileSync(path.join(import.meta.dirname, 'directories-descriptions.json')
 fs.mkdirSync(path.join(import.meta.dirname, '../dist'))
 fs.writeFileSync(path.join(import.meta.dirname, '../dist/directories.json'), directoriesJson)
 
-console.log('⚡️ Done')
+console.log(`⚡️ Done: ${directories.length} directories`)

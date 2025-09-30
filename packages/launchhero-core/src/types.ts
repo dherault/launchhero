@@ -53,10 +53,10 @@ export type Submission = DatabaseResource<{
 
 export type Directory = {
   id: string
-  type: 'directory'
   name: string
   description: string
   url: string
+  submissionUrl: string | null
   imageUrl: string | null
   tags: DirectoryTag[]
 }

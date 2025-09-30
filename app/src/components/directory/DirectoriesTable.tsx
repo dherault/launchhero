@@ -1,13 +1,13 @@
-import type { DirectoryTag } from 'launchhero-core'
+import type { Directory, DirectoryTag } from 'launchhero-core'
 import directories from 'launchhero-directories'
-import { Ellipsis, Link2 } from 'lucide-react'
+import { Link2 } from 'lucide-react'
 import type { CSSProperties } from 'react'
 
 import useSearchParameter from '~hooks/common/useSearchParameter'
 
-import extractInitials from '~utils/string/extractInitials'
-
+import DirectoryAction from '~components/directory/DirectoryAction'
 import DirectoryDialog from '~components/directory/DirectoryDialog'
+import DirectoryIcon from '~components/directory/DirectoryIcon'
 import DirectorySubmissionStatusChip from '~components/directory/DirectorySubmissionStatusChip'
 import DirectoryTagChip from '~components/directory/DirectoryTagChip'
 import { Button } from '~components/ui/Button'
@@ -60,18 +60,7 @@ function DirectoriesTable({
               onClick={() => setDirectoryId(directory.id)}
             >
               <div className="flex">
-                {!!directory.imageUrl && (
-                  <img
-                    src={directory.imageUrl}
-                    alt={directory.name}
-                    className="h-8 w-8 rounded-xs object-contain border"
-                  />
-                )}
-                {!directory.imageUrl && (
-                  <div className="flex h-8 w-8 items-center justify-center rounded border bg-neutral-50 text-sm font-medium">
-                    {extractInitials(directory.name)}
-                  </div>
-                )}
+                <DirectoryIcon directory={directory as Directory} />
               </div>
               <div className="grow flex items-center flex-wrap gap-2">
                 <div className="font-medium text-sm">
@@ -108,13 +97,7 @@ function DirectoriesTable({
               )}
               {hasAction && (
                 <div className="flex justify-end">
-                  <Button
-                    size="icon-sm"
-                    variant="ghost"
-                    onClick={event => event.stopPropagation()}
-                  >
-                    <Ellipsis className="h-4 w-4" />
-                  </Button>
+                  <DirectoryAction directory={directory as Directory} />
                 </div>
               )}
             </div>

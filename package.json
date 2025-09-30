@@ -1,6 +1,11 @@
 {
   "private": true,
   "name": "launchhero-monorepo",
+  "workspaces": [
+    "app",
+    "backend",
+    "packages/*"
+  ],
   "scripts": {
     "all": "npm run install:all && npm run build && npm run link",
     "install:all": "npm run install:root && npm run install:app && npm run install:backend && npm run install:core && npm run install:directories && npm run install:email",
@@ -54,5 +59,8 @@
     "husky": "^9.1.7",
     "jiti": "^2.6.0",
     "typescript-eslint": "^8.45.0"
+  },
+  "optionalDependencies": {
+    "lightningcss-darwin-arm64": "^1.30.1"
   }
 }
