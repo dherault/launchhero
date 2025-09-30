@@ -53,6 +53,7 @@ function createProjectsRoutes() {
       id: baseId,
       name,
       imageUrl: null,
+      isPublic: true,
       stripeId: null,
       stripeLink: null,
       administratorUserIds: [request.user.id],
