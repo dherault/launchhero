@@ -4,6 +4,11 @@
   "description": "Emails for startupjourn.al",
   "license": "SEE LICENSE IN LICENSE",
   "author": "David Hérault <dherault@gmail.com> (https://github.com/dherault)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dherault/launchhero.git"
+  },
+  "homepage": "https://launchhe.ro",
   "type": "module",
   "main": "dist/launchhero-email.cjs.js",
   "module": "dist/launchhero-email.es.js",
