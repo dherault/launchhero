@@ -1,10 +1,12 @@
 import directories from 'launchhero-directories'
 import { SquareArrowOutUpRight } from 'lucide-react'
-import { useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
+
+import useConfetti from '~hooks/common/useConfetti'
 
 import DirectoryIcon from '~components/directory/DirectoryIcon'
 import { Button } from '~components/ui/Button'
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '~components/ui/Dialog'
+import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '~components/ui/Dialog'
 
 type Props = {
   directoryId: string
@@ -13,6 +15,13 @@ type Props = {
 
 function DirectoryDialog({ directoryId, setDirectoryId }: Props) {
   const directory = useMemo(() => directories.find(directory => directory.id === directoryId), [directoryId])
+  const fireConfetti = useConfetti()
+
+  const handleMarkAsSubmitted = useCallback(() => {
+    fireConfetti()
+  }, [
+    fireConfetti,
+  ])
 
   if (!directory) return null
 
@@ -21,8 +30,9 @@ function DirectoryDialog({ directoryId, setDirectoryId }: Props) {
       open={!!directoryId}
       onOpenChange={() => setDirectoryId('')}
     >
-      <DialogContent>
+      <DialogContent className="w-min sm:max-w-auto">
         <DialogHeader>
+          <DialogClose />
           <DialogTitle>
             <DirectoryIcon directory={directory} />
             {directory.name}
@@ -32,22 +42,29 @@ function DirectoryDialog({ directoryId, setDirectoryId }: Props) {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <Button
-            variant="secondary"
-            onClick={() => setDirectoryId('')}
-          >
-            Close
-          </Button>
           <a
             href={directory.url}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button>
+            <Button variant="secondary">
               <SquareArrowOutUpRight className="h-4 w-4" />
               Visit website
             </Button>
           </a>
+          <a
+            href={directory.submissionUrl || directory.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="secondary">
+              <SquareArrowOutUpRight className="h-4 w-4" />
+              Start submission
+            </Button>
+          </a>
+          <Button onClick={handleMarkAsSubmitted}>
+            Mark as submitted
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
