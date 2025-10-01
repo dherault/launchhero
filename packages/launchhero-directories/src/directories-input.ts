@@ -32,10 +32,14 @@ const directoriesInput: DirectoryInput[] = [
   {
     name: 'Hacker News',
     url: 'https://news.ycombinator.com',
-    submissionUrl: null,
+    submissionUrl: 'https://news.ycombinator.com/submit',
     imageUrl: '/images/directories/hacker-news.png',
     tags: ['community'],
-    requirements: [],
+    requirements: [
+      { type: 'name' },
+      { type: 'url' },
+      { type: 'description' },
+    ],
   },
   {
     name: 'BetaList',
