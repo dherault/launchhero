@@ -1,6 +1,6 @@
 {
   "name": "launchhero-directories",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Directories data for Launch Hero",
   "license": "SEE LICENSE IN LICENSE",
   "author": "David Hérault <dherault@gmail.com> (https://github.com/dherault)",
@@ -46,6 +46,6 @@
     "tsx": "^4.20.6"
   },
   "dependencies": {
-    "launchhero-core": "^0.8.0"
+    "launchhero-core": "^0.8.2"
   }
 }
