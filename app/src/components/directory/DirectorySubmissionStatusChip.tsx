@@ -3,7 +3,7 @@ import { useMemo } from 'react'
 
 import useSubmissions from '~hooks/data/useSubmissions'
 
-import ThreeDots from '~components/common/ThreeDots'
+import Spinner from '~components/common/Spinner'
 import { Badge } from '~components/ui/Badge'
 
 type Props = {
@@ -16,9 +16,7 @@ function DirectorySubmissionStatusChip({ directory }: Props) {
 
   if (loading) {
     return (
-      <Badge variant="secondary">
-        <ThreeDots />
-      </Badge>
+      <Spinner className="w-4" />
     )
   }
 

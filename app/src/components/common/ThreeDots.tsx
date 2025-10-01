@@ -20,7 +20,7 @@ function ThreeDots() {
   }, [])
 
   return (
-    <span className="inline-block min-w-4">
+    <span className="inline-block min-w-3">
       {dots}
     </span>
   )

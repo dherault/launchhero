@@ -4,7 +4,6 @@ import type { CSSProperties } from 'react'
 
 import useSearchParameter from '~hooks/common/useSearchParameter'
 
-import DirectoryAction from '~components/directory/DirectoryAction'
 import DirectoryDialog from '~components/directory/DirectoryDialog'
 import DirectoryIcon from '~components/directory/DirectoryIcon'
 import DirectorySubmissionStatusChip from '~components/directory/DirectorySubmissionStatusChip'
@@ -13,14 +12,12 @@ import { Button } from '~components/ui/Button'
 
 type Props = {
   hasSubmissionStatus?: boolean
-  hasAction?: boolean
   hasWebsite?: boolean
   maxHeight?: CSSProperties['maxHeight']
 }
 
 function DirectoriesTable({
   hasSubmissionStatus = false,
-  hasAction = false,
   hasWebsite = false,
   maxHeight = 'auto',
 }: Props) {
@@ -35,7 +32,7 @@ function DirectoriesTable({
             Directory
           </div>
           {hasSubmissionStatus && (
-            <div className="w-32">
+            <div>
               Status
             </div>
           )}
@@ -43,9 +40,6 @@ function DirectoriesTable({
             <div>
               Website
             </div>
-          )}
-          {hasAction && (
-            <div className="w-8" />
           )}
         </div>
         <div
@@ -73,7 +67,7 @@ function DirectoriesTable({
                 ))}
               </div>
               {hasSubmissionStatus && (
-                <div className="w-32">
+                <div>
                   <DirectorySubmissionStatusChip directory={directory} />
                 </div>
               )}
@@ -92,11 +86,6 @@ function DirectoriesTable({
                       <Link2 className="h-4 w-4" />
                     </Button>
                   </a>
-                </div>
-              )}
-              {hasAction && (
-                <div className="flex justify-end">
-                  <DirectoryAction directory={directory} />
                 </div>
               )}
             </div>

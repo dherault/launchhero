@@ -65,18 +65,16 @@ function SubmissionsProvider({ children }: PropsWithChildren) {
   ])
 
   const updateSubmission = useCallback(async (submissionId: string, data: UpdateData<Submission>) => {
+    if (!project?.id) return
+
     const submission = submissions.find(submission => submission.id === submissionId)
 
     if (!submission) return
 
     try {
-      await updateDoc(doc(database, 'submissions', submissionId), {
+      await updateDoc(doc(database, 'projects', project.id, 'submissions', submission.id), {
         ...data,
         updatedAt: new Date().toISOString(),
-      })
-
-      toast({
-        title: '🎉 Submission updated',
       })
     }
     catch (error: any) {
@@ -89,11 +87,14 @@ function SubmissionsProvider({ children }: PropsWithChildren) {
       })
     }
   }, [
+    project?.id,
     submissions,
     toast,
   ])
 
   const deleteSubmission = useCallback(async (submissionId: string) => {
+    if (!project?.id) return
+
     const submission = submissions.find(submission => submission.id === submissionId)
 
     if (!submission) return
@@ -101,13 +102,9 @@ function SubmissionsProvider({ children }: PropsWithChildren) {
     try {
       const now = new Date().toISOString()
 
-      await updateDoc(doc(database, 'submissions', submissionId), {
+      await updateDoc(doc(database, 'projects', project.id, 'submissions', submission.id), {
         deletedAt: now,
         updatedAt: now,
-      })
-
-      toast({
-        title: 'Submission deleted',
       })
     }
     catch (error: any) {
@@ -120,6 +117,7 @@ function SubmissionsProvider({ children }: PropsWithChildren) {
       })
     }
   }, [
+    project?.id,
     submissions,
     toast,
   ])
