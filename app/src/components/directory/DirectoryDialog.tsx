@@ -2,6 +2,7 @@ import directories from 'launchhero-directories'
 import { Check, SquareArrowOutUpRight } from 'lucide-react'
 import { DateTime } from 'luxon'
 import { useCallback, useEffect, useMemo, useState } from 'react'
+import { isURL } from 'validator'
 
 import useConfetti from '~hooks/common/useConfetti'
 import usePersistedState from '~hooks/common/usePersistedState'
@@ -42,6 +43,8 @@ function DirectoryDialog({ directoryId, setDirectoryId }: Props) {
   const [saved, setSaved] = useState(false)
 
   const handleMarkAsSubmitted = useCallback(() => {
+    setSaved(false)
+
     if (!submission) {
       createSubmission(directoryId, submissionUrl || null)
       fireConfetti()
@@ -63,8 +66,11 @@ function DirectoryDialog({ directoryId, setDirectoryId }: Props) {
     if (loading) return
     if (initialized) return
 
-    setSubmissionUrl(submission?.url || '')
     setInitialized(true)
+
+    if (!submission?.url) return
+
+    setSubmissionUrl(submission.url)
   }, [
     loading,
     initialized,
@@ -122,7 +128,11 @@ function DirectoryDialog({ directoryId, setDirectoryId }: Props) {
               Submission link
             </Label>
             <div className="mt-1 text-sm text-neutral-500">
-              Paste the link to your submission here to add it to your report
+              Paste the link to your submission on
+              {' '}
+              {directory.name}
+              {' '}
+              to access it quickly later.
             </div>
             <Input
               value={submissionUrl}
@@ -144,18 +154,30 @@ function DirectoryDialog({ directoryId, setDirectoryId }: Props) {
           </div>
         )}
         <DialogFooter>
-          <a
-            href={submission?.url ?? directory.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button variant="secondary">
-              <SquareArrowOutUpRight className="h-4 w-4" />
-              Visit
-              {' '}
-              {submission ? 'submission' : 'website'}
-            </Button>
-          </a>
+          {!!submission && isURL(submissionUrl) && (
+            <a
+              href={submission.url!}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="secondary">
+                <SquareArrowOutUpRight className="h-4 w-4" />
+                Visit submission
+              </Button>
+            </a>
+          )}
+          {!submission && (
+            <a
+              href={directory.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="secondary">
+                <SquareArrowOutUpRight className="h-4 w-4" />
+                Visit website
+              </Button>
+            </a>
+          )}
           {!submission && (
             <a
               href={directory.submissionUrl || directory.url}

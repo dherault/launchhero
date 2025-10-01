@@ -52,6 +52,7 @@ function usePersistedState<T>(key: string, defaultValue: T, parser = identity) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  // Reset the state on key change
   useEffect(() => {
     setState(getLocalStorageValue())
   }, [
