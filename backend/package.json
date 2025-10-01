@@ -32,7 +32,7 @@
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "firebase-admin": "^13.5.0",
-    "launchhero-core": "^0.8.0",
+    "launchhero-core": "^0.10.0",
     "launchhero-email": "^0.0.4",
     "nanoid": "^5.1.6",
     "resend": "^6.1.2",
