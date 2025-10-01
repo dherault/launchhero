@@ -73,6 +73,7 @@ export type DirectoryRequirementType =
   | 'first-comment'
   | 'x'
   | 'linkedin'
+  | 'icon'
   | 'logo'
   | 'screenshot'
   | 'video'
@@ -90,7 +91,7 @@ export type DirectoryRequirement = {
   max?: number
   recommended?: number
   format?: string
-  optionnal?: boolean
+  optional?: boolean
 }
 
 /* ---
