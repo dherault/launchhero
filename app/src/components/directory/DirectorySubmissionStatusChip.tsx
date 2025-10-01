@@ -1,4 +1,5 @@
 import type { Directory } from 'launchhero-core'
+import { DateTime } from 'luxon'
 import { useMemo } from 'react'
 
 import useSubmissions from '~hooks/data/useSubmissions'
@@ -22,7 +23,7 @@ function DirectorySubmissionStatusChip({ directory }: Props) {
 
   return (
     <Badge variant={submission ? 'default' : 'secondary'}>
-      {submission ? 'Submitted' : 'Not submitted'}
+      {submission ? `Submitted ${DateTime.fromISO(submission.updatedAt).toLocaleString(DateTime.DATE_SHORT)}` : 'Not submitted'}
     </Badge>
   )
 }

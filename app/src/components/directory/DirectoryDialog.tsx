@@ -1,12 +1,12 @@
+import { zodResolver } from '@hookform/resolvers/zod'
 import directories from 'launchhero-directories'
-import { Check, SquareArrowOutUpRight } from 'lucide-react'
-import { DateTime } from 'luxon'
-import { useCallback, useEffect, useMemo, useState } from 'react'
-import { isURL } from 'validator'
+import { Ban, Pen, SquareArrowOutUpRight, SquarePlus } from 'lucide-react'
+import { useCallback, useMemo, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import z from 'zod'
 
 import useConfetti from '~hooks/common/useConfetti'
 import usePersistedState from '~hooks/common/usePersistedState'
-import useThrottledEffect from '~hooks/common/useThrottledEffect'
 import useProject from '~hooks/data/useProject'
 import useSubmissions from '~hooks/data/useSubmissions'
 
@@ -22,37 +22,63 @@ import {
   DialogHeader,
   DialogTitle,
 } from '~components/ui/Dialog'
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '~components/ui/Form'
 import { Input } from '~components/ui/Input'
-import { Label } from '~components/ui/Label'
 
 type Props = {
   directoryId: string
   setDirectoryId: (id: string) => void
 }
 
+const submissionFormSchema = z.object({
+  url: z
+    .url()
+    .trim(),
+})
+
+type SubmissionFormSchema = z.infer<typeof submissionFormSchema>
+
 function DirectoryDialog({ directoryId, setDirectoryId }: Props) {
   const project = useProject()!
-  const { submissions, createSubmission, deleteSubmission, updateSubmission, loading } = useSubmissions()
+  const { submissions, createSubmission, deleteSubmission, updateSubmission, loading: loadingSubmissions } = useSubmissions()
   const directory = useMemo(() => directories.find(directory => directory.id === directoryId) ?? null, [directoryId])
   const submission = useMemo(() => submissions.find(submission => submission.directoryId === directoryId) ?? null, [directoryId, submissions])
 
   const fireConfetti = useConfetti()
 
-  const [submissionUrl, setSubmissionUrl] = usePersistedState(`${project.id}-${directoryId}-submission-url`, '')
-  const [initialized, setInitialized] = useState(false)
-  const [saved, setSaved] = useState(false)
+  const [edited, setEdited] = useState(false)
+  const [loadingHandler, setLoadingHandler] = useState(false)
+  const [submissionUrl, setSubmissionUrl] = usePersistedState(`${project.id}-${directoryId}-submission-url`, submission?.url ?? '')
 
-  const handleMarkAsSubmitted = useCallback(() => {
-    setSaved(false)
+  const loading = loadingSubmissions || loadingHandler
 
-    if (!submission) {
-      createSubmission(directoryId, submissionUrl || null)
+  const submissionForm = useForm<SubmissionFormSchema>({
+    resolver: zodResolver(submissionFormSchema),
+    values: {
+      url: submissionUrl,
+    },
+  })
+
+  const handleMarkAsSubmitted = useCallback(async () => {
+    setLoadingHandler(true)
+
+    if (submission) {
+      await deleteSubmission(submission.id)
+    }
+    else {
       fireConfetti()
-
-      return
+      await createSubmission(directoryId, submissionUrl)
+      setEdited(true)
     }
 
-    deleteSubmission(submission.id)
+    setLoadingHandler(false)
   }, [
     directoryId,
     submission,
@@ -62,34 +88,20 @@ function DirectoryDialog({ directoryId, setDirectoryId }: Props) {
     fireConfetti,
   ])
 
-  useEffect(() => {
-    if (loading) return
-    if (initialized) return
+  const handleSubmit = useCallback(async (values: SubmissionFormSchema) => {
+    if (!submission?.id) return
 
-    setInitialized(true)
+    setLoadingHandler(true)
+    setSubmissionUrl(values.url)
 
-    if (!submission?.url) return
+    await updateSubmission(submission.id, { url: values.url })
 
-    setSubmissionUrl(submission.url)
+    setEdited(false)
+    setLoadingHandler(false)
   }, [
-    loading,
-    initialized,
-    submission?.url,
-    submissionUrl,
-    setSubmissionUrl,
-  ])
-
-  useThrottledEffect(() => {
-    if (!submission) return
-    if (!submissionUrl) return
-    if (submission.url === submissionUrl) return
-
-    updateSubmission(submission.id, { url: submissionUrl })
-    setSaved(true)
-  }, 250, [
-    submission,
-    submissionUrl,
+    submission?.id,
     updateSubmission,
+    setSubmissionUrl,
   ])
 
   if (!directory) return null
@@ -101,11 +113,10 @@ function DirectoryDialog({ directoryId, setDirectoryId }: Props) {
         if (open) return
 
         setDirectoryId('')
-        setInitialized(false)
-        setSaved(false)
+        setEdited(false)
       }}
     >
-      <DialogContent className="sm:max-w-xl">
+      <DialogContent className="sm:max-w-2xl">
         <DialogHeader>
           <DialogClose />
           <DialogTitle>
@@ -117,87 +128,107 @@ function DirectoryDialog({ directoryId, setDirectoryId }: Props) {
             {directory.description}
           </DialogDescription>
         </DialogHeader>
-        {!!submission && (
-          <div>
-            <div className="text-sm text-neutral-500">
-              Submitted on
-              {' '}
-              {DateTime.fromISO(submission.createdAt).toLocaleString(DateTime.DATETIME_FULL)}
-            </div>
-            <Label className="mt-4">
-              Submission link
-            </Label>
-            <div className="mt-1 text-sm text-neutral-500">
-              Paste the link to your submission on
-              {' '}
-              {directory.name}
-              {' '}
-              to access it quickly later.
-            </div>
-            <Input
-              value={submissionUrl}
-              onChange={event => {
-                setSubmissionUrl(event.target.value)
-                setSaved(false)
-              }}
-              placeholder={`${directory.url}/product/${project?.id ?? 'project'}`}
-              className="mt-1"
-            />
-            <div className="mt-1 min-h-4">
-              {saved && (
-                <div className="text-xs text-green-500 flex items-center gap-1">
-                  <Check className="h-4 w-4" />
-                  Saved!
-                </div>
-              )}
-            </div>
-          </div>
+        {!!submission && edited && (
+          <Form {...submissionForm}>
+            <form onSubmit={submissionForm.handleSubmit(handleSubmit)}>
+              <FormField
+                control={submissionForm.control}
+                name="url"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>
+                      Paste the link to your product on
+                      {' '}
+                      {directory.name}
+                      {' '}
+                      to access it quickly later.
+                    </FormLabel>
+                    <div className="flex items-center gap-2">
+                      <FormControl>
+                        <Input
+                          autoFocus
+                          placeholder={`${directory.url}/xyz/${project?.id ?? 'project'}`}
+                          {...field}
+                        />
+                      </FormControl>
+                      <Button
+                        type="submit"
+                        loading={loading}
+                      >
+                        Save link
+                      </Button>
+                    </div>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </form>
+          </Form>
         )}
         <DialogFooter>
-          {!!submission && isURL(submissionUrl) && (
-            <a
-              href={submission.url!}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button variant="secondary">
-                <SquareArrowOutUpRight className="h-4 w-4" />
-                Visit submission
+          {!!submission && (
+            <>
+              {!edited && (
+                <Button
+                  variant="secondary"
+                  onClick={() => setEdited(true)}
+                >
+                  <Pen className="h-4 w-4" />
+                  Edit submission link
+                </Button>
+              )}
+              <a
+                href={submission.url!}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="secondary">
+                  <SquareArrowOutUpRight className="h-4 w-4" />
+                  Visit submission
+                </Button>
+              </a>
+              <Button
+                onClick={handleMarkAsSubmitted}
+                loading={loading}
+                variant="secondary"
+              >
+                <Ban className="h-4 w-4" />
+                Unmark as submitted
               </Button>
-            </a>
+            </>
           )}
           {!submission && (
-            <a
-              href={directory.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button variant="secondary">
-                <SquareArrowOutUpRight className="h-4 w-4" />
-                Visit website
+            <>
+              <a
+                href={directory.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="secondary">
+                  <SquareArrowOutUpRight className="h-4 w-4" />
+                  Visit website
+                </Button>
+              </a>
+              <a
+                href={directory.submissionUrl || directory.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="secondary">
+                  <SquareArrowOutUpRight className="h-4 w-4" />
+                  Start submission
+                </Button>
+              </a>
+              <Button
+                onClick={handleMarkAsSubmitted}
+                loading={loading}
+              >
+                <SquarePlus className="h-4 w-4" />
+                Mark as submitted
               </Button>
-            </a>
+            </>
           )}
-          {!submission && (
-            <a
-              href={directory.submissionUrl || directory.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button variant="secondary">
-                <SquareArrowOutUpRight className="h-4 w-4" />
-                Start submission
-              </Button>
-            </a>
-          )}
-          <Button
-            onClick={handleMarkAsSubmitted}
-            loading={loading}
-          >
-            {submission ? 'Unmark as submitted' : 'Mark as submitted'}
-          </Button>
         </DialogFooter>
-
       </DialogContent>
     </Dialog>
   )

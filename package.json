@@ -12,6 +12,7 @@
     "build:core": "cd packages/launchhero-core && npm run build",
     "build:directories": "cd packages/launchhero-directories && npm run build",
     "build:email": "cd packages/launchhero-email && npm run build",
+    "build:packages": "npm run build:core && npm run build:directories && npm run build:email",
     "lint": "npm run lint:app && npm run lint:backend && npm run lint:core && npm run lint:directories && npm run lint:email",
     "lint:app": "cd app && npm run lint",
     "lint:backend": "cd backend && npm run lint",
@@ -25,7 +26,7 @@
     "ncu:core": "cd packages/launchhero-core && ncu -i",
     "ncu:directories": "cd packages/launchhero-directories && ncu -i",
     "ncu:email": "cd packages/launchhero-email && ncu -i",
-    "dev": "nodemon --ext ts,tsx --watch app/src --watch packages/launchhero-core/src --watch packages/launchhero-directories/src --watch packages/launchhero-email/src --exec \"npm run build\"",
+    "dev": "nodemon --ext ts,tsx --watch packages/launchhero-core/src --watch packages/launchhero-directories/src --watch packages/launchhero-email/src --exec \"npm run build:packages\"",
     "prepare": "husky",
     "postinstall": "rm bun.lockb || true"
   },
