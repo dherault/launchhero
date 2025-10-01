@@ -66,11 +66,6 @@ function ProjectsProvider({ children }: PropsWithChildren) {
         ...data,
         updatedAt: new Date().toISOString(),
       })
-
-      toast({
-        title: '🎉 Project updated',
-        description: `${project.name} has been successfully updated.`,
-      })
     }
     catch (error: any) {
       console.error('Error updating Project:', error)

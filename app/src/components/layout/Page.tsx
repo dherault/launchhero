@@ -48,7 +48,7 @@ export function PageSubtitle({ children }: PropsWithChildren) {
 
 export function PageContent({ children }: PropsWithChildren) {
   return (
-    <div className="pt-3 pb-4 px-4 md:px-8 grow flex flex-col relative">
+    <div className="pt-3 pb-4 md:pb-8 px-4 md:px-8 grow flex flex-col relative">
       {children}
     </div>
   )

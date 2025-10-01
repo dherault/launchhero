@@ -27,6 +27,7 @@
     "ncu:directories": "cd packages/launchhero-directories && ncu -i",
     "ncu:email": "cd packages/launchhero-email && ncu -i",
     "dev": "nodemon --ext ts,tsx --watch packages/launchhero-core/src --watch packages/launchhero-directories/src --watch packages/launchhero-email/src --exec \"npm run build:packages\"",
+    "router": "cd app && npm run router",
     "prepare": "husky"
   },
   "devDependencies": {

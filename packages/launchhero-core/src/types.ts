@@ -28,12 +28,18 @@ export type Project = DatabaseResource<{
   name: string
   imageUrl: string | null
   isPublic: boolean
+  contents: ProjectContent[]
   selectedDirectoryIds: string[]
   administratorUserIds: string[]
   memberUserIds: string[]
   stripeId: string | null
   stripeLink: string | null
 }>
+
+export type ProjectContent = {
+  type: DirectoryRequirementType
+  value: string
+}
 
 export type ProjectInvitation = DatabaseResource<{
   email: string

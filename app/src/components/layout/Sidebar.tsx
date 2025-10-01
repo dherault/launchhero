@@ -1,6 +1,7 @@
 import {
   Box,
-  LayoutDashboard,
+  ListChecks,
+  Shapes,
 } from 'lucide-react'
 import { useCallback } from 'react'
 import { Link } from 'react-router'
@@ -48,7 +49,7 @@ function Sidebar() {
         {hasProject && (
           <SidebarGroup>
             <SidebarGroupLabel>
-              Project
+              Prepare your launch
             </SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
@@ -58,9 +59,22 @@ function Sidebar() {
                     onClick={handleSelect}
                   >
                     <Link to={`/-/projects/${finalProject.id}/directories`}>
-                      <LayoutDashboard />
+                      <ListChecks />
                       <span>
                         Directories
+                      </span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton
+                    asChild
+                    onClick={handleSelect}
+                  >
+                    <Link to={`/-/projects/${finalProject.id}/content`}>
+                      <Shapes />
+                      <span>
+                        Project content
                       </span>
                     </Link>
                   </SidebarMenuButton>
