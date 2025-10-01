@@ -26,6 +26,7 @@ export const previewProject: Project = {
   isPublic: false,
   stripeId: null,
   stripeLink: null,
+  selectedDirectoryIds: [],
   administratorUserIds: [previewUser.id],
   memberUserIds: [previewUser.id],
   userId: previewUser.id,
