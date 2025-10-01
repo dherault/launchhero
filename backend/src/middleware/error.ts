@@ -1,13 +1,15 @@
-import type { Request, Response } from 'express'
+import type { Request } from 'express'
 import { ERROR_CODE_INTERNAL_ERROR } from 'launchhero-core'
 
-function errorMiddleware(error: any, request: Request, response: Response) {
+import type { ApiResponse } from '~types'
+
+function errorMiddleware(error: any, request: Request, response: ApiResponse) {
   console.error(`❌ ${request.path}:`, error)
 
   response.status(500).json({
     status: 'error',
     code: ERROR_CODE_INTERNAL_ERROR,
-    error: 'Internal Server Error',
+    message: 'Internal Server Error',
   })
 }
 

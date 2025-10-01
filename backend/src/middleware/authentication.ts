@@ -1,4 +1,4 @@
-import type { NextFunction, Request, Response } from 'express'
+import type { NextFunction, Request } from 'express'
 import firebase from 'firebase-admin'
 import {
   ERROR_CODE_INVALID_BEARER_TOKEN,
@@ -6,11 +6,13 @@ import {
   ERROR_CODE_USER_NOT_FOUND,
 } from 'launchhero-core'
 
+import type { ApiResponse } from '~types'
+
 import { NO_AUTHENTICATION_ROUTES } from '~constants'
 
 import readUser from '~database/readUser'
 
-async function authenticationMiddleware(request: Request, response: Response, next: NextFunction) {
+async function authenticationMiddleware(request: Request, response: ApiResponse, next: NextFunction) {
   if (NO_AUTHENTICATION_ROUTES.includes(request.path)) {
     next()
 

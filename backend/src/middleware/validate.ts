@@ -1,5 +1,8 @@
-import type { NextFunction, Request, Response } from 'express'
+import type { NextFunction, Request } from 'express'
+import { ERROR_CODE_BAD_REQUEST } from 'launchhero-core'
 import type { z } from 'zod'
+
+import type { ApiResponse } from '~types'
 
 type ValidateOptions = {
   query?: z.ZodSchema
@@ -7,7 +10,7 @@ type ValidateOptions = {
 }
 
 function validate({ query: querySchema, body: bodySchema }: ValidateOptions) {
-  return (request: Request, response: Response, next: NextFunction) => {
+  return (request: Request, response: ApiResponse<any>, next: NextFunction) => {
     try {
       if (querySchema) querySchema.parse(request.query)
       if (bodySchema) bodySchema.parse(request.body)
@@ -19,7 +22,8 @@ function validate({ query: querySchema, body: bodySchema }: ValidateOptions) {
 
       response.status(400).json({
         status: 'error',
-        error: error.message ?? 'Request validation failed',
+        code: ERROR_CODE_BAD_REQUEST,
+        message: error.message ?? 'Request validation failed',
       })
     }
   }

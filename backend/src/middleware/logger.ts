@@ -1,6 +1,8 @@
-import type { NextFunction, Request, Response } from 'express'
+import type { NextFunction, Request } from 'express'
 
-function loggerMiddleware(request: Request, response: Response, next: NextFunction) {
+import type { ApiResponse } from '~types'
+
+function loggerMiddleware(request: Request, _response: ApiResponse, next: NextFunction) {
   console.log(`🏹 ${request.method} ${request.url}`)
 
   next()

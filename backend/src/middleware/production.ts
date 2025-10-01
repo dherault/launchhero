@@ -1,9 +1,11 @@
-import type { NextFunction, Request, Response } from 'express'
+import type { NextFunction, Request } from 'express'
 import { ERROR_CODE_INTERNAL_ERROR } from 'launchhero-core'
+
+import type { ApiResponse } from '~types'
 
 import { IS_PRODUCTION } from '~constants'
 
-function productionMiddleware(request: Request, response: Response, next: NextFunction) {
+function productionMiddleware(_request: Request, response: ApiResponse, next: NextFunction) {
   if (!IS_PRODUCTION) {
     console.warn('⚠️ Not in production mode')
 

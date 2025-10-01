@@ -1,13 +1,15 @@
-import type { NextFunction, Request, Response } from 'express'
+import type { NextFunction, Request } from 'express'
 import {
   ERROR_CODE_INVALID_BEARER_TOKEN,
   ERROR_CODE_NO_BEARER_TOKEN,
 } from 'launchhero-core'
 
+import type { ApiResponse } from '~types'
+
 import retrieveSecret from '~utils/retrieveSecret'
 
 function createAuthenticationWithSecretMiddleware(secretKey: string) {
-  return async function authenticationWithSecretMiddleware(request: Request, response: Response, next: NextFunction) {
+  return async function authenticationWithSecretMiddleware(request: Request, response: ApiResponse, next: NextFunction) {
     const authHeader = request.headers.authorization
 
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
