@@ -28,6 +28,7 @@ export type Project = DatabaseResource<{
   name: string
   imageUrl: string | null
   isPublic: boolean
+  selectedDirectoryIds: string[]
   administratorUserIds: string[]
   memberUserIds: string[]
   stripeId: string | null
@@ -58,17 +59,19 @@ export type Directory = {
   url: string
   submissionUrl: string | null
   imageUrl: string | null
+  isPaid: boolean
   tags: DirectoryTag[]
   requirements: DirectoryRequirement[]
 }
 
-export type DirectoryTag = 'community'
+export type DirectoryTag = 'community' | 'ai-only'
 
 export type DirectoryRequirementType =
   | 'url'
   | 'name'
   | 'punchline'
   | 'description'
+  | 'country'
   | 'icon'
   | 'logo'
   | 'screenshot'

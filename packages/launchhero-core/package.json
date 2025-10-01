@@ -1,7 +1,7 @@
 {
   "name": "launchhero-core",
-  "version": "0.8.0",
-  "description": "Core types and constants for launchhe.ro",
+  "version": "0.8.1",
+  "description": "Core types and constants for Launch Hero",
   "license": "SEE LICENSE IN LICENSE",
   "author": "David Hérault <dherault@gmail.com> (https://github.com/dherault)",
   "repository": {
