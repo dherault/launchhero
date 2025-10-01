@@ -62,3 +62,7 @@
 - Deploy backend
 - Create project directories page
 - Create directories package
+
+## 2025-10-01
+- Enhance directories package with first requirements
+- Design directory dialog

@@ -8,6 +8,7 @@ import Onboarding from '~app/-.../onboarding/page'
 import Dash from '~app/-.../page'
 import DirectoriesLayout from '~app/-.../projects/[projectId]/directories/layout'
 import Directories from '~app/-.../projects/[projectId]/directories/page'
+import ProjectIdLayout from '~app/-.../projects/[projectId]/layout'
 import ProjectId from '~app/-.../projects/[projectId]/page'
 
 import Loading from '~components/common/Loading'
@@ -48,7 +49,11 @@ function DashSubRouter() {
           />
           <Route
             path=":projectId"
-            element={<Outlet />}
+            element={(
+              <ProjectIdLayout>
+                <Outlet />
+              </ProjectIdLayout>
+            )}
           >
             <Route
               index

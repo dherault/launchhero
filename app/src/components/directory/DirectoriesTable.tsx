@@ -1,5 +1,5 @@
 import directories from 'launchhero-directories'
-import { Link2 } from 'lucide-react'
+import { Check, Link2 } from 'lucide-react'
 import type { CSSProperties } from 'react'
 
 import useSearchParameter from '~hooks/common/useSearchParameter'
@@ -9,14 +9,17 @@ import DirectoryIcon from '~components/directory/DirectoryIcon'
 import DirectorySubmissionStatusChip from '~components/directory/DirectorySubmissionStatusChip'
 import DirectoryTagChip from '~components/directory/DirectoryTagChip'
 import { Button } from '~components/ui/Button'
+import { Checkbox } from '~components/ui/Checkbox'
 
 type Props = {
+  hasCheckbox?: boolean
   hasSubmissionStatus?: boolean
   hasWebsite?: boolean
   maxHeight?: CSSProperties['maxHeight']
 }
 
 function DirectoriesTable({
+  hasCheckbox = false,
   hasSubmissionStatus = false,
   hasWebsite = false,
   maxHeight = 'auto',
@@ -27,6 +30,11 @@ function DirectoriesTable({
     <>
       <div className="border rounded-xs">
         <div className="py-2 px-3 flex items-center gap-3 border-b h-[49px] font-medium text-sm">
+          {hasCheckbox && (
+            <div className="w-6 flex items-center justify-center">
+              <Check className="h-4 w-4" />
+            </div>
+          )}
           <div className="w-8" />
           <div className="grow">
             Directory
@@ -52,9 +60,12 @@ function DirectoriesTable({
               className="py-2 px-3 border-b last:border-b-0 flex items-center gap-3 hover:bg-neutral-50 cursor-pointer"
               onClick={() => setDirectoryId(directory.id)}
             >
-              <div className="flex">
-                <DirectoryIcon directory={directory} />
-              </div>
+              {hasCheckbox && (
+                <div className="flex">
+                  <Checkbox onClick={event => event.stopPropagation()} />
+                </div>
+              )}
+              <DirectoryIcon directory={directory} />
               <div className="grow flex items-center flex-wrap gap-2">
                 <div className="font-medium text-sm">
                   {directory.name}

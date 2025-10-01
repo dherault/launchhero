@@ -27,13 +27,12 @@
     "ncu:directories": "cd packages/launchhero-directories && ncu -i",
     "ncu:email": "cd packages/launchhero-email && ncu -i",
     "dev": "nodemon --ext ts,tsx --watch packages/launchhero-core/src --watch packages/launchhero-directories/src --watch packages/launchhero-email/src --exec \"npm run build:packages\"",
-    "prepare": "husky",
-    "postinstall": "rm bun.lockb || true"
+    "prepare": "husky"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
     "@stylistic/eslint-plugin": "^5.4.0",
-    "@types/node": "^24.6.0",
+    "@types/node": "^24.6.1",
     "eslint": "^9.36.0",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-react": "^7.37.5",
@@ -41,7 +40,7 @@
     "eslint-plugin-unused-imports": "^4.2.0",
     "globals": "^16.4.0",
     "husky": "^9.1.7",
-    "jiti": "^2.6.0",
+    "jiti": "^2.6.1",
     "nodemon": "^3.1.10",
     "typescript-eslint": "^8.45.0"
   },

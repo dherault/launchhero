@@ -23,7 +23,7 @@ function DirectorySubmissionStatusChip({ directory }: Props) {
 
   return (
     <Badge variant={submission ? 'default' : 'secondary'}>
-      {submission ? `Submitted ${DateTime.fromISO(submission.updatedAt).toLocaleString(DateTime.DATE_SHORT)}` : 'Not submitted'}
+      {submission ? `Submitted ${DateTime.fromISO(submission.createdAt).toLocaleString(DateTime.DATE_SHORT)}` : 'Not submitted'}
     </Badge>
   )
 }

@@ -21,6 +21,8 @@ import {
 } from 'react'
 import { useNavigate } from 'react-router'
 
+import type { EmptyApiInput } from '~types'
+
 import { NULL_DOCUMENT_ID } from '~constants'
 
 import {
@@ -32,11 +34,14 @@ import {
 
 import UserContext, { type UserContextType } from '~contexts/data/UserContext'
 
+import useApi from '~hooks/api/useApi'
 import useLiveDocument from '~hooks/db/useLiveDocument'
 
 import getTimeZone from '~utils/common/getTimeZone'
 
 import ErrorOccured from '~components/common/ErrorOccured'
+
+let sendWelcomeEmailTimeoutId: NodeJS.Timeout | undefined
 
 function AuthenticationProvider({ children }: PropsWithChildren) {
   const navigate = useNavigate()
@@ -53,6 +58,8 @@ function AuthenticationProvider({ children }: PropsWithChildren) {
   // being set to false so we use this instead
   const loadingUserFinal = !!userId && !user
   const hasUser = !!(userId && user)
+
+  const invokeSendWelcomeEmail = useApi<EmptyApiInput, void>('POST', '/emails/welcome')
 
   const handleAuthenticationStateChange = useCallback(async () => {
     await persistancePromise
@@ -158,10 +165,21 @@ function AuthenticationProvider({ children }: PropsWithChildren) {
         hasSentVerificationEmail: true,
       })
     }
+
+    if (!user.hasSentWelcomeEmail) {
+      clearTimeout(sendWelcomeEmailTimeoutId)
+
+      sendWelcomeEmailTimeoutId = setTimeout(() => {
+        invokeSendWelcomeEmail()
+
+        console.log('💌 Sent welcome email')
+      }, 3000)
+    }
   }, [
     viewer,
     user,
     updateUser,
+    invokeSendWelcomeEmail,
   ])
 
   const signOut = useCallback(async () => {

@@ -1,7 +1,7 @@
 {
   "name": "launchhero-directories",
   "version": "0.0.0",
-  "description": "Core types and constants for launchhe.ro",
+  "description": "Directories data for Launch Hero",
   "license": "SEE LICENSE IN LICENSE",
   "author": "David Hérault <dherault@gmail.com> (https://github.com/dherault)",
   "repository": {
@@ -26,7 +26,7 @@
   "scripts": {
     "dev": "nodemon --watch src --ext ts --exec \"npm run build\"",
     "build": "npm run build:clean && npm run build:directories",
-    "build:clean": "rimraf dist",
+    "build:clean": "rimraf dist/**/*",
     "build:directories": "tsx src/build.ts",
     "prepublishOnly": "npm run build",
     "deploy": "npm run deploy:patch",
