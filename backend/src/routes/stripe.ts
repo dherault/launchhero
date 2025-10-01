@@ -6,6 +6,8 @@ import {
 import type Stripe from 'stripe'
 import z from 'zod'
 
+import type { ApiResponsePayload } from '~types'
+
 import {
   IS_DEVELOPMENT,
   SECRET_STRIPE_WEBHOOK_SECRET,
@@ -45,88 +47,91 @@ function createStripeRoutes() {
     // 'customer.subscription.deleted',
   ]
 
-  router.post('/webhook', async (request, response) => {
-    console.log('💳 Received Stripe webhook')
+  router.post<any, ApiResponsePayload>(
+    '/webhook',
+    async (request, response) => {
+      console.log('💳 Received Stripe webhook')
 
-    const stripe = await getStripeClient()
+      const stripe = await getStripeClient()
 
-    const webhookSecret = IS_DEVELOPMENT && process.env.STRIPE_WEBHOOK_SECRET
-      ? process.env.STRIPE_WEBHOOK_SECRET
-      : await retrieveSecret(SECRET_STRIPE_WEBHOOK_SECRET)
+      const webhookSecret = IS_DEVELOPMENT && process.env.STRIPE_WEBHOOK_SECRET
+        ? process.env.STRIPE_WEBHOOK_SECRET
+        : await retrieveSecret(SECRET_STRIPE_WEBHOOK_SECRET)
 
-    const event = await stripe.webhooks.constructEventAsync(
-      request.body,
-      request.headers['stripe-signature'] as string,
-      webhookSecret,
-    )
+      const event = await stripe.webhooks.constructEventAsync(
+        request.body,
+        request.headers['stripe-signature'] as string,
+        webhookSecret,
+      )
 
-    if (!acceptedEvents.includes(event.type)) {
-      response.status(200).send({
-        status: 'success',
-      })
+      if (!acceptedEvents.includes(event.type)) {
+        response.status(200).send({
+          status: 'success',
+        })
 
-      return
-    }
-
-    console.log('💳 Event', event.type)
-
-    switch (event.type) {
-      case 'product.created':
-      case 'product.updated': {
-        await upsertProduct(event.data.object as Stripe.Product)
-        break
+        return
       }
-      case 'price.created':
-      case 'price.updated': {
-        await upsertPrice(stripe, event.data.object as Stripe.Price)
-        break
-      }
-      case 'product.deleted': {
-        await deleteProductOrPrice(event.data.object as Stripe.Product)
-        break
-      }
-      case 'price.deleted': {
-        await deleteProductOrPrice(event.data.object as Stripe.Price)
-        break
-      }
-      // case 'customer.subscription.created':
-      // case 'customer.subscription.updated':
-      // case 'customer.subscription.deleted': {
-      //   const subscription = event.data.object as Stripe.Subscription
 
-      //   await upsertSubscription(
-      //     stripe,
-      //     subscription.customer as string,
-      //     subscription.id,
-      //     event.type === 'customer.subscription.created',
-      //   )
-      //   break
-      // }
-      case 'checkout.session.completed':
-      case 'checkout.session.async_payment_succeeded':
-      case 'checkout.session.async_payment_failed': {
-        // const checkoutSession = event.data.object as Stripe.Checkout.Session
+      console.log('💳 Event', event.type)
 
-        // if (checkoutSession.mode === 'subscription') {
-        //   const subscriptionId = checkoutSession.subscription as string
+      switch (event.type) {
+        case 'product.created':
+        case 'product.updated': {
+          await upsertProduct(event.data.object as Stripe.Product)
+          break
+        }
+        case 'price.created':
+        case 'price.updated': {
+          await upsertPrice(stripe, event.data.object as Stripe.Price)
+          break
+        }
+        case 'product.deleted': {
+          await deleteProductOrPrice(event.data.object as Stripe.Product)
+          break
+        }
+        case 'price.deleted': {
+          await deleteProductOrPrice(event.data.object as Stripe.Price)
+          break
+        }
+        // case 'customer.subscription.created':
+        // case 'customer.subscription.updated':
+        // case 'customer.subscription.deleted': {
+        //   const subscription = event.data.object as Stripe.Subscription
 
         //   await upsertSubscription(
         //     stripe,
-        //     checkoutSession.customer as string,
-        //     subscriptionId,
-        //     true,
+        //     subscription.customer as string,
+        //     subscription.id,
+        //     event.type === 'customer.subscription.created',
         //   )
+        //   break
         // }
-        break
+        case 'checkout.session.completed':
+        case 'checkout.session.async_payment_succeeded':
+        case 'checkout.session.async_payment_failed': {
+        // const checkoutSession = event.data.object as Stripe.Checkout.Session
+
+          // if (checkoutSession.mode === 'subscription') {
+          //   const subscriptionId = checkoutSession.subscription as string
+
+          //   await upsertSubscription(
+          //     stripe,
+          //     checkoutSession.customer as string,
+          //     subscriptionId,
+          //     true,
+          //   )
+          // }
+          break
+        }
       }
-    }
 
-    console.log('💳 Stripe webhook processed')
+      console.log('💳 Stripe webhook processed')
 
-    response.status(200).send({
-      status: 'success',
-    })
-  })
+      response.status(200).send({
+        status: 'success',
+      })
+    },
+  )
 
   /* ---
     PORTAL URL
@@ -137,57 +142,60 @@ function createStripeRoutes() {
     returnUrl: z.url('Return URL must be a valid URL'),
   })
 
-  router.get('/portal-url', validate({ query: portalUrlSchema }), async (request, response) => {
-    console.log('💳 Creating portal URL')
+  router.get<any, ApiResponsePayload<{ url: string }>>(
+    '/portal-url',
+    validate({ query: portalUrlSchema }),
+    async (request, response) => {
+      console.log('💳 Creating portal URL')
 
-    const stripe = await getStripeClient()
+      const stripe = await getStripeClient()
 
-    const projectId = request.query.projectId as string
-    const returnUrl = request.query.returnUrl as string
+      const projectId = request.query.projectId as string
+      const returnUrl = request.query.returnUrl as string
 
-    const project = await readProject(projectId)
+      const project = await readProject(projectId)
 
-    if (!project) {
-      response.status(404).json({
-        status: 'error',
-        code: ERROR_CODE_PROJECT_NOT_FOUND,
-        message: 'Project not found',
+      if (!project) {
+        response.status(404).json({
+          status: 'error',
+          code: ERROR_CODE_PROJECT_NOT_FOUND,
+          message: 'Project not found',
+        })
+
+        return
+      }
+
+      let { stripeId } = project
+
+      if (!stripeId) {
+        const updatePayload = await updateCustomerProject(stripe, project.id)
+
+        stripeId = updatePayload?.stripeId ?? null
+      }
+
+      if (!stripeId) {
+        response.status(404).json({
+          status: 'error',
+          code: ERROR_CODE_STRIPE_CUSTOMER_NOT_FOUND,
+          message: 'Stripe customer not found',
+        })
+
+        return
+      }
+
+      const session = await stripe.billingPortal.sessions.create({
+        customer: stripeId,
+        return_url: returnUrl,
+        locale: 'auto',
       })
 
-      return
-    }
-
-    let { stripeId } = project
-
-    if (!stripeId) {
-      const updatePayload = await updateCustomerProject(stripe, project.id)
-
-      stripeId = updatePayload?.stripeId ?? null
-    }
-
-    if (!stripeId) {
-      response.status(404).json({
-        status: 'error',
-        code: ERROR_CODE_STRIPE_CUSTOMER_NOT_FOUND,
-        message: 'Stripe customer not found',
+      response.json({
+        status: 'success',
+        data: {
+          url: session.url!,
+        },
       })
-
-      return
-    }
-
-    const session = await stripe.billingPortal.sessions.create({
-      customer: stripeId,
-      return_url: returnUrl,
-      locale: 'auto',
     })
-
-    response.json({
-      status: 'success',
-      data: {
-        url: session.url,
-      },
-    })
-  })
 
   /* ---
     CHECKOUT SESSION
@@ -200,59 +208,63 @@ function createStripeRoutes() {
     cancelUrl: z.url('Cancel URL must be a valid URL'),
   })
 
-  router.post('/checkout-session', validate({ body: checkoutSessionSchema }), async (request, response) => {
-    console.log('💳 Create checkout session')
+  router.post<any, ApiResponsePayload<{ url: string }>>(
+    '/checkout-session',
+    validate({ body: checkoutSessionSchema }),
+    async (request, response) => {
+      console.log('💳 Create checkout session')
 
-    const { projectId, priceId, successUrl, cancelUrl } = request.body
+      const { projectId, priceId, successUrl, cancelUrl } = request.body
 
-    const project = await readProject(projectId)
+      const project = await readProject(projectId)
 
-    if (!project) {
-      response.status(404).json({
-        status: 'error',
-        code: ERROR_CODE_PROJECT_NOT_FOUND,
-        message: 'Project not found',
+      if (!project) {
+        response.status(404).json({
+          status: 'error',
+          code: ERROR_CODE_PROJECT_NOT_FOUND,
+          message: 'Project not found',
+        })
+
+        return
+      }
+
+      const stripe = await getStripeClient()
+      let { stripeId } = project
+
+      if (!stripeId) {
+        const updatePayload = await updateCustomerProject(stripe, project.id)
+
+        stripeId = updatePayload?.stripeId ?? null
+      }
+
+      if (!stripeId) {
+        response.status(404).json({
+          status: 'error',
+          code: ERROR_CODE_STRIPE_CUSTOMER_NOT_FOUND,
+          message: 'Stripe customer not found',
+        })
+
+        return
+      }
+
+      const session = await stripe.checkout.sessions.create({
+        customer: stripeId,
+        line_items: [{ price: priceId }],
+        mode: 'subscription',
+        locale: 'auto',
+        allow_promotion_codes: true,
+        success_url: successUrl,
+        cancel_url: cancelUrl,
       })
 
-      return
-    }
-
-    const stripe = await getStripeClient()
-    let { stripeId } = project
-
-    if (!stripeId) {
-      const updatePayload = await updateCustomerProject(stripe, project.id)
-
-      stripeId = updatePayload?.stripeId ?? null
-    }
-
-    if (!stripeId) {
-      response.status(404).json({
-        status: 'error',
-        code: ERROR_CODE_STRIPE_CUSTOMER_NOT_FOUND,
-        message: 'Stripe customer not found',
+      response.json({
+        status: 'success',
+        data: {
+          url: session.url!,
+        },
       })
-
-      return
-    }
-
-    const session = await stripe.checkout.sessions.create({
-      customer: stripeId,
-      line_items: [{ price: priceId }],
-      mode: 'subscription',
-      locale: 'auto',
-      allow_promotion_codes: true,
-      success_url: successUrl,
-      cancel_url: cancelUrl,
-    })
-
-    response.json({
-      status: 'success',
-      data: {
-        url: session.url,
-      },
-    })
-  })
+    },
+  )
 
   return router
 }

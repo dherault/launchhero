@@ -23,7 +23,6 @@ function createAuthenticationWithSecretMiddleware(secretKey: string) {
     }
 
     const token = authHeader.split(' ')[1]
-
     const secret = await retrieveSecret(secretKey)
 
     if (token !== secret) {
@@ -37,6 +36,7 @@ function createAuthenticationWithSecretMiddleware(secretKey: string) {
 
       return
     }
+
     next()
   }
 }
