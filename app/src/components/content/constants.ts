@@ -1,5 +1,7 @@
 import type { DirectoryRequirementType } from 'launchhero-core'
 
+export const IMAGE_UPLOAD_MAX_SIZE_MB = 10
+
 export const labels: Record<DirectoryRequirementType, string> = {
   url: 'Website',
   name: 'Name',
@@ -37,9 +39,9 @@ export const descriptions: Record<DirectoryRequirementType, string> = {
   name: 'The name of your product',
   punchline: 'A short, catchy phrase that summarizes your product',
   description: 'A detailed description of your product, its features, and benefits',
-  icon: 'A small icon representing your product (e.g. favicon)',
-  logo: 'Preferably transparent background',
-  screenshot: 'Showcasing your product\'s interface or key features. Try to get at least 3.',
+  icon: 'A small icon representing your product. Preferably square with a transparent background.',
+  logo: 'Preferably square with a transparent background.',
+  screenshot: `Showcasing your product's interface or key features. Try to get at least 3. Max ${IMAGE_UPLOAD_MAX_SIZE_MB}MB.`,
 
   country: 'The country where your business is based',
   video: 'A promotional or demo video of your product (e.g. YouTube link)',

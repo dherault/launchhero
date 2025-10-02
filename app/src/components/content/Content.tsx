@@ -1,4 +1,12 @@
-import { ContentDescription, ContentLogo, ContentName, ContentPunchline, ContentScreenshot, ContentUrl } from '~components/content/Contents'
+import {
+  ContentDescription,
+  ContentIcon,
+  ContentLogo,
+  ContentName,
+  ContentPunchline,
+  ContentScreenshot,
+  ContentUrl,
+} from '~components/content/Contents'
 import ContentSection from '~components/content/ContentSection'
 
 function Content() {
@@ -11,6 +19,7 @@ function Content() {
         <ContentDescription />
       </ContentSection>
       <ContentSection title="Media">
+        <ContentIcon />
         <ContentLogo />
         <ContentScreenshot />
       </ContentSection>

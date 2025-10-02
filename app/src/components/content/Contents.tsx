@@ -6,6 +6,7 @@ import useProjects from '~hooks/data/useProjects'
 import useProjectContentValues from '~hooks/project/useProjectContentValues'
 
 import { ImageUpload } from '~components/common/ImageUpload'
+import { IMAGE_UPLOAD_MAX_SIZE_MB } from '~components/content/constants'
 import ContentError from '~components/content/ContentError'
 import ContentForm from '~components/content/ContentForm'
 import ContentLabel from '~components/content/ContentLabel'
@@ -106,6 +107,30 @@ export function ContentDescription() {
   Logo
 --- */
 
+export function ContentIcon() {
+  const project = useProject()
+  const { values, setValues } = useProjectContentValues('icon')
+  const [error, setError] = useState<string | null>(null)
+
+  return (
+    <div className="space-y-2">
+      <ContentLabel type="icon" />
+      <ImageUpload
+        storagePath={`projects/${project?.id}/icons`}
+        maxSizeMB={IMAGE_UPLOAD_MAX_SIZE_MB}
+        currentImageUrls={values}
+        onUploadComplete={urls => setValues(urls)}
+        onUploadError={err => setError(err?.message ?? null)}
+      />
+      <ContentError message={error} />
+    </div>
+  )
+}
+
+/* ---
+  Logo
+--- */
+
 export function ContentLogo() {
   const project = useProject()
   const { values, setValues } = useProjectContentValues('logo')
@@ -116,6 +141,7 @@ export function ContentLogo() {
       <ContentLabel type="logo" />
       <ImageUpload
         storagePath={`projects/${project?.id}/logos`}
+        maxSizeMB={IMAGE_UPLOAD_MAX_SIZE_MB}
         currentImageUrls={values}
         onUploadComplete={urls => setValues(urls)}
         onUploadError={err => setError(err?.message ?? null)}
@@ -140,6 +166,7 @@ export function ContentScreenshot() {
       <ImageUpload
         multiple
         storagePath={`projects/${project?.id}/screenshots`}
+        maxSizeMB={IMAGE_UPLOAD_MAX_SIZE_MB}
         currentImageUrls={values}
         onUploadComplete={urls => setValues(urls)}
         onUploadError={err => setError(err?.message ?? null)}
