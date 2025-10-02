@@ -5,17 +5,17 @@
 @theme inline {
   --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --color-primary: #1800ad;
-  --color-primary-50: #e7e6ff;
-  --color-primary-100: #cecdff;
-  --color-primary-200: #9e9bff;
-  --color-primary-300: #706aff;
-  --color-primary-400: #3927ff;
-  --color-primary-500: #1800ad;
-  --color-primary-600: #130095;
-  --color-primary-700: #0e007d;
-  --color-primary-800: #08005f;
-  --color-primary-900: #040044;
-  --color-primary-950: #02002f;
+   --color-primary-50: #f3f2ff;
+  --color-primary-100: #e4e3ff;
+  --color-primary-200: #c8c7ff;
+  --color-primary-300: #b0aeff;
+  --color-primary-400: #9592ff;
+  --color-primary-500: #7a74ff;
+  --color-primary-600: #5d55ff;
+  --color-primary-700: #3d2dff;
+  --color-primary-800: #2400e9;
+  --color-primary-900: #1800ad;
+  --color-primary-950: #0b006b;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -113,4 +113,11 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
 }

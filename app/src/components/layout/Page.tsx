@@ -26,7 +26,7 @@ export function PageTitle({ title, displayTitle, icon, action, analyticsKey }: P
   if (displayTitle === '') return null
 
   return (
-    <div className="ml-6 md:ml-0 pt-3 px-8 h-16 shrink-0 flex items-center gap-4">
+    <div className="mb-4 ml-6 md:ml-0 pt-3 px-8 h-16 shrink-0 flex items-center gap-4">
       {icon}
       <h1 className="text-xl font-semibold flex items-center gap-2">
         {displayTitle ?? title}
@@ -40,7 +40,7 @@ export function PageTitle({ title, displayTitle, icon, action, analyticsKey }: P
 
 export function PageSubtitle({ children }: PropsWithChildren) {
   return (
-    <div className="-mt-2 mb-4 text-sm text-neutral-500 px-8">
+    <div className="-mt-6 mb-4 text-sm text-neutral-500 px-8">
       {children}
     </div>
   )
@@ -48,7 +48,7 @@ export function PageSubtitle({ children }: PropsWithChildren) {
 
 export function PageContent({ children }: PropsWithChildren) {
   return (
-    <div className="pt-3 pb-4 md:pb-8 px-4 md:px-8 grow flex flex-col relative">
+    <div className="pb-4 md:pb-8 px-4 md:px-8 grow flex flex-col relative">
       {children}
     </div>
   )

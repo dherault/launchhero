@@ -6,10 +6,10 @@ import DashLayout from '~app/-.../layout'
 import OnboardingLayout from '~app/-.../onboarding/layout'
 import Onboarding from '~app/-.../onboarding/page'
 import Dash from '~app/-.../page'
-import ContentLayout from '~app/-.../projects/[projectId]/content/layout'
-import Content from '~app/-.../projects/[projectId]/content/page'
 import DirectoriesLayout from '~app/-.../projects/[projectId]/directories/layout'
 import Directories from '~app/-.../projects/[projectId]/directories/page'
+import InformationLayout from '~app/-.../projects/[projectId]/information/layout'
+import Information from '~app/-.../projects/[projectId]/information/page'
 import ProjectIdLayout from '~app/-.../projects/[projectId]/layout'
 import ProjectId from '~app/-.../projects/[projectId]/page'
 
@@ -62,16 +62,16 @@ function DashSubRouter() {
               element={<ProjectId />}
             />
             <Route
-              path="content"
+              path="information"
               element={(
-                <ContentLayout>
+                <InformationLayout>
                   <Outlet />
-                </ContentLayout>
+                </InformationLayout>
               )}
             >
               <Route
                 index
-                element={<Content />}
+                element={<Information />}
               />
               <Route
                 path="*"

@@ -7,7 +7,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "npm run build:core && npm run build:directories && npm run build:email && npm run build:app",
+    "build": "npm run build:core && npm run build:directories",
     "build:app": "cd app && npm run build",
     "build:core": "cd packages/launchhero-core && npm run build",
     "build:directories": "cd packages/launchhero-directories && npm run build",
@@ -33,11 +33,11 @@
   "devDependencies": {
     "@eslint/js": "^9.36.0",
     "@stylistic/eslint-plugin": "^5.4.0",
-    "@types/node": "^24.6.1",
+    "@types/node": "^24.6.2",
     "eslint": "^9.36.0",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-hooks": "^6.1.0",
     "eslint-plugin-unused-imports": "^4.2.0",
     "globals": "^16.4.0",
     "husky": "^9.1.7",

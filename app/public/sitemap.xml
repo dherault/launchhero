@@ -2,35 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://localhost:5173/</loc>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-10-02</lastmod>
   </url>
   <url>
     <loc>http://localhost:5173/-</loc>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-10-02</lastmod>
   </url>
   <url>
     <loc>http://localhost:5173/-/projects</loc>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-10-02</lastmod>
   </url>
   <url>
     <loc>http://localhost:5173/-/onboarding</loc>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-10-02</lastmod>
   </url>
   <url>
     <loc>http://localhost:5173/authentication</loc>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-10-02</lastmod>
   </url>
   <url>
     <loc>http://localhost:5173/authentication/password-reset</loc>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-10-02</lastmod>
   </url>
   <url>
     <loc>http://localhost:5173/support</loc>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-10-02</lastmod>
   </url>
   <url>
     <loc>http://localhost:5173/legal</loc>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-10-02</lastmod>
   </url>
 
 </urlset>

@@ -23,11 +23,12 @@ type Props = {
   type: DirectoryRequirementType
   formSchema: z.ZodSchema<any>
   inputType: 'input' | 'textarea'
+  onSave?: (value: any) => void
 }
 
 let saveTimeoutId: NodeJS.Timeout
 
-function ContentForm({ type, formSchema, inputType }: Props) {
+function ContentForm({ type, formSchema, inputType, onSave }: Props) {
   const { value = '', setValue, loading } = useProjectContentValue(type)
 
   const [saved, setSaved] = useState(false)
@@ -47,43 +48,36 @@ function ContentForm({ type, formSchema, inputType }: Props) {
 
     await setValue(values.value)
     setSaved(true)
+    onSave?.(values.value)
 
     saveTimeoutId = setTimeout(() => {
       setSaved(false)
     }, 2000)
   }, [
     setValue,
+    onSave,
   ])
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(handleSubmit)}
-        className="max-w-xl"
-      >
+      <form onSubmit={form.handleSubmit(handleSubmit)}>
         <FormField
           control={form.control}
           name="value"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="flex items-center gap-1 h-4">
+              <FormLabel>
                 {label}
-                {' '}
-                {saved && (
-                  <div className="mt-0.5 text-xs font-normal text-green-500">
-                    Saved!
-                  </div>
-                )}
               </FormLabel>
-              <div className="-mt-1 text-sm text-neutral-500">
+              <div className="text-sm text-neutral-500">
                 {description}
               </div>
               <div className="flex items-center gap-2">
                 {inputType === 'input' && (
                   <FormControl>
                     <Input
-                      autoFocus
                       placeholder={placeholder}
+                      className="w-xl"
                       {...field}
                     />
                   </FormControl>
@@ -91,18 +85,25 @@ function ContentForm({ type, formSchema, inputType }: Props) {
                 {inputType === 'textarea' && (
                   <FormControl>
                     <TextareaAutosize
-                      autoFocus
                       placeholder={placeholder}
+                      className="w-xl"
                       {...field}
                     />
                   </FormControl>
                 )}
-                <Button
-                  type="submit"
-                  loading={loading}
-                >
-                  Save
-                </Button>
+                {form.watch('value') !== value && (
+                  <Button
+                    type="submit"
+                    loading={loading}
+                  >
+                    Save
+                  </Button>
+                )}
+                {saved && (
+                  <div className="text-xs font-normal text-green-500">
+                    Saved!
+                  </div>
+                )}
               </div>
               <FormMessage />
             </FormItem>

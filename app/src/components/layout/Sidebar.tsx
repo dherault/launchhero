@@ -71,10 +71,10 @@ function Sidebar() {
                     asChild
                     onClick={handleSelect}
                   >
-                    <Link to={`/-/projects/${finalProject.id}/content`}>
+                    <Link to={`/-/projects/${finalProject.id}/information`}>
                       <Shapes />
                       <span>
-                        Project content
+                        Project information
                       </span>
                     </Link>
                   </SidebarMenuButton>

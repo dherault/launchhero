@@ -6,11 +6,11 @@ function ContentLayout({ children }: PropsWithChildren) {
   return (
     <>
       <PageTitle
-        title="Project content"
-        analyticsKey="content"
+        title="Project information"
+        analyticsKey="project_information"
       />
       <PageSubtitle>
-        A place to manage your project's information.
+        A place to manage your project's submission information.
       </PageSubtitle>
       <PageContent>
         {children}

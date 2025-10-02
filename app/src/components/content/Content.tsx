@@ -1,8 +1,15 @@
-import { ContentUrl } from '~components/content/Contents'
+import { ContentName, ContentPunchline, ContentUrl } from '~components/content/Contents'
+import ContentSection from '~components/content/ContentSection'
 
 function Content() {
   return (
-    <ContentUrl />
+    <div className="space-y-8">
+      <ContentSection title="Basic information">
+        <ContentUrl />
+        <ContentName />
+        <ContentPunchline />
+      </ContentSection>
+    </div>
   )
 }
 

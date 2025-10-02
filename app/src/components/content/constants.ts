@@ -4,6 +4,7 @@ export const labels: Record<DirectoryRequirementType, string> = {
   url: 'Website',
   name: 'Name',
   punchline: 'Punchline',
+
   description: 'Description',
   country: 'Country',
   icon: 'Icon',
@@ -33,8 +34,9 @@ export const labels: Record<DirectoryRequirementType, string> = {
 
 export const descriptions: Record<DirectoryRequirementType, string> = {
   url: 'The main URL of your product',
-  name: 'The name of your product as you want it to appear on the directory',
+  name: 'The name of your product',
   punchline: 'A short, catchy phrase that summarizes your product',
+
   description: 'A detailed description of your product, its features, and benefits',
   country: 'The country where your business is based',
   icon: 'A small icon representing your product (e.g. favicon)',
@@ -66,6 +68,7 @@ export const placeholders: Partial<Record<DirectoryRequirementType, string>> = {
   url: 'https://yourproduct.com',
   name: 'Your product name',
   punchline: 'The best product ever',
+
   description: 'Describe your product in a few sentences',
   country: 'USA',
   video: 'https://youtube.com/xyz',

@@ -50,6 +50,6 @@ export const SECRET_EMAILS_API_SECRET = 'emails-api-secret'
   EMAILS
 --- */
 
-export const EMAIL_FROM = 'David from Launch Hero <hi@launchhe.ro>'
+export const EMAIL_FROM = 'David from Launch Hero <david@launchhe.ro>'
 
 export const ADMIN_EMAIL = 'david@launchhe.ro'
