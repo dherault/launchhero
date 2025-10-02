@@ -4,12 +4,12 @@ export const labels: Record<DirectoryRequirementType, string> = {
   url: 'Website',
   name: 'Name',
   punchline: 'Punchline',
-
   description: 'Description',
-  country: 'Country',
   icon: 'Icon',
   logo: 'Logo',
-  screenshot: 'Screenshot',
+  screenshot: 'Screenshots',
+
+  country: 'Country',
   video: 'Video',
   tags: 'Tags',
   'business-model': 'Business Model',
@@ -36,12 +36,12 @@ export const descriptions: Record<DirectoryRequirementType, string> = {
   url: 'The main URL of your product',
   name: 'The name of your product',
   punchline: 'A short, catchy phrase that summarizes your product',
-
   description: 'A detailed description of your product, its features, and benefits',
-  country: 'The country where your business is based',
   icon: 'A small icon representing your product (e.g. favicon)',
-  logo: 'A high-resolution logo for your product (preferably transparent background)',
-  screenshot: 'A screenshot showcasing your product\'s interface or key features',
+  logo: 'Preferably transparent background',
+  screenshot: 'Showcasing your product\'s interface or key features. Try to get at least 3.',
+
+  country: 'The country where your business is based',
   video: 'A promotional or demo video of your product (e.g. YouTube link)',
   tags: 'Relevant tags to categorize your product (e.g. AI, SaaS, Productivity)',
   'business-model': 'How your product makes money (e.g. Free, Freemium, Paid)',
@@ -68,8 +68,8 @@ export const placeholders: Partial<Record<DirectoryRequirementType, string>> = {
   url: 'https://yourproduct.com',
   name: 'Your product name',
   punchline: 'The best product ever',
-
   description: 'Describe your product in a few sentences',
+
   country: 'USA',
   video: 'https://youtube.com/xyz',
   portfolio: 'https://yourportfolio.com',

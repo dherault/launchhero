@@ -15,7 +15,7 @@ function TextareaAutosize({ className, error = false, ...props }: TextareaAutosi
         `flex
         min-h-10
         w-full
-        rounded-md
+        rounded-xs
         border
         bg-white
         px-3
@@ -28,7 +28,7 @@ function TextareaAutosize({ className, error = false, ...props }: TextareaAutosi
         file:font-medium
         placeholder:text-neutral-500
         focus-visible:outline-none
-        focus-visible:ring-offset-2
+        focus-visible:border-primary
         disabled:cursor-not-allowed
         disabled:opacity-50
         dark:border-neutral-800

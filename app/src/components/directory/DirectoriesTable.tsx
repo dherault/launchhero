@@ -38,7 +38,6 @@ type SubmissionStatus = 'all' | 'submitted' | 'unsubmitted'
 const fuseOptions = {
   keys: [
     'name',
-    'description',
     'tags',
   ],
 }
@@ -97,7 +96,7 @@ function DirectoriesTable({
             </div>
             <input
               type="search"
-              placeholder="Search directories"
+              placeholder="Search"
               className="grow text-sm outline-none"
               value={search}
               onChange={event => setSearch(event.target.value)}

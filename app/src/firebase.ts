@@ -10,6 +10,7 @@ import {
 } from 'firebase/auth'
 import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore'
 import { getPerformance } from 'firebase/performance'
+import { connectStorageEmulator, getStorage } from 'firebase/storage'
 
 /* ---
   Firebase app
@@ -54,6 +55,12 @@ export const persistancePromise = setPersistence(authentication, browserLocalPer
 export const googleProvider = new GoogleAuthProvider()
 
 /* ---
+  Storage
+--- */
+
+export const storage = getStorage(app)
+
+/* ---
   Analytics
 --- */
 
@@ -82,4 +89,5 @@ if (import.meta.env.DEV) {
 
   connectAuthEmulator(authentication, 'http://localhost:9099', { disableWarnings: true })
   connectFirestoreEmulator(database, 'localhost', 8080)
+  connectStorageEmulator(storage, 'localhost', 9199)
 }

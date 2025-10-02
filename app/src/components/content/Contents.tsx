@@ -1,10 +1,14 @@
-import { useCallback } from 'react'
+import { useCallback, useState } from 'react'
 import z from 'zod'
 
 import useProject from '~hooks/data/useProject'
 import useProjects from '~hooks/data/useProjects'
+import useProjectContentValues from '~hooks/project/useProjectContentValues'
 
+import { ImageUpload } from '~components/common/ImageUpload'
+import ContentError from '~components/content/ContentError'
 import ContentForm from '~components/content/ContentForm'
+import ContentLabel from '~components/content/ContentLabel'
 
 function createStringSchema(zodType: z.ZodTypeAny, message?: string) {
   return z.object({
@@ -77,6 +81,85 @@ export function ContentPunchline() {
     <ContentForm
       type="punchline"
       formSchema={punchlineFormSchema}
+      inputType="input"
+    />
+  )
+}
+
+/* ---
+  Description
+--- */
+
+const descriptionFormSchema = createStringSchema(z.string())
+
+export function ContentDescription() {
+  return (
+    <ContentForm
+      type="description"
+      formSchema={descriptionFormSchema}
+      inputType="textarea"
+    />
+  )
+}
+
+/* ---
+  Logo
+--- */
+
+export function ContentLogo() {
+  const project = useProject()
+  const { values, setValues } = useProjectContentValues('logo')
+  const [error, setError] = useState<string | null>(null)
+
+  return (
+    <div className="space-y-2">
+      <ContentLabel type="logo" />
+      <ImageUpload
+        storagePath={`projects/${project?.id}/logos`}
+        currentImageUrls={values}
+        onUploadComplete={urls => setValues(urls)}
+        onUploadError={err => setError(err?.message ?? null)}
+      />
+      <ContentError message={error} />
+    </div>
+  )
+}
+
+/* ---
+  Screenshot
+--- */
+
+export function ContentScreenshot() {
+  const project = useProject()
+  const { values, setValues } = useProjectContentValues('screenshot')
+  const [error, setError] = useState<string | null>(null)
+
+  return (
+    <div className="space-y-2">
+      <ContentLabel type="screenshot" />
+      <ImageUpload
+        multiple
+        storagePath={`projects/${project?.id}/screenshots`}
+        currentImageUrls={values}
+        onUploadComplete={urls => setValues(urls)}
+        onUploadError={err => setError(err?.message ?? null)}
+      />
+      <ContentError message={error} />
+    </div>
+  )
+}
+
+/* ---
+  Country
+--- */
+
+const countryFormSchema = createStringSchema(z.string())
+
+export function ContentCountry() {
+  return (
+    <ContentForm
+      type="country"
+      formSchema={countryFormSchema}
       inputType="input"
     />
   )
