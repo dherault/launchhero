@@ -56,6 +56,7 @@ function ContentForm({ type, formSchema, inputType, onSave }: Props) {
   ])
 
   const sumbit = form.handleSubmit(handleSubmit)
+  const formValue = form.watch('value')
 
   return (
     <Form {...form}>
@@ -92,7 +93,7 @@ function ContentForm({ type, formSchema, inputType, onSave }: Props) {
                     />
                   </FormControl>
                 )}
-                {form.watch('value') !== values[0] && (
+                {!!formValue && formValue !== values[0] && (
                   <Button
                     type="submit"
                     loading={loading}
