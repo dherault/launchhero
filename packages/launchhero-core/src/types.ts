@@ -70,7 +70,7 @@ export type Directory = {
   requirements: DirectoryRequirement[]
 }
 
-export type DirectoryTag = 'community' | 'ai-only'
+export type DirectoryTag = 'community' | 'ai-only' | 'tech-only'
 
 export type DirectoryRequirementType =
   | 'url'
@@ -101,6 +101,8 @@ export type DirectoryRequirementType =
   | 'promo-code'
   | 'platform'
   | 'launch-date'
+  | 'market'
+  | 'production-status'
 
 export type DirectoryRequirement = {
   type: DirectoryRequirementType
