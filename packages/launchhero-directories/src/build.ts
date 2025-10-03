@@ -23,7 +23,12 @@ for (const directory of directories) {
   console.log('📘', directory.name, directory.domainAuthority, directory.description)
 }
 
-directories.sort((a, b) => b.domainAuthority - a.domainAuthority)
+directories.sort((a, b) => {
+  if (a.requirements.length && !b.requirements.length) return -1
+  if (!a.requirements.length && b.requirements.length) return 1
+
+  return b.domainAuthority - a.domainAuthority
+})
 const directoriesJson = JSON.stringify(directories, null, 2)
 const directoriesType = `import type { Directory } from 'launchhero-core'
 declare const directories: Directory[]
