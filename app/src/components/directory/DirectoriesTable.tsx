@@ -1,29 +1,24 @@
-import _ from 'clsx'
 import Fuse from 'fuse.js'
 import directories from 'launchhero-directories'
-import { Check, Link2, ListChecks, Search, Sparkles } from 'lucide-react'
+import { Check, Info, Link2 } from 'lucide-react'
 import { useCallback, useMemo, useState, type CSSProperties } from 'react'
+
+import type { SubmissionStatus } from '~types'
 
 import useSearchParameter from '~hooks/common/useSearchParameter'
 import useProject from '~hooks/data/useProject'
 import useProjects from '~hooks/data/useProjects'
 import useSubmissions from '~hooks/data/useSubmissions'
 
-import DirectoriesSelectionDialog from '~components/directory/DirectoriesSelectionDialog'
+import ResponsiveTooltip from '~components/common/ResponsiveTooltip'
+import DirectoriesTableToolbar from '~components/directory/DirectoriesTableToolbar'
 import DirectoryDialog from '~components/directory/DirectoryDialog'
 import DirectoryIcon from '~components/directory/DirectoryIcon'
 import DirectorySubmissionStatusChip from '~components/directory/DirectorySubmissionStatusChip'
 import DirectoryTagChip from '~components/directory/DirectoryTagChip'
+import DomainAuthority from '~components/directory/DomainAuthority'
 import { Button } from '~components/ui/Button'
 import { Checkbox } from '~components/ui/Checkbox'
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '~components/ui/Select'
 
 type Props = {
   hasToolbar?: boolean
@@ -32,8 +27,6 @@ type Props = {
   hasWebsite?: boolean
   maxHeight?: CSSProperties['maxHeight']
 }
-
-type SubmissionStatus = 'all' | 'submitted' | 'unsubmitted'
 
 const fuseOptions = {
   keys: [
@@ -85,69 +78,15 @@ function DirectoriesTable({
   return (
     <>
       {hasToolbar && (
-        <div className="mb-2 flex gap-2">
-          <div className="grow justify- flex gap-2">
-            <DirectoriesSelectionDialog>
-              <Button
-                variant="secondary"
-                className={_({
-                  'animate-pulse-outline': !project?.selectedDirectoryIds.length,
-                })}
-              >
-                <ListChecks className="h-4 w-4" />
-                Help me choose directories
-              </Button>
-            </DirectoriesSelectionDialog>
-            <Button>
-              <Sparkles className="h-4 w-4" />
-              Submit for me
-            </Button>
-          </div>
-          <div
-            className={_('px-2 border focus-within:border-primary rounded-xs flex gap-2 w-64', {
-              'border-primary': search,
-            })}
-          >
-            <div className="flex items-center">
-              <Search className="h4 w-4 text-neutral-500" />
-            </div>
-            <input
-              type="search"
-              placeholder="Search"
-              className="grow text-sm outline-none"
-              value={search}
-              onChange={event => setSearch(event.target.value)}
-            />
-          </div>
-          <Select
-            value={status}
-            onValueChange={value => setStatus(value as SubmissionStatus)}
-          >
-            <SelectTrigger className={_('w-[180px]', {
-              'text-neutral-500': status === 'all',
-              'border-primary': status !== 'all',
-            })}
-            >
-              <SelectValue placeholder="Select a status" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectItem value="all">
-                  All statuses
-                </SelectItem>
-                <SelectItem value="submitted">
-                  Submitted
-                </SelectItem>
-                <SelectItem value="unsubmitted">
-                  Unsubmitted
-                </SelectItem>
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        </div>
+        <DirectoriesTableToolbar
+          search={search}
+          setSearch={setSearch}
+          status={status}
+          setStatus={setStatus}
+        />
       )}
-      <div className="border rounded-xs">
-        <div className="py-2 px-3 flex items-center gap-3 border-b h-[49px] font-medium text-sm">
+      <div className="border rounded-xs overflow-auto">
+        <div className="py-2 px-3 min-w-[650px] flex items-center gap-3 border-b h-[49px] font-medium text-sm">
           {hasCheckbox && (
             <div className="w-6 flex items-center justify-center">
               <Check className="h-4 w-4" />
@@ -157,8 +96,20 @@ function DirectoriesTable({
           <div className="grow">
             Directory
           </div>
+          <div className="w-36 flex items-center gap-2">
+            Domain Authority
+            <ResponsiveTooltip
+              content="Domain Authority (DA) is a search engine ranking score that predicts how well a website will rank on search engine result pages. Submitting to a directory with a higher DA means better ranking potential."
+              contentProps={{
+                className: 'max-w-xs',
+                sideOffset: 8,
+              }}
+            >
+              <Info className="h-3 w-3 text-neutral-500 cursor-help" />
+            </ResponsiveTooltip>
+          </div>
           {hasSubmissionStatus && (
-            <div>
+            <div className="w-38">
               Status
             </div>
           )}
@@ -169,7 +120,7 @@ function DirectoriesTable({
           )}
         </div>
         <div
-          className="overflow-auto"
+          className="min-w-[650px] overflow-auto"
           style={{ maxHeight }}
         >
           {filteredDirectories.map(directory => (
@@ -199,8 +150,11 @@ function DirectoriesTable({
                   />
                 ))}
               </div>
+              <div className="w-36 text-sm">
+                <DomainAuthority value={directory.domainAuthority} />
+              </div>
               {hasSubmissionStatus && (
-                <div>
+                <div className="w-38">
                   <DirectorySubmissionStatusChip directory={directory} />
                 </div>
               )}

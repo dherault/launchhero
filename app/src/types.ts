@@ -45,3 +45,9 @@ export class ApiError extends Error {
     this.code = code
   }
 }
+
+/* ---
+  Directory
+--- */
+
+export type SubmissionStatus = 'all' | 'submitted' | 'unsubmitted'
