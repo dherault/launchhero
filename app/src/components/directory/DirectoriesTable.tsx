@@ -9,6 +9,7 @@ import useProject from '~hooks/data/useProject'
 import useProjects from '~hooks/data/useProjects'
 import useSubmissions from '~hooks/data/useSubmissions'
 
+import ButtonHandEmoji from '~components/common/ButtonHandEmoji'
 import DirectoriesSelectionDialog from '~components/directory/DirectoriesSelectionDialog'
 import DirectoryDialog from '~components/directory/DirectoryDialog'
 import DirectoryIcon from '~components/directory/DirectoryIcon'
@@ -86,6 +87,25 @@ function DirectoriesTable({
     <>
       {hasToolbar && (
         <div className="mb-2 flex gap-2">
+          <div className="grow justify- flex gap-2">
+            <DirectoriesSelectionDialog>
+              <Button
+                variant="secondary"
+                className={_({
+                  'animate-pulse-outline': !project?.selectedDirectoryIds.length,
+                })}
+              >
+                <ListChecks className="h-4 w-4" />
+                Help me choose directories
+                {!project?.hasSelectedDirectories && <ButtonHandEmoji />}
+              </Button>
+            </DirectoriesSelectionDialog>
+            <Button>
+              <Sparkles className="h-4 w-4" />
+              Submit for me
+              {project?.hasSelectedDirectories && <ButtonHandEmoji />}
+            </Button>
+          </div>
           <div
             className={_('px-2 border focus-within:border-primary rounded-xs flex gap-2 w-64', {
               'border-primary': search,
@@ -127,18 +147,6 @@ function DirectoriesTable({
               </SelectGroup>
             </SelectContent>
           </Select>
-          <div className="grow justify-end flex gap-2">
-            <DirectoriesSelectionDialog>
-              <Button variant="secondary">
-                <ListChecks className="h-4 w-4" />
-                Help me choose directories
-              </Button>
-            </DirectoriesSelectionDialog>
-            <Button>
-              <Sparkles className="h-4 w-4" />
-              Submit for me
-            </Button>
-          </div>
         </div>
       )}
       <div className="border rounded-xs">

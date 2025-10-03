@@ -6,6 +6,7 @@ import z from 'zod'
 
 import useProjectContentValues from '~hooks/project/useProjectContentValues'
 
+import Spinner from '~components/common/Spinner'
 import TextareaAutosize from '~components/common/TextareaAutosize'
 import { placeholders } from '~components/content/constants'
 import ContentLabel from '~components/content/ContentLabel'
@@ -55,12 +56,21 @@ function ContentForm({ type, formSchema, inputType, onSave }: Props) {
     onSave,
   ])
 
-  const sumbit = form.handleSubmit(handleSubmit)
+  const submit = form.handleSubmit(handleSubmit)
   const formValue = form.watch('value')
+
+  const handleKeyDown = useCallback((event: React.KeyboardEvent) => {
+    if ((event.metaKey || event.ctrlKey) && event.key === 'Enter') {
+      event.preventDefault()
+      submit()
+    }
+  }, [
+    submit,
+  ])
 
   return (
     <Form {...form}>
-      <form onSubmit={sumbit}>
+      <form onSubmit={submit}>
         <FormField
           control={form.control}
           name="value"
@@ -74,6 +84,7 @@ function ContentForm({ type, formSchema, inputType, onSave }: Props) {
                       placeholder={placeholders[type]}
                       className="w-xl"
                       {...field}
+                      onKeyDown={handleKeyDown}
                     />
                   </FormControl>
                 )}
@@ -84,28 +95,25 @@ function ContentForm({ type, formSchema, inputType, onSave }: Props) {
                       placeholder={placeholders[type]}
                       className="w-xl"
                       {...field}
-                      onKeyDown={event => {
-                        if ((event.metaKey || event.ctrlKey) && event.key === 'Enter') {
-                          event.preventDefault()
-                          sumbit()
-                        }
-                      }}
+                      onKeyDown={handleKeyDown}
                     />
                   </FormControl>
                 )}
-                {!!formValue && formValue !== values[0] && (
-                  <Button
-                    type="submit"
-                    loading={loading}
-                  >
+                {!!formValue && !loading && formValue !== values[0] && (
+                  <Button type="submit">
                     Save
                   </Button>
                 )}
-                {saved && (
-                  <div className="text-xs font-normal text-green-500 h-10 flex items-center">
-                    Saved!
-                  </div>
-                )}
+                <div className="h-10 flex items-center">
+                  {loading && (
+                    <Spinner className="h-4 w-4" />
+                  )}
+                  {saved && (
+                    <div className="text-xs font-normal text-green-500">
+                      Saved!
+                    </div>
+                  )}
+                </div>
               </div>
               <FormMessage />
             </FormItem>

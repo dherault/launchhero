@@ -60,6 +60,7 @@ function createProjectsRoutes() {
         imageUrl: null,
         isPublic: true,
         contents: [{ type: 'name', value: name }],
+        hasSelectedDirectories: false,
         selectedDirectoryIds: [],
         stripeId: null,
         stripeLink: null,

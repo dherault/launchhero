@@ -28,7 +28,7 @@ export function PageTitle({ title, displayTitle, icon, action, analyticsKey }: P
   return (
     <div className="mb-4 ml-6 md:ml-0 pt-3 px-8 h-16 shrink-0 flex items-center gap-4">
       {icon}
-      <h1 className="text-xl font-semibold flex items-center gap-2">
+      <h1 className="text-xl font-semibold text-primary flex items-center gap-2">
         {displayTitle ?? title}
       </h1>
       <div className="grow flex justify-end">

@@ -66,3 +66,11 @@
 ## 2025-10-01
 - Enhance directories package with first requirements
 - Design directory dialog
+
+## 2025-10-02
+- Create Project information page
+- Create first content components
+- Create ImageUpload component
+
+## 2025-10-03
+- Create remaining content components

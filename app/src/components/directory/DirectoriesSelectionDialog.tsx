@@ -23,10 +23,13 @@ function DirectoriesSelectionDialog({ children }: PropsWithChildren) {
   const [open, setOpen] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  const handleSelectAll = useCallback(async () => {
+  const handleSelect = useCallback(async (selectedDirectoryIds: string[]) => {
     setLoading(true)
 
-    await updateProject(project?.id ?? '', { selectedDirectoryIds: directories.map(directory => directory.id) })
+    await updateProject(project?.id ?? '', {
+      selectedDirectoryIds,
+      hasSelectedDirectories: true,
+    })
 
     setLoading(false)
     setOpen(false)
@@ -34,6 +37,8 @@ function DirectoriesSelectionDialog({ children }: PropsWithChildren) {
     project?.id,
     updateProject,
   ])
+
+  const handleSelectAll = useCallback(() => handleSelect(directories.map(directory => directory.id)), [handleSelect])
 
   return (
     <Dialog
@@ -50,7 +55,7 @@ function DirectoriesSelectionDialog({ children }: PropsWithChildren) {
             Directory selection
           </DialogTitle>
           <DialogDescription>
-            Where you decide where to submit your project for listing.
+            Decide where to submit your project for listing.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>

@@ -1,7 +1,7 @@
 import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from 'firebase/storage'
 import { Upload, X, Loader2 } from 'lucide-react'
 import { nanoid } from 'nanoid'
-import { useState } from 'react'
+import { useState, type Dispatch, type SetStateAction } from 'react'
 import { useDropzone } from 'react-dropzone'
 
 import { storage } from '~firebase'
@@ -17,8 +17,8 @@ interface ImageUploadProps {
   maxSizeMB?: number
   accept?: Record<string, string[]>
   currentImageUrls?: string[]
-  onUploadComplete?: (urls: string[]) => void
-  onUploadError?: (error: Error | null) => void
+  onUploadComplete?: Dispatch<SetStateAction<string[]>>
+  onUploadError?: Dispatch<SetStateAction<Error | null>>
 }
 
 export function ImageUpload({
@@ -103,11 +103,7 @@ export function ImageUpload({
             // Upload completed successfully
             const downloadURL = await getDownloadURL(uploadTask.snapshot.ref)
 
-            setImageUrls(previous => {
-              const nextUrls = [...previous, downloadURL]
-
-              return nextUrls
-            })
+            setImageUrls(previous => [...previous, downloadURL])
             setUploading(previous => {
               const next = { ...previous }
 
@@ -124,9 +120,7 @@ export function ImageUpload({
             })
 
             // Call onUploadComplete after state updates
-            const nextUrls = [...imageUrls, downloadURL]
-
-            onUploadComplete?.(nextUrls)
+            onUploadComplete?.(previous => [...previous, downloadURL])
           },
         )
       }
@@ -160,10 +154,8 @@ export function ImageUpload({
     try {
       await deleteObject(ref(storage, imageUrl))
 
-      const nextUrls = imageUrls.filter((_, i) => i !== index)
-
-      setImageUrls(nextUrls)
-      onUploadComplete?.(nextUrls)
+      setImageUrls(previous => previous.filter((_, i) => i !== index))
+      onUploadComplete?.(previous => previous.filter((_, i) => i !== index))
     }
     catch (error) {
       onUploadError?.(error as Error)

@@ -1,5 +1,5 @@
 type Props = {
-  message: string | null
+  message?: string | null
 }
 
 function ContentError({ message }: Props) {

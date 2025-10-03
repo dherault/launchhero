@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react'
 
-import { PageContent, PageSubtitle, PageTitle } from '~components/layout/Page'
+import { PageSubtitle, PageTitle } from '~components/layout/Page'
 
 function ContentLayout({ children }: PropsWithChildren) {
   return (
@@ -12,9 +12,7 @@ function ContentLayout({ children }: PropsWithChildren) {
       <PageSubtitle>
         A place to manage your project's submission information.
       </PageSubtitle>
-      <PageContent>
-        {children}
-      </PageContent>
+      {children}
     </>
   )
 }

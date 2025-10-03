@@ -21,7 +21,7 @@ const directories: Directory[] = ([
       { type: 'logo', format: 'Recommended size: 240x240 | JPG, PNG, GIF. Max size: 2MB' },
       { type: 'screenshot', recommended: 3 },
       { type: 'video', format: 'YouTube or Loom', optional: true },
-      { type: 'interactive-demo', optional: true },
+      { type: 'demo', optional: true },
       { type: 'is-maker' },
       { type: 'team-emails', optional: true },
       { type: 'product-shoutouts', optional: true },

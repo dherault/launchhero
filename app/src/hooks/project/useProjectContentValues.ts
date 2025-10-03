@@ -1,5 +1,5 @@
 import type { DirectoryRequirementType } from 'launchhero-core'
-import { useCallback, useMemo, useState } from 'react'
+import { SetStateAction, useCallback, useMemo, useState, type Dispatch } from 'react'
 
 import useProject from '~hooks/data/useProject'
 import useProjects from '~hooks/data/useProjects'
@@ -12,14 +12,14 @@ function useProjectContentValues(type: DirectoryRequirementType) {
 
   const [loading, setLoading] = useState(false)
 
-  const setValues = useCallback(async (nextValues: string[]) => {
+  const setValues = useCallback<Dispatch<SetStateAction<string[]>>>(async nextValues => {
     if (!project) return
 
     setLoading(true)
 
     const nextContents = [...project.contents].filter(content => content.type !== type)
 
-    nextValues.forEach(value => {
+    ;(typeof nextValues === 'function' ? nextValues(values) : nextValues).forEach(value => {
       nextContents.push({ type, value })
     })
 
@@ -29,6 +29,7 @@ function useProjectContentValues(type: DirectoryRequirementType) {
   }, [
     type,
     project,
+    values,
     updateProject,
   ])
 

@@ -29,6 +29,7 @@ export type Project = DatabaseResource<{
   imageUrl: string | null
   isPublic: boolean
   contents: ProjectContent[]
+  hasSelectedDirectories: boolean
   selectedDirectoryIds: string[]
   administratorUserIds: string[]
   memberUserIds: string[]
@@ -83,7 +84,7 @@ export type DirectoryRequirementType =
   | 'screenshot'
   | 'video'
   | 'tags'
-  | 'interactive-demo'
+  | 'demo'
   | 'first-comment'
   | 'product-shoutouts'
   | 'x'

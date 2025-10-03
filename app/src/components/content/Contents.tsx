@@ -10,6 +10,7 @@ import { IMAGE_UPLOAD_MAX_SIZE_MB } from '~components/content/constants'
 import ContentError from '~components/content/ContentError'
 import ContentForm from '~components/content/ContentForm'
 import ContentLabel from '~components/content/ContentLabel'
+import ContentRequirements from '~components/content/ContentRequirements'
 
 function createStringSchema(zodType: z.ZodTypeAny, message?: string) {
   return z.object({
@@ -79,11 +80,14 @@ const punchlineFormSchema = createStringSchema(z.string())
 
 export function ContentPunchline() {
   return (
-    <ContentForm
-      type="punchline"
-      formSchema={punchlineFormSchema}
-      inputType="input"
-    />
+    <div className="space-y-2">
+      <ContentForm
+        type="punchline"
+        formSchema={punchlineFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="punchline" />
+    </div>
   )
 }
 
@@ -95,11 +99,14 @@ const descriptionFormSchema = createStringSchema(z.string())
 
 export function ContentDescription() {
   return (
-    <ContentForm
-      type="description"
-      formSchema={descriptionFormSchema}
-      inputType="textarea"
-    />
+    <div className="space-y-2">
+      <ContentForm
+        type="description"
+        formSchema={descriptionFormSchema}
+        inputType="textarea"
+      />
+      <ContentRequirements type="description" />
+    </div>
   )
 }
 
@@ -110,7 +117,7 @@ export function ContentDescription() {
 export function ContentIcon() {
   const project = useProject()
   const { values, setValues } = useProjectContentValues('icon')
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState<Error | null>(null)
 
   return (
     <div className="space-y-2">
@@ -119,10 +126,11 @@ export function ContentIcon() {
         storagePath={`projects/${project?.id}/icons`}
         maxSizeMB={IMAGE_UPLOAD_MAX_SIZE_MB}
         currentImageUrls={values}
-        onUploadComplete={urls => setValues(urls)}
-        onUploadError={err => setError(err?.message ?? null)}
+        onUploadComplete={setValues}
+        onUploadError={setError}
       />
-      <ContentError message={error} />
+      <ContentError message={error?.message} />
+      <ContentRequirements type="icon" />
     </div>
   )
 }
@@ -134,7 +142,7 @@ export function ContentIcon() {
 export function ContentLogo() {
   const project = useProject()
   const { values, setValues } = useProjectContentValues('logo')
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState<Error | null>(null)
 
   return (
     <div className="space-y-2">
@@ -143,10 +151,11 @@ export function ContentLogo() {
         storagePath={`projects/${project?.id}/logos`}
         maxSizeMB={IMAGE_UPLOAD_MAX_SIZE_MB}
         currentImageUrls={values}
-        onUploadComplete={urls => setValues(urls)}
-        onUploadError={err => setError(err?.message ?? null)}
+        onUploadComplete={setValues}
+        onUploadError={setError}
       />
-      <ContentError message={error} />
+      <ContentError message={error?.message} />
+      <ContentRequirements type="logo" />
     </div>
   )
 }
@@ -158,7 +167,7 @@ export function ContentLogo() {
 export function ContentScreenshot() {
   const project = useProject()
   const { values, setValues } = useProjectContentValues('screenshot')
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState<Error | null>(null)
 
   return (
     <div className="space-y-2">
@@ -168,10 +177,147 @@ export function ContentScreenshot() {
         storagePath={`projects/${project?.id}/screenshots`}
         maxSizeMB={IMAGE_UPLOAD_MAX_SIZE_MB}
         currentImageUrls={values}
-        onUploadComplete={urls => setValues(urls)}
-        onUploadError={err => setError(err?.message ?? null)}
+        onUploadComplete={setValues}
+        onUploadError={setError}
       />
-      <ContentError message={error} />
+      <ContentError message={error?.message} />
+      <ContentRequirements type="screenshot" />
+    </div>
+  )
+}
+
+/* ---
+  X (Twitter)
+--- */
+
+export function ContentX() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="x"
+        formSchema={urlFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="x" />
+    </div>
+  )
+}
+
+/* ---
+  Instagram
+--- */
+
+export function ContentInstagram() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="instagram"
+        formSchema={urlFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="instagram" />
+    </div>
+  )
+}
+
+/* ---
+  LinkedIn
+--- */
+
+export function ContentLinkedin() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="linkedin"
+        formSchema={urlFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="linkedin" />
+    </div>
+  )
+}
+
+/* ---
+  Facebook
+--- */
+
+export function ContentFacebook() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="facebook"
+        formSchema={urlFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="facebook" />
+    </div>
+  )
+}
+
+/* ---
+  GitHub
+--- */
+
+export function ContentGithub() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="github"
+        formSchema={urlFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="github" />
+    </div>
+  )
+}
+
+/* ---
+  Dribbble
+--- */
+
+export function ContentDribbble() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="dribbble"
+        formSchema={urlFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="dribbble" />
+    </div>
+  )
+}
+
+/* ---
+  YouTube
+--- */
+
+export function ContentYoutube() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="youtube"
+        formSchema={urlFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="youtube" />
+    </div>
+  )
+}
+
+/* ---
+  Portfolio
+--- */
+
+export function ContentPortfolio() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="portfolio"
+        formSchema={urlFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="portfolio" />
     </div>
   )
 }
@@ -184,10 +330,275 @@ const countryFormSchema = createStringSchema(z.string())
 
 export function ContentCountry() {
   return (
-    <ContentForm
-      type="country"
-      formSchema={countryFormSchema}
-      inputType="input"
-    />
+    <div className="space-y-2">
+      <ContentForm
+        type="country"
+        formSchema={countryFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="country" />
+    </div>
+  )
+}
+
+/* ---
+  Video
+--- */
+
+export function ContentVideo() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="video"
+        formSchema={urlFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="video" />
+    </div>
+  )
+}
+
+/* ---
+  Tags
+--- */
+
+const tagsFormSchema = createStringSchema(z.string())
+
+export function ContentTags() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="tags"
+        formSchema={tagsFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="tags" />
+    </div>
+  )
+}
+
+/* ---
+  Business Model
+--- */
+
+const businessModelFormSchema = createStringSchema(z.string())
+
+export function ContentBusinessModel() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="business-model"
+        formSchema={businessModelFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="business-model" />
+    </div>
+  )
+}
+
+/* ---
+  Interactive Demo
+--- */
+
+export function ContentInteractiveDemo() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="demo"
+        formSchema={urlFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="demo" />
+    </div>
+  )
+}
+
+/* ---
+  First Comment
+--- */
+
+const firstCommentFormSchema = createStringSchema(z.string())
+
+export function ContentFirstComment() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="first-comment"
+        formSchema={firstCommentFormSchema}
+        inputType="textarea"
+      />
+      <ContentRequirements type="first-comment" />
+    </div>
+  )
+}
+
+/* ---
+  Product Shoutouts
+--- */
+
+const productShoutoutsFormSchema = createStringSchema(z.string())
+
+export function ContentProductShoutouts() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="product-shoutouts"
+        formSchema={productShoutoutsFormSchema}
+        inputType="textarea"
+      />
+      <ContentRequirements type="product-shoutouts" />
+    </div>
+  )
+}
+
+/* ---
+  Team Emails
+--- */
+
+const teamEmailsFormSchema = createStringSchema(z.string())
+
+export function ContentTeamEmails() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="team-emails"
+        formSchema={teamEmailsFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="team-emails" />
+    </div>
+  )
+}
+
+/* ---
+  Is Maker
+--- */
+
+const isMakerFormSchema = createStringSchema(z.string())
+
+export function ContentIsMaker() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="is-maker"
+        formSchema={isMakerFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="is-maker" />
+    </div>
+  )
+}
+
+/* ---
+  Launch Date
+--- */
+
+const launchDateFormSchema = createStringSchema(z.string())
+
+export function ContentLaunchDate() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="launch-date"
+        formSchema={launchDateFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="launch-date" />
+    </div>
+  )
+}
+
+/* ---
+  Funding
+--- */
+
+const fundingFormSchema = createStringSchema(z.string())
+
+export function ContentFunding() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="funding"
+        formSchema={fundingFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="funding" />
+    </div>
+  )
+}
+
+/* ---
+  Promo Code
+--- */
+
+const promoCodeFormSchema = createStringSchema(z.string())
+
+export function ContentPromoCode() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="promo-code"
+        formSchema={promoCodeFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="promo-code" />
+    </div>
+  )
+}
+
+/* ---
+  Platform
+--- */
+
+const platformFormSchema = createStringSchema(z.string())
+
+export function ContentPlatform() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="platform"
+        formSchema={platformFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="platform" />
+    </div>
+  )
+}
+
+/* ---
+  Production Status
+--- */
+
+const productionStatusFormSchema = createStringSchema(z.string())
+
+export function ContentProductionStatus() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="production-status"
+        formSchema={productionStatusFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="production-status" />
+    </div>
+  )
+}
+
+/* ---
+  Market
+--- */
+
+const marketFormSchema = createStringSchema(z.string())
+
+export function ContentMarket() {
+  return (
+    <div className="space-y-2">
+      <ContentForm
+        type="market"
+        formSchema={marketFormSchema}
+        inputType="input"
+      />
+      <ContentRequirements type="market" />
+    </div>
   )
 }

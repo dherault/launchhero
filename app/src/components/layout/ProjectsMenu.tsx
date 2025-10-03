@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router'
 
 import useFinalProject from '~hooks/data/useFinalProject'
 import useMemberProjects from '~hooks/data/useMemberProjects'
+import useProjectContentValues from '~hooks/project/useProjectContentValues'
 import useIsMobile from '~hooks/ui/useIsMobile'
 
 import Logo from '~components/common/logos/Logo'
@@ -28,6 +29,7 @@ function ProjectsMenu({ onSelect }: Props) {
   const finalProject = useFinalProject()
   const navigate = useNavigate()
   const isMobile = useIsMobile()
+  const { values: logos } = useProjectContentValues('logo')
 
   // const isProjectAdministrator = finalProject?.administratorUserIds.includes(user?.id ?? NULL_DOCUMENT_ID)
 
@@ -42,9 +44,9 @@ function ProjectsMenu({ onSelect }: Props) {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton size="xl">
-              <Avatar className="rounded-xs h-10 w-10">
-                <AvatarImage src={undefined} />
-                <AvatarFallback className="bg-neutral-50 text-white border rounded-xs">
+              <Avatar className=" h-10 w-10 rounded-xs border">
+                <AvatarImage src={logos[0]} />
+                <AvatarFallback className="bg-neutral-50 text-white">
                   <Logo
                     className="text-primary"
                     width={24}
