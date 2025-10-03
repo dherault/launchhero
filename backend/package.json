@@ -33,6 +33,7 @@
     "express": "^5.1.0",
     "firebase-admin": "^13.5.0",
     "launchhero-core": "^0.10.0",
+    "launchhero-directories": "^0.0.1",
     "launchhero-email": "^0.0.4",
     "nanoid": "^5.1.6",
     "resend": "^6.1.2",

@@ -9,7 +9,6 @@ import useProject from '~hooks/data/useProject'
 import useProjects from '~hooks/data/useProjects'
 import useSubmissions from '~hooks/data/useSubmissions'
 
-import ButtonHandEmoji from '~components/common/ButtonHandEmoji'
 import DirectoriesSelectionDialog from '~components/directory/DirectoriesSelectionDialog'
 import DirectoryDialog from '~components/directory/DirectoryDialog'
 import DirectoryIcon from '~components/directory/DirectoryIcon'
@@ -97,13 +96,11 @@ function DirectoriesTable({
               >
                 <ListChecks className="h-4 w-4" />
                 Help me choose directories
-                {!project?.hasSelectedDirectories && <ButtonHandEmoji />}
               </Button>
             </DirectoriesSelectionDialog>
             <Button>
               <Sparkles className="h-4 w-4" />
               Submit for me
-              {project?.hasSelectedDirectories && <ButtonHandEmoji />}
             </Button>
           </div>
           <div
