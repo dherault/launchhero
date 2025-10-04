@@ -10,7 +10,6 @@ import {
   type Project,
   type ProjectInvitation,
 } from 'launchhero-core'
-import directories from 'launchhero-directories'
 import { nanoid } from 'nanoid'
 import slugify from 'slugify'
 import z from 'zod'
@@ -62,7 +61,7 @@ function createProjectsRoutes() {
         isPublic: true,
         contents: [{ type: 'name', value: name }],
         hasSelectedDirectories: false,
-        selectedDirectoryIds: directories.map(directory => directory.id),
+        selectedDirectoryIds: [],
         stripeId: null,
         stripeLink: null,
         administratorUserIds: [request.user.id],
