@@ -1,12 +1,21 @@
 import { type SetStateAction, useCallback, useEffect, useState } from 'react'
 
+type Options = {
+  enabled?: boolean
+  parser?: (x: any) => any
+}
+
 const identity = (x: any) => x
 
 // useState with localStorage persistence
-function usePersistedState<T>(key: string, defaultValue: T, parser = identity) {
+function usePersistedState<T>(key: string, defaultValue: T, options?: Options) {
+  const { parser = identity, enabled = true } = options || {}
+
   const getLocalStorageKey = useCallback(() => import.meta.env.DEV ? `launchhero:${key}` : key, [key])
 
   const getLocalStorageValue = useCallback(() => {
+    if (!enabled) return defaultValue
+
     try {
       const item = localStorage.getItem(getLocalStorageKey())
 
@@ -20,6 +29,7 @@ function usePersistedState<T>(key: string, defaultValue: T, parser = identity) {
   }, [
     key,
     defaultValue,
+    enabled,
     getLocalStorageKey,
     parser,
   ])
@@ -27,6 +37,8 @@ function usePersistedState<T>(key: string, defaultValue: T, parser = identity) {
   const [state, setState] = useState<T>(getLocalStorageValue())
 
   const setLocalStorageState = useCallback((nextState: SetStateAction<T>) => {
+    if (!enabled) return
+
     setState(x => {
       // @ts-expect-error
       const nextX = typeof nextState === 'function' ? nextState(x) : nextState
@@ -36,6 +48,7 @@ function usePersistedState<T>(key: string, defaultValue: T, parser = identity) {
       return nextX
     })
   }, [
+    enabled,
     getLocalStorageKey,
   ])
 

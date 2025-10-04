@@ -368,11 +368,11 @@ export function ContentTags() {
   return (
     <div className="space-y-2">
       <ContentForm
-        type="tags"
+        type="tag"
         formSchema={tagsFormSchema}
         inputType="input"
       />
-      <ContentRequirements type="tags" />
+      <ContentRequirements type="tag" />
     </div>
   )
 }
@@ -442,11 +442,11 @@ export function ContentProductShoutouts() {
   return (
     <div className="space-y-2">
       <ContentForm
-        type="product-shoutouts"
+        type="product-shoutout"
         formSchema={productShoutoutsFormSchema}
         inputType="textarea"
       />
-      <ContentRequirements type="product-shoutouts" />
+      <ContentRequirements type="product-shoutout" />
     </div>
   )
 }
@@ -461,11 +461,11 @@ export function ContentTeamEmails() {
   return (
     <div className="space-y-2">
       <ContentForm
-        type="team-emails"
+        type="team-email"
         formSchema={teamEmailsFormSchema}
         inputType="input"
       />
-      <ContentRequirements type="team-emails" />
+      <ContentRequirements type="team-email" />
     </div>
   )
 }
