@@ -8,7 +8,7 @@ import { Button } from '~components/ui/Button'
 
 function LandingHero() {
   return (
-    <section className="relative mt-4 md:mt-0 mx-auto md:pt-8 px-4 w-full max-w-4xl flex flex-col items-center">
+    <section className="relative mt-4 md:mt-0 mx-auto md:pt-8 w-full max-w-4xl flex flex-col items-center">
       <h1 className="text-3xl md:text-6xl font-extrabold text-center text-balance">
         Get Your Startup Seen
         {' '}
@@ -22,7 +22,7 @@ function LandingHero() {
         {Math.floor(directories.length / 10) * 10}
         + launch directories and reach thousands of early adopters.
       </div>
-      <div className="mt-6 w-full">
+      <div className="mt-6 px-4 w-full">
         <DirectoriesTable
           hasWebsite
           maxHeight={256 + 32 + 4}
