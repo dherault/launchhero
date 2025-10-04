@@ -1,0 +1,4 @@
+requests
+beautifulsoup4
+pillow
+cairosvg    # optional but strongly recommended for SVG support

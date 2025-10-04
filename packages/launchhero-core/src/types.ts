@@ -65,7 +65,6 @@ export type Directory = {
   description: string
   url: string
   submissionUrl: string | null
-  imageUrl: string | null
   domainAuthority: number
   isPaid: boolean
   tags: DirectoryTag[]

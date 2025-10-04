@@ -1,0 +1,1842 @@
+[
+  {
+    "id": "producthunt.com",
+    "name": "Product Hunt",
+    "description": "A community-powered launch platform for discovering, voting on, and ranking the newest tech products.",
+    "url": "https://producthunt.com",
+    "submissionUrl": "https://www.producthunt.com/posts/new",
+    "imageUrl": "/images/directories/product-hunt.png",
+    "tags": [
+      "community"
+    ],
+    "isPaid": false,
+    "requirements": [
+      {
+        "type": "url"
+      },
+      {
+        "type": "name",
+        "max": 40
+      },
+      {
+        "type": "punchline",
+        "max": 60
+      },
+      {
+        "type": "x",
+        "optional": true
+      },
+      {
+        "type": "description",
+        "max": 260
+      },
+      {
+        "type": "tag",
+        "max": 3,
+        "optional": true
+      },
+      {
+        "type": "first-comment",
+        "max": 500
+      },
+      {
+        "type": "logo",
+        "format": "Recommended size: 240x240 | JPG, PNG, GIF. Max size: 2MB"
+      },
+      {
+        "type": "screenshot",
+        "recommended": 3
+      },
+      {
+        "type": "video",
+        "format": "YouTube or Loom",
+        "optional": true
+      },
+      {
+        "type": "demo",
+        "optional": true
+      },
+      {
+        "type": "is-maker"
+      },
+      {
+        "type": "team-email",
+        "optional": true
+      },
+      {
+        "type": "product-shoutout",
+        "optional": true
+      },
+      {
+        "type": "business-model"
+      },
+      {
+        "type": "promo-code",
+        "optional": true,
+        "format": "Offer - Code - Expiration date"
+      },
+      {
+        "type": "funding",
+        "optional": true
+      },
+      {
+        "type": "launch-date"
+      }
+    ],
+    "domainAuthority": 90
+  },
+  {
+    "id": "news.ycombinator.com",
+    "name": "Hacker News",
+    "description": "A minimalist, community-driven tech news site where user voting determines what's visible and drives the discussion.",
+    "url": "https://news.ycombinator.com",
+    "submissionUrl": "https://news.ycombinator.com/submit",
+    "imageUrl": "/images/directories/hacker-news.png",
+    "tags": [
+      "community"
+    ],
+    "isPaid": false,
+    "requirements": [
+      {
+        "type": "name"
+      },
+      {
+        "type": "url"
+      },
+      {
+        "type": "description",
+        "optional": true
+      }
+    ],
+    "domainAuthority": 89
+  },
+  {
+    "id": "alternativeto.net",
+    "name": "Alternative To",
+    "description": "A community-curated directory to discover and compare software alternatives.",
+    "url": "https://alternativeto.net",
+    "submissionUrl": "https://alternativeto.net/manage-item",
+    "imageUrl": "/images/directories/alternative-to.png",
+    "tags": [],
+    "isPaid": false,
+    "requirements": [
+      {
+        "type": "name"
+      },
+      {
+        "type": "url"
+      },
+      {
+        "type": "description"
+      },
+      {
+        "type": "language",
+        "optional": true
+      },
+      {
+        "type": "business-model"
+      },
+      {
+        "type": "open-source",
+        "optional": true
+      },
+      {
+        "type": "tag",
+        "optional": true
+      },
+      {
+        "type": "platform"
+      },
+      {
+        "type": "maker",
+        "optional": true
+      },
+      {
+        "type": "x",
+        "optional": true
+      },
+      {
+        "type": "facebook",
+        "optional": true
+      },
+      {
+        "type": "icon"
+      },
+      {
+        "type": "screenshot",
+        "optional": true,
+        "format": "Max 3MB"
+      },
+      {
+        "type": "video",
+        "optional": true,
+        "format": "YouTube"
+      }
+    ],
+    "domainAuthority": 86
+  },
+  {
+    "id": "f6s.com",
+    "name": "F65",
+    "description": "A global one-stop hub for discovering and applying to startup programs, funding, and partnerships.",
+    "url": "https://f6s.com",
+    "submissionUrl": "https://www.f6s.com/add-software",
+    "imageUrl": "/images/directories/f65.png",
+    "tags": [],
+    "isPaid": false,
+    "requirements": [
+      {
+        "type": "name"
+      },
+      {
+        "type": "company-name"
+      },
+      {
+        "type": "tag"
+      },
+      {
+        "type": "description",
+        "max": 2500
+      },
+      {
+        "type": "market",
+        "optional": true
+      },
+      {
+        "type": "url"
+      },
+      {
+        "type": "pricing-url"
+      },
+      {
+        "type": "pricing-plan"
+      },
+      {
+        "type": "screenshot"
+      }
+    ],
+    "domainAuthority": 73
+  },
+  {
+    "id": "betalist.com",
+    "name": "BetaList",
+    "description": "A curated directory for discovering upcoming startups and their product launches before they go mainstream.",
+    "url": "https://betalist.com",
+    "submissionUrl": "https://betalist.com/submissions/new",
+    "imageUrl": "/images/directories/betalist.png",
+    "tags": [],
+    "isPaid": false,
+    "requirements": [
+      {
+        "type": "icon",
+        "format": "PNG, JPG, or GIF, 1MB max"
+      },
+      {
+        "type": "logo",
+        "format": "PNG, JPG, or GIF, 1MB max"
+      },
+      {
+        "type": "name"
+      },
+      {
+        "type": "punchline"
+      },
+      {
+        "type": "url"
+      },
+      {
+        "type": "description"
+      },
+      {
+        "type": "video",
+        "optional": true
+      },
+      {
+        "type": "tag",
+        "optional": true
+      },
+      {
+        "type": "promo-code",
+        "optional": true
+      },
+      {
+        "type": "screenshot",
+        "format": "Ideally a 4:3 ratio"
+      }
+    ],
+    "domainAuthority": 60
+  },
+  {
+    "id": "pitchwall.co",
+    "name": "PitchWall",
+    "description": "A visual wall of startup pitches with quick, community-driven feedback.",
+    "url": "https://pitchwall.co",
+    "submissionUrl": "https://pitchwall.co/product/submit",
+    "imageUrl": "/images/directories/pitchwall.png",
+    "tags": [],
+    "isPaid": false,
+    "requirements": [
+      {
+        "type": "url"
+      },
+      {
+        "type": "name"
+      },
+      {
+        "type": "punchline"
+      },
+      {
+        "type": "screenshot"
+      },
+      {
+        "type": "description"
+      },
+      {
+        "type": "logo",
+        "optional": true,
+        "format": "min file size 5kB"
+      },
+      {
+        "type": "tag",
+        "optional": true
+      },
+      {
+        "type": "video",
+        "optional": true,
+        "format": "YouTube"
+      },
+      {
+        "type": "platform",
+        "optional": true
+      },
+      {
+        "type": "x",
+        "optional": true
+      },
+      {
+        "type": "linkedin",
+        "optional": true
+      },
+      {
+        "type": "instagram",
+        "optional": true
+      },
+      {
+        "type": "facebook",
+        "optional": true
+      },
+      {
+        "type": "github",
+        "optional": true
+      },
+      {
+        "type": "youtube",
+        "optional": true
+      },
+      {
+        "type": "dribbble",
+        "optional": true
+      },
+      {
+        "type": "portfolio",
+        "optional": true
+      }
+    ],
+    "domainAuthority": 49
+  },
+  {
+    "id": "startupbase.io",
+    "name": "Startup Base",
+    "description": "A community-driven hub where makers showcase, discover, and discuss new startups.",
+    "url": "https://startupbase.io",
+    "submissionUrl": "https://startupbase.io/submissions/start",
+    "imageUrl": "/images/directories/startupbase.png",
+    "tags": [
+      "tech-only"
+    ],
+    "isPaid": false,
+    "requirements": [
+      {
+        "type": "name"
+      },
+      {
+        "type": "url"
+      },
+      {
+        "type": "punchline",
+        "max": 120
+      },
+      {
+        "type": "description",
+        "min": 160
+      },
+      {
+        "type": "market"
+      },
+      {
+        "type": "production-status"
+      },
+      {
+        "type": "logo",
+        "format": "Less than 1MB. Recommended size: 512x512px"
+      },
+      {
+        "type": "screenshot",
+        "min": 1
+      },
+      {
+        "type": "video",
+        "optional": true,
+        "format": "YouTube only"
+      },
+      {
+        "type": "team-email"
+      }
+    ],
+    "domainAuthority": 22
+  },
+  {
+    "id": "joinly.xyz",
+    "name": "Joinly",
+    "description": "A lean platform for forming and growing communities with effortless setup and real-time collaboration.",
+    "url": "https://joinly.xyz",
+    "submissionUrl": "https://joinly.xyz/submit-startup",
+    "imageUrl": "/images/directories/joinly.png",
+    "tags": [],
+    "isPaid": false,
+    "requirements": [
+      {
+        "type": "name"
+      },
+      {
+        "type": "url"
+      },
+      {
+        "type": "punchline",
+        "max": 80
+      },
+      {
+        "type": "description",
+        "optional": true
+      },
+      {
+        "type": "country"
+      },
+      {
+        "type": "logo",
+        "format": "Recommended 256 x 256px (aspect ratio 1:1), max file size 200 KB"
+      },
+      {
+        "type": "screenshot",
+        "max": 3,
+        "format": "Recommended 1024 x 768px (aspect ratio 4:3), max file size 400 KB",
+        "optional": true
+      }
+    ],
+    "domainAuthority": 16
+  },
+  {
+    "id": "business.google.com",
+    "name": "Google Business Profile",
+    "description": "A platform that enhances local business visibility through customer engagement and management tools.",
+    "url": "https://business.google.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 94
+  },
+  {
+    "id": "sourceforge.net",
+    "name": "SourceForge",
+    "description": "A platform that hosts open-source software projects, fostering collaboration and innovation.",
+    "url": "https://sourceforge.net",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 93
+  },
+  {
+    "id": "www.crunchbase.com",
+    "name": "Crunchbase",
+    "description": "A comprehensive platform for discovering innovative companies and their funding histories.",
+    "url": "https://www.crunchbase.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 91
+  },
+  {
+    "id": "angel.co",
+    "name": "Angel",
+    "description": "A platform connecting startups with investors and talent in a streamlined ecosystem.",
+    "url": "https://angel.co",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 86
+  },
+  {
+    "id": "list.ly",
+    "name": "List.ly",
+    "description": "A collaborative platform for creating and sharing interactive lists.",
+    "url": "https://list.ly",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 85
+  },
+  {
+    "id": "devpost.com",
+    "name": "Devpost",
+    "description": "A platform that connects developers through hackathons and project showcases.",
+    "url": "https://devpost.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 84
+  },
+  {
+    "id": "www.capterra.com",
+    "name": "Capterra",
+    "description": "A comprehensive platform that connects users with software solutions through detailed reviews and comparisons.",
+    "url": "https://www.capterra.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 80
+  },
+  {
+    "id": "www.g2.com",
+    "name": "G2",
+    "description": "A platform that offers authentic user reviews and insights to help businesses choose the right software solutions.",
+    "url": "https://www.g2.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 77
+  },
+  {
+    "id": "www.springwise.com",
+    "name": "Springwise",
+    "description": "A platform showcasing innovative business ideas and trends from around the globe.",
+    "url": "https://www.springwise.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 76
+  },
+  {
+    "id": "www.apsense.com",
+    "name": "Apsense",
+    "description": "A platform for social networking and marketing that connects users to share and promote their businesses uniquely.",
+    "url": "https://www.apsense.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 75
+  },
+  {
+    "id": "www.startupranking.com",
+    "name": "Startup Ranking",
+    "description": "A platform that ranks startups globally based on various performance metrics, offering unique insights into emerging businesses.",
+    "url": "https://www.startupranking.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 73
+  },
+  {
+    "id": "alltopstartups.com",
+    "name": "All Top Startups",
+    "description": "A curated hub showcasing innovative startup news and resources for entrepreneurs.",
+    "url": "https://alltopstartups.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 72
+  },
+  {
+    "id": "startups.co.uk",
+    "name": "Startups UK",
+    "description": "A platform dedicated to supporting and funding innovative UK startups through expert resources and community connections.",
+    "url": "https://startups.co.uk",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 70
+  },
+  {
+    "id": "apps400.com",
+    "name": "Apps400",
+    "description": "A platform offering customizable enterprise applications tailored for diverse business needs.",
+    "url": "https://apps400.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 68
+  },
+  {
+    "id": "eu-startups.com",
+    "name": "EU Startups",
+    "description": "A platform showcasing innovative European startups and investment opportunities.",
+    "url": "https://eu-startups.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 67
+  },
+  {
+    "id": "unboxingstartups.com",
+    "name": "Unboxing Startups",
+    "description": "A unique platform that highlights and reviews innovative startup products through engaging unboxing experiences.",
+    "url": "https://unboxingstartups.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 63
+  },
+  {
+    "id": "www.getapp.com",
+    "name": "GetApp",
+    "description": "A curated platform that helps users discover and compare software solutions tailored to their needs.",
+    "url": "https://www.getapp.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 60
+  },
+  {
+    "id": "aboutus.com",
+    "name": "AboutUs",
+    "description": "A unique platform that offers concise company profiles and insights into various businesses.",
+    "url": "https://aboutus.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 60
+  },
+  {
+    "id": "www.cloudfindr.co",
+    "name": "CloudFindr",
+    "description": "A platform that simplifies cloud service comparisons to help users find tailored solutions effortlessly.",
+    "url": "https://www.cloudfindr.co",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 58
+  },
+  {
+    "id": "cloudfindr.co",
+    "name": "Cloud Findr",
+    "description": "A streamlined platform for effortlessly discovering and comparing cloud services tailored to your needs.",
+    "url": "https://cloudfindr.co",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 58
+  },
+  {
+    "id": "www.uplabs.com",
+    "name": "Uplabs",
+    "description": "A vibrant platform showcasing the latest design and development resources, fostering creativity and collaboration among professionals.",
+    "url": "https://www.uplabs.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 56
+  },
+  {
+    "id": "nextbigwhat.com",
+    "name": "NextBigWhat",
+    "description": "A concise tech-startup hub delivering founder-focused insights and curated, practical startup news.",
+    "url": "https://nextbigwhat.com",
+    "submissionUrl": null,
+    "imageUrl": "/images/directories/next-big-what.png",
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 55
+  },
+  {
+    "id": "www.webwiki.com",
+    "name": "Webwiki",
+    "description": "A comprehensive directory offering user-generated reviews and insights on various websites.",
+    "url": "https://www.webwiki.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 54
+  },
+  {
+    "id": "www.bingplaces.com",
+    "name": "Bing Places",
+    "description": "A platform that helps businesses manage their online presence across various local listings.",
+    "url": "https://www.bingplaces.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 53
+  },
+  {
+    "id": "www.softwaresuggest.com",
+    "name": "SoftwareSuggest",
+    "description": "A comprehensive platform offering tailored software recommendations and user reviews to simplify business solutions.",
+    "url": "https://www.softwaresuggest.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 52
+  },
+  {
+    "id": "www.feedough.com",
+    "name": "Feedough",
+    "description": "A unique platform offering in-depth insights and strategies for startups and entrepreneurs.",
+    "url": "https://www.feedough.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 49
+  },
+  {
+    "id": "sideprojectors.com",
+    "name": "SideProjectors",
+    "description": "A community-driven directory of side projects with transparent progress and metrics.",
+    "url": "https://sideprojectors.com",
+    "submissionUrl": null,
+    "imageUrl": "/images/directories/sideprojectors.png",
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 47
+  },
+  {
+    "id": "betapage.co",
+    "name": "Beta Page",
+    "description": "A platform showcasing innovative startups and products, connecting creators with early adopters.",
+    "url": "https://betapage.co",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 47
+  },
+  {
+    "id": "theresanaiforthat.com",
+    "name": "There's An AI For That",
+    "description": "A curated platform connecting users with tailored AI tools for various needs.",
+    "url": "https://theresanaiforthat.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 47
+  },
+  {
+    "id": "startupstash.com",
+    "name": "Startup Stash",
+    "description": "A curated directory of essential tools and resources for startups, offering a unique blend of practical insights and community-driven recommendations.",
+    "url": "https://startupstash.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 45
+  },
+  {
+    "id": "startupbuffer.com",
+    "name": "Startup Buffer",
+    "description": "An ultra-curated hub of practical startup resources and actionable guides.",
+    "url": "https://startupbuffer.com",
+    "submissionUrl": null,
+    "imageUrl": "/images/directories/startup-buffer.png",
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 44
+  },
+  {
+    "id": "sidebar.io",
+    "name": "Sidebar.io",
+    "description": "A clean, daily five-link roundup of hand-picked, standout web design sites.",
+    "url": "https://sidebar.io",
+    "submissionUrl": null,
+    "imageUrl": "/images/directories/sidebario.png",
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 44
+  },
+  {
+    "id": "www.softwareworld.co",
+    "name": "SoftwareWorld",
+    "description": "A comprehensive platform that ranks and reviews top software based on user feedback and expert analysis.",
+    "url": "https://www.softwareworld.co",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 42
+  },
+  {
+    "id": "saashub.com",
+    "name": "SaaS Hub",
+    "description": "A SaaS catalog with real user reviews and side-by-side product comparisons.",
+    "url": "https://saashub.com",
+    "submissionUrl": null,
+    "imageUrl": "/images/directories/saashub.png",
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 41
+  },
+  {
+    "id": "provider.softwarereviews.com",
+    "name": "SoftwareReviews",
+    "description": "A platform offering in-depth software reviews and insights from verified users to guide purchasing decisions.",
+    "url": "https://provider.softwarereviews.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 40
+  },
+  {
+    "id": "www.launchingnext.com",
+    "name": "Launching Next",
+    "description": "A curated directory that spotlights newly launched startups for quick discovery.",
+    "url": "https://www.launchingnext.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 39
+  },
+  {
+    "id": "www.saasworthy.com",
+    "name": "SaaSworthy",
+    "description": "A comprehensive platform that helps users discover and compare SaaS products with detailed insights and user reviews.",
+    "url": "https://www.saasworthy.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 38
+  },
+  {
+    "id": "peerlist.io",
+    "name": "Peerlist",
+    "description": "A platform that connects professionals through shared interests and expertise, fostering collaboration and networking.",
+    "url": "https://peerlist.io",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 38
+  },
+  {
+    "id": "browse.ai",
+    "name": "Browse AI",
+    "description": "This platform automates data extraction from websites, enabling users to gather information effortlessly without coding.",
+    "url": "https://browse.ai",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 38
+  },
+  {
+    "id": "startuptracker.io",
+    "name": "Startup Tracker",
+    "description": "A data-driven platform that tracks startup funding, milestones, and trends for investors and founders.",
+    "url": "https://startuptracker.io",
+    "submissionUrl": null,
+    "imageUrl": "/images/directories/startup-tracker.png",
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 35
+  },
+  {
+    "id": "www.futuretools.io",
+    "name": "FutureTools",
+    "description": "A curated hub for exploring cutting-edge AI tools and innovations.",
+    "url": "https://www.futuretools.io",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 35
+  },
+  {
+    "id": "toolfinder.co",
+    "name": "Tool Finder",
+    "description": "A unique platform that helps users effortlessly compare and find the right tools for their projects.",
+    "url": "https://toolfinder.co",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 35
+  },
+  {
+    "id": "paggu.com",
+    "name": "Paggu",
+    "description": "A platform that connects local artisans with buyers for unique, handmade products.",
+    "url": "https://paggu.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 34
+  },
+  {
+    "id": "tools.robingood.com",
+    "name": "Robin Good's T5",
+    "description": "A curated toolbox of essential online tools for digital creators and marketers.",
+    "url": "https://tools.robingood.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 33
+  },
+  {
+    "id": "startuplister.com",
+    "name": "StartupLister",
+    "description": "A platform that connects startups with investors through streamlined listings and tailored exposure.",
+    "url": "https://startuplister.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 33
+  },
+  {
+    "id": "startup88.com",
+    "name": "Startup 88",
+    "description": "A platform that connects aspiring entrepreneurs with tailored resources and expert guidance to launch their startups.",
+    "url": "https://startup88.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 33
+  },
+  {
+    "id": "promoteproject.com",
+    "name": "Promote Project",
+    "description": "A platform that connects creators with funding opportunities through innovative project promotion.",
+    "url": "https://promoteproject.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 32
+  },
+  {
+    "id": "startupdope.com",
+    "name": "Startup Dope",
+    "description": "A platform offering insightful resources and guidance for startup enthusiasts and entrepreneurs.",
+    "url": "https://startupdope.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 31
+  },
+  {
+    "id": "aitoolmall.com",
+    "name": "AI Tool Mall",
+    "description": "A one-stop platform offering a diverse range of AI tools for various creative and professional needs.",
+    "url": "https://aitoolmall.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 31
+  },
+  {
+    "id": "crazyaboutstartups.com",
+    "name": "Crazy About Startups",
+    "description": "A vibrant hub for startup enthusiasts, offering insights, resources, and community support.",
+    "url": "https://crazyaboutstartups.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 31
+  },
+  {
+    "id": "spectacle.is",
+    "name": "Spectacle",
+    "description": "A distinctive platform that blends creative storytelling with immersive visual experiences.",
+    "url": "https://spectacle.is",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 30
+  },
+  {
+    "id": "startupinspire.com",
+    "name": "Startup Inspire",
+    "description": "A concise, curated hub of startup ideas and insights to spark practical action.",
+    "url": "https://startupinspire.com",
+    "submissionUrl": null,
+    "imageUrl": "/images/directories/startup-inspire.png",
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 29
+  },
+  {
+    "id": "topapps.ai",
+    "name": "Top Apps AI",
+    "description": "A curated platform that highlights the best AI-powered applications for various needs.",
+    "url": "https://topapps.ai",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 29
+  },
+  {
+    "id": "webapprater.com",
+    "name": "WebAppRater",
+    "description": "A resource hub for innovative app development insights and trends.",
+    "url": "https://webapprater.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 29
+  },
+  {
+    "id": "aitoolsdirectory.com",
+    "name": "AI Tools Directory",
+    "description": "A comprehensive hub for discovering and comparing innovative AI tools across various categories.",
+    "url": "https://aitoolsdirectory.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 28
+  },
+  {
+    "id": "www.thestartupinc.com",
+    "name": "The Startup Inc",
+    "description": "A dynamic platform that connects aspiring entrepreneurs with expert guidance and resources to launch successful startups.",
+    "url": "https://www.thestartupinc.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 26
+  },
+  {
+    "id": "toools.design",
+    "name": "Toools Design",
+    "description": "A curated collection of innovative design tools and resources for creators.",
+    "url": "https://toools.design",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 26
+  },
+  {
+    "id": "fazier.com",
+    "name": "Fazier",
+    "description": "A platform that connects businesses with top-tier talent through personalized matchmaking.",
+    "url": "https://fazier.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 26
+  },
+  {
+    "id": "public-apis.io",
+    "name": "Public APIs",
+    "description": "A curated directory of free APIs across various categories for developers.",
+    "url": "https://public-apis.io",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 25
+  },
+  {
+    "id": "tinystartups.com",
+    "name": "Tiny Startups",
+    "description": "A platform that showcases innovative small businesses and their unique stories, fostering community support and investment.",
+    "url": "https://tinystartups.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 22
+  },
+  {
+    "id": "webthat.io",
+    "name": "Web That",
+    "description": "A creative platform that transforms ideas into stunning websites with AI-driven design tools.",
+    "url": "https://webthat.io",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 22
+  },
+  {
+    "id": "saasaitools.com",
+    "name": "SaaS AI Tools",
+    "description": "A curated platform offering innovative tools for SaaS businesses to enhance productivity and streamline operations.",
+    "url": "https://saasaitools.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 21
+  },
+  {
+    "id": "aimojo.pro",
+    "name": "AI Mojo",
+    "description": "AI-driven tools for personalized content creation and marketing insights.",
+    "url": "https://aimojo.pro",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 21
+  },
+  {
+    "id": "launched.io",
+    "name": "Launched!",
+    "description": "A curated hub that highlights fresh product launches along with the stories behind them.",
+    "url": "https://launched.io",
+    "submissionUrl": null,
+    "imageUrl": "/images/directories/launched.png",
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 20
+  },
+  {
+    "id": "aitoolsmasters.com",
+    "name": "AI Tools Masters",
+    "description": "A curated hub for discovering and comparing innovative AI tools tailored for diverse needs.",
+    "url": "https://aitoolsmasters.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 20
+  },
+  {
+    "id": "appsmirror.com",
+    "name": "AppsMirror",
+    "description": "A platform offering a curated selection of innovative mobile apps and tools for enhanced productivity.",
+    "url": "https://appsmirror.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 19
+  },
+  {
+    "id": "saaspo.com",
+    "name": "SaaS PO",
+    "description": "This platform offers curated insights and reviews for SaaS products, helping users make informed decisions.",
+    "url": "https://saaspo.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 19
+  },
+  {
+    "id": "ecommercestack.co",
+    "name": "Ecommerce Stack",
+    "description": "A curated directory of e-commerce tools and resources, enabling streamlined business solutions.",
+    "url": "https://ecommercestack.co",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 19
+  },
+  {
+    "id": "aimonstr.com",
+    "name": "AI Monstr",
+    "description": "Personalized AI-driven solutions tailored to enhance creative projects and streamline workflows.",
+    "url": "https://aimonstr.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 18
+  },
+  {
+    "id": "10words.io",
+    "name": "10 Words",
+    "description": "A minimalist platform for crafting stories in exactly ten words.",
+    "url": "https://10words.io",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 17
+  },
+  {
+    "id": "toolsalad.com",
+    "name": "Toolsalad",
+    "description": "A collaborative platform that curates and shares innovative tools for creators and builders.",
+    "url": "https://toolsalad.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 17
+  },
+  {
+    "id": "waildworld.com",
+    "name": "WaildWorld",
+    "description": "A captivating travel platform that offers personalized itineraries and immersive experiences tailored to individual interests.",
+    "url": "https://waildworld.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 17
+  },
+  {
+    "id": "startups.fyi",
+    "name": "Startups.fyi",
+    "description": "A comprehensive resource hub for startup founders, offering curated data and insights on funding and growth.",
+    "url": "https://startups.fyi",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 17
+  },
+  {
+    "id": "microlaunch.net",
+    "name": "Micro Launch",
+    "description": "A platform that empowers startups by simplifying access to micro-investments and crowdfunding.",
+    "url": "https://microlaunch.net",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 17
+  },
+  {
+    "id": "bestfreetools.io",
+    "name": "Best Free Tools",
+    "description": "A curated collection of free online tools designed for efficiency and convenience.",
+    "url": "https://bestfreetools.io",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 17
+  },
+  {
+    "id": "awesomeindie.com",
+    "name": "Awesome Indie",
+    "description": "A curated platform showcasing exceptional indie games and developers.",
+    "url": "https://awesomeindie.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 17
+  },
+  {
+    "id": "profithunt.co",
+    "name": "Profit Hunt",
+    "description": "A curated platform showcasing innovative startups and investment opportunities.",
+    "url": "https://profithunt.co",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 16
+  },
+  {
+    "id": "webofai.com",
+    "name": "Web of AI",
+    "description": "A platform that connects users with cutting-edge AI tools and resources for innovative solutions.",
+    "url": "https://webofai.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 16
+  },
+  {
+    "id": "mystartuptool.com",
+    "name": "My Startup Tool",
+    "description": "A one-stop platform offering tailored resources and tools for aspiring entrepreneurs to launch and grow their startups.",
+    "url": "https://mystartuptool.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 15
+  },
+  {
+    "id": "appslisto.com",
+    "name": "AppsListo",
+    "description": "A curated platform showcasing top-rated apps across various categories for easy discovery.",
+    "url": "https://appslisto.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 15
+  },
+  {
+    "id": "saasrefs.com",
+    "name": "SaaS Refs",
+    "description": "A curated platform offering essential resources and tools for SaaS entrepreneurs.",
+    "url": "https://saasrefs.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 15
+  },
+  {
+    "id": "apprater.net",
+    "name": "App Rater",
+    "description": "A platform that offers detailed app reviews and comparisons to help users make informed choices.",
+    "url": "https://apprater.net",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 15
+  },
+  {
+    "id": "betacandy.com",
+    "name": "Beta Candy",
+    "description": "A platform that transforms digital products into engaging educational experiences through gamification.",
+    "url": "https://betacandy.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 14
+  },
+  {
+    "id": "poweredbyai.app",
+    "name": "Powered by AI",
+    "description": "A platform that empowers users to create AI-driven applications effortlessly.",
+    "url": "https://poweredbyai.app",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 14
+  },
+  {
+    "id": "insanelycooltools.com",
+    "name": "Insanely Cool Tools",
+    "description": "A curated collection of innovative tools designed for creativity and efficiency.",
+    "url": "https://insanelycooltools.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 14
+  },
+  {
+    "id": "yesramen.com",
+    "name": "Yes Ramen",
+    "description": "A unique online platform offering customizable ramen kits with fresh ingredients and diverse flavor profiles.",
+    "url": "https://yesramen.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 14
+  },
+  {
+    "id": "bestwebdesigntools.com",
+    "name": "Best Web Design Tools",
+    "description": "A curated resource showcasing top web design tools and reviews for creatives.",
+    "url": "https://bestwebdesigntools.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 14
+  },
+  {
+    "id": "easysaveai.com",
+    "name": "Easy Save AI",
+    "description": "This innovative platform uses AI to simplify and enhance online savings.",
+    "url": "https://easysaveai.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 14
+  },
+  {
+    "id": "appsandwebsites.com",
+    "name": "Apps and Websites",
+    "description": "A curated platform showcasing innovative apps and websites tailored for diverse user needs.",
+    "url": "https://appsandwebsites.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 13
+  },
+  {
+    "id": "allhrsoftware.com",
+    "name": "All HR Software",
+    "description": "This website offers a curated comparison of HR software, helping businesses find the perfect fit for their needs.",
+    "url": "https://allhrsoftware.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 13
+  },
+  {
+    "id": "saasaffiliates.com",
+    "name": "SaaS Affiliates",
+    "description": "A platform connecting affiliates with top SaaS products for effortless monetization.",
+    "url": "https://saasaffiliates.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 13
+  },
+  {
+    "id": "affordhunt.com",
+    "name": "Afford Hunt",
+    "description": "A unique platform that helps users find affordable housing options tailored to their budget and preferences.",
+    "url": "https://affordhunt.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 13
+  },
+  {
+    "id": "feedmystartup.com",
+    "name": "Feed My Startup",
+    "description": "A platform that connects startups with curated resources and expert advice to accelerate growth.",
+    "url": "https://feedmystartup.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 12
+  },
+  {
+    "id": "businesstoolvault.com",
+    "name": "Business Tool Vault",
+    "description": "A comprehensive resource hub offering curated tools and insights for business growth and efficiency.",
+    "url": "https://businesstoolvault.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 12
+  },
+  {
+    "id": "awesomemarketingwebsites.com",
+    "name": "Awesome Marketing Websites",
+    "description": "This platform offers customizable marketing websites with a focus on user-friendly design and innovative features.",
+    "url": "https://awesomemarketingwebsites.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 12
+  },
+  {
+    "id": "appsthunder.com",
+    "name": "AppsThunder",
+    "description": "This platform offers a curated selection of innovative mobile apps tailored for specific user needs.",
+    "url": "https://appsthunder.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 11
+  },
+  {
+    "id": "resource.fyi",
+    "name": "Resource.fyi",
+    "description": "A comprehensive platform offering curated resources and tools for effective research and learning.",
+    "url": "https://resource.fyi",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 11
+  },
+  {
+    "id": "primeindies.com",
+    "name": "Prime Indies",
+    "description": "A curated platform showcasing exceptional independent films and filmmakers.",
+    "url": "https://primeindies.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 11
+  },
+  {
+    "id": "lazyhunt.com",
+    "name": "Lazy Hunt",
+    "description": "A unique platform for effortless treasure hunting, blending adventure with convenience.",
+    "url": "https://lazyhunt.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 11
+  },
+  {
+    "id": "airegisters.com",
+    "name": "AI Registers",
+    "description": "This website offers a streamlined platform for managing air quality registrations and compliance efficiently.",
+    "url": "https://airegisters.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 10
+  },
+  {
+    "id": "saassurf.com",
+    "name": "SaaS Surf",
+    "description": "This platform uniquely curates and reviews SaaS tools to simplify software discovery for users.",
+    "url": "https://saassurf.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 10
+  },
+  {
+    "id": "extendhunt.com",
+    "name": "Extend Hunt",
+    "description": "A platform that enhances gaming experiences by connecting players with tailored challenges and rewards.",
+    "url": "https://extendhunt.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 10
+  },
+  {
+    "id": "disrupt500.com",
+    "name": "Disrupt 500",
+    "description": "A curated list of the most innovative startups redefining industries.",
+    "url": "https://disrupt500.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 10
+  },
+  {
+    "id": "aidirectory.org",
+    "name": "AI Directory",
+    "description": "A comprehensive hub for exploring and comparing AI tools across various industries.",
+    "url": "https://aidirectory.org",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 10
+  },
+  {
+    "id": "affiliateforcreators.com",
+    "name": "Affiliate For Creators",
+    "description": "A platform that empowers creators to monetize their content through tailored affiliate marketing strategies.",
+    "url": "https://affiliateforcreators.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 9
+  },
+  {
+    "id": "aimarketingdirectory.com",
+    "name": "AI Marketing Directory",
+    "description": "A comprehensive hub that connects users with top-tier marketing services and insights.",
+    "url": "https://aimarketingdirectory.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 9
+  },
+  {
+    "id": "free-ai-tools-directory.com",
+    "name": "Free AI Tools Directory",
+    "description": "A curated collection of diverse AI tools, easily accessible and user-friendly.",
+    "url": "https://free-ai-tools-directory.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 8
+  },
+  {
+    "id": "indiehacker.tools",
+    "name": "Indie Hacker Tools",
+    "description": "A platform that empowers indie hackers with curated tools and resources for building successful projects.",
+    "url": "https://indiehacker.tools",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 8
+  },
+  {
+    "id": "handpickedtools.com",
+    "name": "Handpicked Tools",
+    "description": "A curated collection of essential tools tailored for DIY enthusiasts and professionals alike.",
+    "url": "https://handpickedtools.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 8
+  },
+  {
+    "id": "devpages.io",
+    "name": "Dev Pages",
+    "description": "A collaborative platform that empowers developers to share and discover coding resources and insights.",
+    "url": "https://devpages.io",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 8
+  },
+  {
+    "id": "nextpedia.io",
+    "name": "Nextpedia",
+    "description": "A cutting-edge platform that leverages AI to personalize travel recommendations and enhance user experiences.",
+    "url": "https://nextpedia.io",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 6
+  },
+  {
+    "id": "aiwikitools.com",
+    "name": "AI Wiki Tools",
+    "description": "A comprehensive platform offering innovative AI tools for enhancing productivity and creativity.",
+    "url": "https://aiwikitools.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 6
+  },
+  {
+    "id": "anyfp.com",
+    "name": "Any FP",
+    "description": "A platform that connects freelance professionals with businesses for flexible project-based work.",
+    "url": "https://anyfp.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 6
+  },
+  {
+    "id": "feedback.tools",
+    "name": "Feedback Tools",
+    "description": "A collaborative platform that streamlines feedback collection and enhances team communication.",
+    "url": "https://feedback.tools",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 5
+  },
+  {
+    "id": "oncetools.com",
+    "name": "Once Tools",
+    "description": "A specialized platform offering innovative tools for optimizing online content and enhancing SEO strategies.",
+    "url": "https://oncetools.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 4
+  },
+  {
+    "id": "findthetools.com",
+    "name": "Find The Tools",
+    "description": "A platform that simplifies tool selection by matching users with the right equipment based on specific project needs.",
+    "url": "https://findthetools.com",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 4
+  },
+  {
+    "id": "liveapps.ai",
+    "name": "LiveApps",
+    "description": "A platform that enables real-time AI app development with seamless integration.",
+    "url": "https://liveapps.ai",
+    "submissionUrl": null,
+    "imageUrl": null,
+    "tags": [],
+    "isPaid": false,
+    "requirements": [],
+    "domainAuthority": 2
+  }
+]
