@@ -114,7 +114,7 @@ function DirectoriesTable({
             </div>
           )}
           {hasWebsite && (
-            <div>
+            <div className="w-14">
               Website
             </div>
           )}
@@ -159,7 +159,7 @@ function DirectoriesTable({
                 </div>
               )}
               {hasWebsite && (
-                <div className="flex justify-end">
+                <div className="w-14 flex justify-end">
                   <a
                     href={directory.url}
                     target="_blank"

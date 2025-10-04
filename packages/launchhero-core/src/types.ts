@@ -80,6 +80,7 @@ export type DirectoryRequirementType =
   | 'punchline'
   | 'description'
   | 'country'
+  | 'language'
   | 'icon'
   | 'logo'
   | 'screenshot'
@@ -87,7 +88,7 @@ export type DirectoryRequirementType =
   | 'tags'
   | 'demo'
   | 'first-comment'
-  | 'product-shoutouts'
+  | 'product-shoutout'
   | 'x'
   | 'instagram'
   | 'linkedin'
@@ -97,6 +98,7 @@ export type DirectoryRequirementType =
   | 'youtube'
   | 'portfolio'
   | 'team-emails'
+  | 'maker'
   | 'is-maker'
   | 'business-model'
   | 'funding'
@@ -105,6 +107,7 @@ export type DirectoryRequirementType =
   | 'launch-date'
   | 'market'
   | 'production-status'
+  | 'open-source'
 
 export type DirectoryRequirement = {
   type: DirectoryRequirementType
